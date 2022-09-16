@@ -11,7 +11,7 @@ const Header = () => {
               <img src="images/logo/logo.svg" alt="logo" className="w-full" />
             </a>
           </div>
-          <div className="flex px-4 justify-end items-center w-full">
+          <div className="flex px-4 justify-between items-center w-full">
             <div>
               <button
                 id="navbarToggler"
