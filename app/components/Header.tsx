@@ -23,8 +23,8 @@ const Header: React.FC = () => {
   return (
     <div className="mt-24">
       <header
-        className={`header bg-white h-24 top-0 left-0 z-40 w-full flex items-center transition justify-center ${
-          isMenuSticky ? "fixed bg-opacity-75" : "absolute"
+        className={`header bg-white fixed h-24 top-0 left-0 z-40 w-full flex items-center transition justify-center ${
+          isMenuSticky ? "bg-opacity-75" : ""
         }`}
       >
         <div className="container">
