@@ -1,15 +1,14 @@
+import { Link } from "@remix-run/react";
+
 const Header = () => {
   return (
     <header className="header bg-transparent absolute top-0 left-0 z-40 w-full flex items-center transition justify-center">
       <div className="container">
         <div className="flex items-center justify-between relative">
           <div className="px-4 w-60 max-w-full">
-            <a
-              href="index.html" // TODO: zameni ovaj link sa remix linkom i dodaj sliku
-              className="header-logo w-full block py-6 lg:py-8"
-            >
+            <Link to={"/"} className="header-logo w-full block py-6 lg:py-8">
               <img src="images/logo/logo.svg" alt="logo" className="w-full" />
-            </a>
+            </Link>
           </div>
           <div className="flex px-4 justify-between items-center w-full">
             <div>
