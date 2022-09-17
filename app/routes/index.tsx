@@ -1,58 +1,8 @@
 import Header from "~/components/Header";
+import TechStack from "~/components/Tech-Stack";
 
-export default function Index() {
-  return (
-    <div className="h-full">
-      TRADA <br />
-      TRADA <br />
-      TRADE <br />
-      TRADA <br />
-      TRADE <br />
-      TRADA <br />
-      TRADE <br />
-      TRADA <br />
-      TRADE <br />
-      TRADA <br />
-      TRADE <br />
-      TRADA <br />
-      TRADE <br />
-      TRADA <br />
-      TRADE <br />
-      TRADA <br />
-      TRADE <br />
-      TRADA <br />
-      TRADE <br />
-      TRADA <br />
-      TRADE <br />
-      TRADA <br />
-      TRADE <br />
-      TRADA <br />
-      TRADE <br />
-      TRADA <br />
-      TRADA <br />
-      TRADE <br />
-      TRADA <br />
-      TRADE <br />
-      TRADA <br />
-      TRADE <br />
-      TRADA <br />
-      TRADE <br />
-      TRADA <br />
-      TRADE <br />
-      TRADA <br />
-      TRADE <br />
-      TRADA <br />
-      TRADE <br />
-      TRADA <br />
-      TRADE <br />
-      TRADA <br />
-      TRADE <br />
-      TRADA <br />
-      TRADE <br />
-      TRADA <br />
-      TRADE <br />
-      TRADA <br />
-      TRADE <br />
-    </div>
-  );
-}
+const Index: React.FC = () => {
+  return <TechStack />;
+};
+
+export default Index;
