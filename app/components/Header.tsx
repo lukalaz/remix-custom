@@ -60,12 +60,12 @@ const Header: React.FC = () => {
                       </Link>
                     </li>
                     <li className="relative group">
-                      <a
-                        href="#pricing"
+                      <Link
+                        to={"/blog"}
                         className="menu-scroll text-base text-black group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12"
                       >
-                        Pricing
-                      </a>
+                        Blog
+                      </Link>
                     </li>
                     <li className="relative group">
                       <a
