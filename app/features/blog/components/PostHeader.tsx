@@ -7,8 +7,6 @@ interface IPostHeader {
 }
 
 export const PostHeader: React.FC<IPostHeader> = ({ post }) => {
-  console.log(post);
-
   const { title, createdAt } = post;
   const createdDate = new Date(createdAt).toLocaleDateString(timeZone);
 

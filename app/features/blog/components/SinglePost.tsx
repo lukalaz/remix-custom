@@ -8,9 +8,6 @@ interface ISinglePost {
 }
 
 export const SinglePost: React.FC<ISinglePost> = ({ post, markdown }) => {
-  console.log(post);
-  console.log(markdown);
-
   return (
     <div className="container mt-22">
       <div className="pb-[120px]">
