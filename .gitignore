@@ -5,4 +5,8 @@ node_modules
 /public/build
 .env
 
+# built out tailwind style
 /app/styles/app.css
+
+# database
+/prisma/data.db
