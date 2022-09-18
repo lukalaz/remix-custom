@@ -4,7 +4,7 @@ const TechStack: React.FC = () => {
   return (
     <section id="services">
       <div className="container">
-        <div className="pt-[120px] pb-[90px] border-t border-[#E9ECF8]">
+        <div className="pt-[120px] pb-[90px]">
           <div className="flex flex-wrap mx-[-16px]">
             <div className="w-full px-4">
               <div className="max-w-[600px] mx-auto text-center mb-[70px]">
