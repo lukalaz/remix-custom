@@ -1,10 +1,20 @@
+import { Post } from "@prisma/client";
 import { prisma } from "prisma/db.server";
 
-type Post = {
-  slug: string;
-  title: string;
-};
+export type { Post } from "@prisma/client";
 
 export async function getPosts() {
-  return prisma.post.findMany();
+  const posts = await prisma.post.findMany();
+  console.log(posts, "postovi");
+  return posts;
+} // TODO: ovde mozemo da uvezemo react query i da gadjamo nase endpointe, verovatno ce moci da se izbaci brda stvari, npr cela prizma
+
+export async function getPost(slug: string) {
+  return prisma.post.findUnique({ where: { slug } });
+}
+
+export async function createPost(
+  post: Pick<Post, "slug" | "title" | "markdown">
+) {
+  return prisma.post.create({ data: post });
 }
