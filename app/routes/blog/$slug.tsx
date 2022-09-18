@@ -6,6 +6,7 @@ import invariant from "tiny-invariant";
 
 import type { Post } from "~/models/post.server";
 import { getPost } from "~/models/post.server";
+import { SinglePost } from "../../features/blog/components/SinglePost";
 
 type LoaderData = { post: Post; html: string };
 
@@ -23,8 +24,7 @@ export default function PostSlug() {
   const { post, html } = useLoaderData();
   return (
     <main className="mx-auto max-w-4xl">
-      <h1 className="my-6 text-center text-3xl">{post.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: html }} />
+      <SinglePost post={post} markdown={html} />
     </main>
   );
 }
