@@ -1,6 +1,7 @@
 import { json, LoaderFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import invariant from "tiny-invariant";
+import { PostCard } from "~/features/blog/components/PostCard";
 import { getPosts, Post } from "~/models/post.server";
 
 type LoaderData = { posts: Post[] };
@@ -20,7 +21,7 @@ const BlogPosts: React.FC = () => {
   return (
     <>
       {posts.map((post: Post) => (
-        <>{post.slug}</>
+        <PostCard key={post.slug} />
       ))}
     </>
   );
