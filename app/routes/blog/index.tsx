@@ -19,11 +19,11 @@ const BlogPosts: React.FC = () => {
   console.log(posts, "post");
 
   return (
-    <>
+    <div className="flex flex-wrap mx-[-16px] justify-center">
       {posts.map((post: Post) => (
-        <PostCard key={post.slug} />
+        <PostCard post={post} key={post.slug} />
       ))}
-    </>
+    </div>
   );
 };
 
