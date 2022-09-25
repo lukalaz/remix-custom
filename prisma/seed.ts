@@ -14,6 +14,25 @@ async function seed() {
       `.trim(),
     },
     {
+      slug: "my-second-post",
+      title: "My Second Post",
+      markdown: `
+  # This is my second post
+  
+  Isn't it great?
+      `.trim(),
+    },
+    {
+      slug: "my-third-post",
+      title: "My Third Post",
+      markdown: `
+  # This is my third post
+  
+  Isn't it great?
+      `.trim(),
+    },
+
+    {
       slug: "90s-mixtape",
       title: "A Mixtape I Made Just For You",
       markdown: `
