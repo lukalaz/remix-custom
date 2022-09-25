@@ -10,3 +10,4 @@ node_modules
 
 # database
 /prisma/data.db
+/prisma/db
