@@ -6,7 +6,7 @@ const ContactMe: React.FC = () => {
           <div className="w-full px-4">
             <div className="max-w-[600px] mx-auto text-center mb-[50px]">
               <span className="font-semibold text-lg text-primary block mb-2">
-                Contact With Me
+                Contact Me
               </span>
               <h2 className="font-bold text-black text-3xl sm:text-4xl md:text-[45px] mb-5">
                 Have an Project in Mind?
@@ -34,26 +34,8 @@ const ContactMe: React.FC = () => {
                 <div className="w-full md:w-1/2 px-4">
                   <div className="mb-6">
                     <input
-                      type="text"
-                      placeholder="Company (Optional)"
-                      className="input-field"
-                    />
-                  </div>
-                </div>
-                <div className="w-full md:w-1/2 px-4">
-                  <div className="mb-6">
-                    <input
                       type="email"
                       placeholder="Enter your email"
-                      className="input-field"
-                    />
-                  </div>
-                </div>
-                <div className="w-full md:w-1/2 px-4">
-                  <div className="mb-6">
-                    <input
-                      type="text"
-                      placeholder="Phone number"
                       className="input-field"
                     />
                   </div>
