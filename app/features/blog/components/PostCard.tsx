@@ -6,8 +6,6 @@ interface IPostCard {
 }
 
 export const PostCard: React.FC<IPostCard> = ({ post }) => {
-  console.log(post.title, "title");
-
   return (
     <div className="w-full lg:w-1/2 xl:w-1/3 px-4">
       <div className="bg-white rounded-xl overflow-hidden mb-10 shadow-blog">
@@ -28,7 +26,7 @@ export const PostCard: React.FC<IPostCard> = ({ post }) => {
             </Link>
           </h3>
           <p className="font-medium text-body-color text-base mb-4">
-            {post.markdown}
+            {post.excerpt}
           </p>
           <Link
             to={post.slug}
