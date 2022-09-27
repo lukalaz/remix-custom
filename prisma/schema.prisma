@@ -11,6 +11,7 @@ model Post {
   slug     String @id
   title    String
   markdown String
+  excerpt  String
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

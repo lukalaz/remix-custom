@@ -12,6 +12,7 @@ async function seed() {
   
   Isn't it great?
       `.trim(),
+      excerpt: "This is the excerpt of the first seeded post.",
     },
     {
       slug: "my-second-post",
@@ -21,6 +22,7 @@ async function seed() {
   
   Isn't it great?
       `.trim(),
+      excerpt: "This is the excerpt of the second seeded post.",
     },
     {
       slug: "my-third-post",
@@ -30,6 +32,7 @@ async function seed() {
   
   Isn't it great?
       `.trim(),
+      excerpt: "This is the excerpt of the third seeded post.",
     },
 
     {
@@ -56,6 +59,7 @@ async function seed() {
   - Santa Monica (Everclear)
   - C'mon N' Ride it (Quad City DJ's)
       `.trim(),
+      excerpt: "This is the excerpt of the mixtape seeded post.",
     },
   ];
 

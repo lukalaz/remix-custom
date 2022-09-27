@@ -6,17 +6,15 @@ interface IPostCard {
 }
 
 export const PostCard: React.FC<IPostCard> = ({ post }) => {
-  console.log(post.title, "title");
-
   return (
     <div className="w-full lg:w-1/2 xl:w-1/3 px-4">
       <div className="bg-white rounded-xl overflow-hidden mb-10 shadow-blog">
         <Link to={post.slug} className="block">
-          <img
+          {/* <img
             src="images/news/news-1.jpg"
             alt="TODO promeni"
             className="w-full"
-          />
+          /> */}
         </Link>
         <div className="py-8 px-6 sm:px-11">
           <h3>
@@ -28,7 +26,7 @@ export const PostCard: React.FC<IPostCard> = ({ post }) => {
             </Link>
           </h3>
           <p className="font-medium text-body-color text-base mb-4">
-            Automate your Business for more results, Creating Business that.
+            {post.excerpt}
           </p>
           <Link
             to={post.slug}

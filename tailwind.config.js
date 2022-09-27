@@ -1,8 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./app/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./app/**/*.{js,ts,jsx,tsx}"],
   theme: {
     screens: {
       sm: "540px",
@@ -25,6 +23,9 @@ module.exports = {
       padding: "16px",
     },
     extend: {
+      fontFamily: {
+        stolzl: ["stolzl", "sans-serif"],
+      },
       colors: {
         black: "#090E34",
         dark: "#1D2144",

@@ -13,7 +13,10 @@ import "app/styles/animate.css";
 import "app/styles/glightbox.min.css";
 
 export function links() {
-  return [{ rel: "stylesheet", href: styles }];
+  return [
+    { rel: "stylesheet", href: styles },
+    { rel: "stylesheet", href: "https://use.typekit.net/ztf5rux.css" },
+  ];
 }
 
 export const meta: MetaFunction = () => ({
