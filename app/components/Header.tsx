@@ -70,7 +70,7 @@ const Header: React.FC = () => {
                     </li>
                     <li className="relative group">
                       <a
-                        href="#contact"
+                        href="/#contact"
                         className="menu-scroll text-base text-black group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12"
                       >
                         Contact
