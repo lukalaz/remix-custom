@@ -1,5 +1,6 @@
 import { Link } from "@remix-run/react";
 import { useEffect, useState } from "react";
+import logo from "../assets/images/logotype.svg";
 
 const Header: React.FC = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -31,7 +32,7 @@ const Header: React.FC = () => {
           <div className="flex items-center justify-between relative">
             <div className="px-4 w-60 max-w-full">
               <Link to={"/"} className="w-full block py-6 lg:py-8">
-                <img src="images/logo/logo.svg" alt="logo" className="w-full" />
+                <img src={logo} alt="logo" className="w-full" />
               </Link>
             </div>
             <div className="flex px-4 justify-between items-center w-full">
@@ -60,12 +61,12 @@ const Header: React.FC = () => {
                       </Link>
                     </li>
                     <li className="relative group">
-                      <a
-                        href="#pricing"
+                      <Link
+                        to={"/blog"}
                         className="menu-scroll text-base text-black group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12"
                       >
-                        Pricing
-                      </a>
+                        Blog
+                      </Link>
                     </li>
                     <li className="relative group">
                       <a
