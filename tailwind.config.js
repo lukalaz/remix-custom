@@ -27,7 +27,7 @@ module.exports = {
         stolzl: ["stolzl", "sans-serif"],
       },
       colors: {
-        black: "#090E34",
+        black: "#000000",
         dark: "#1D2144",
         primary: "#4A6CF7",
         yellow: "#FBB040",
