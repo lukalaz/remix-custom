@@ -5,3 +5,7 @@
 body {
   font-family: "stolzl", sans-serif;
 }
+
+.input-field {
+  @apply w-full rounded-sm py-4 px-8 bg-[#f8f8f9] border-b-2 border-transparent outline-none focus-visible:shadow-none focus:border-primary text-base font-medium text-body-color placeholder-body-color transition;
+}
