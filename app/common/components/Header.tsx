@@ -1,6 +1,6 @@
 import { Link } from "@remix-run/react";
 import { useEffect, useState } from "react";
-import logo from "../assets/images/logotype.svg";
+import logo from "../../assets/images/logotype.svg";
 
 const Header: React.FC = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
