@@ -2,7 +2,7 @@ const ContactMe: React.FC = () => {
   return (
     <section id="contact">
       <div className="container">
-        <div className="flex flex-wrap mx-[-16px]">
+        <div className="flex flex-wrap mx-[-16px] pt-[120px]">
           <div className="w-full px-4">
             <div className="max-w-[600px] mx-auto text-center mb-[50px]">
               <span className="font-semibold text-lg text-primary block mb-2">
