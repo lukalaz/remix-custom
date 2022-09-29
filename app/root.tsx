@@ -37,8 +37,8 @@ export default function App() {
         <Header />
         <Outlet />
         <ScrollRestoration />
-        <Footer />
         <Scripts />
+        <Footer />
         <LiveReload />
       </body>
     </html>
