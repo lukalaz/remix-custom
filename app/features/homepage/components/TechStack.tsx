@@ -11,12 +11,12 @@ import StyledTitle from "~/common/components/StyledTitle";
 
 const TechStack: React.FC = () => {
   return (
-    <section id="tech-stack" className="pt-[120px]">
+    <section id="tech-stack" className="pt-[40px]">
       <div className="container">
         <StyledTitle
           title={"My Tech Stack"}
           preTitle="What I love to work with the most"
-          description="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
+          description="These are some technologies I enjoy using. At one point I'm going to write descriptions for them and turn this into a slider. Currently I am too lazy for that."
         />
         <div className="flex flex-wrap mx-[-16px]">
           <SkillCard title={"React"} content={"Nije los React"} icon={react} />
