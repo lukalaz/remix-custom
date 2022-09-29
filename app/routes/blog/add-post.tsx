@@ -2,6 +2,7 @@ import { createPost } from "~/models/post.server";
 import invariant from "tiny-invariant";
 import { ActionFunction, json, redirect } from "@remix-run/node";
 import { Form, useActionData, useTransition } from "@remix-run/react";
+import StyledTitle from "~/common/components/StyledTitle";
 
 type ActionData =
   | {
@@ -27,7 +28,7 @@ export const action: ActionFunction = async ({ request }) => {
     title: title ? null : "Title is required",
     slug: slug ? null : "Slug is required",
     markdown: markdown ? null : "Markdown is required",
-    excerpt: excerpt ? null : "please provide an excerpt",
+    excerpt: excerpt ? null : "Please provide a short description of the post",
   };
   const hasErrors = Object.values(errors).some((errorMessage) => errorMessage);
   if (hasErrors) {
@@ -50,59 +51,81 @@ const addNewPost = () => {
   const errors = useActionData();
 
   return (
-    <Form method="post">
-      <p>
-        <label>
-          Post Title:{" "}
-          {errors?.title ? (
-            <em className="text-red-600">{errors.title}</em>
-          ) : null}
-          <input type="text" name="title" className={""} />
-        </label>
-      </p>
-      <p>
-        <label>
-          Post Slug:{" "}
-          {errors?.slug ? (
-            <em className="text-red-600">{errors.slug}</em>
-          ) : null}
-          <input type="text" name="slug" className={""} />
-        </label>
-      </p>
-      <p>
-        <label>
-          Post Excerpt:{" "}
-          {errors?.excerpt ? (
-            <em className="text-red-600">{errors.excerpt}</em>
-          ) : null}
-          <input type="text" name="excerpt" className={""} />
-        </label>
-      </p>
-      <p>
-        <label htmlFor="markdown">
-          Markdown:{""}
-          {errors?.markdown ? (
-            <em className="text-red-600">{errors.markdown}</em>
-          ) : null}
-        </label>
-        <br />
-        <textarea
-          id="markdown"
-          rows={20}
-          name="markdown"
-          className={`${""} font-mono`}
+    <section id="add-post">
+      <div className="container pt-12">
+        <StyledTitle
+          title="Add a new post"
+          description="All data is required and checked"
         />
-      </p>
-      <p className="text-right">
-        <button
-          type="submit"
-          className="rounded bg-blue-500 py-2 px-4 text-white hover:bg-blue-600 focus:bg-blue-400 disabled:bg-blue-300"
-          disabled={isCreating}
-        >
-          {isCreating ? "Creating..." : "Create Post"}
-        </button>
-      </p>
-    </Form>
+        <Form method="post">
+          <div className="flex flex-wrap -mx-4">
+            <div className="w-full px-4">
+              <div className="mb-6">
+                {errors?.title ? (
+                  <em className="text-red-600">{errors.title}</em>
+                ) : null}
+                <input
+                  type="text"
+                  placeholder="Post Title"
+                  className="input-field"
+                  name="title"
+                />
+              </div>
+            </div>
+            <div className="w-full px-4">
+              <div className="mb-6">
+                {errors?.slug ? (
+                  <em className="text-red-600">{errors.slug}</em>
+                ) : null}
+                <input
+                  type="text"
+                  placeholder="Post Slug"
+                  className="input-field"
+                  name="slug"
+                />
+              </div>
+            </div>
+            <div className="w-full px-4">
+              <div className="mb-6">
+                {errors?.markdown ? (
+                  <em className="text-red-600">{errors.markdown}</em>
+                ) : null}
+                <textarea
+                  rows={4}
+                  placeholder="Post content (written in markdown)"
+                  className="input-field resize-none"
+                  name="markdown"
+                ></textarea>
+              </div>
+            </div>
+            <div className="w-full px-4">
+              <div className="mb-6">
+                {errors?.excerpt ? (
+                  <em className="text-red-600">{errors.excerpt}</em>
+                ) : null}
+                <textarea
+                  rows={4}
+                  placeholder="Post excerpt (a short version of the content shown on blog archive pages, written in plain text)"
+                  className="input-field resize-none"
+                  name="excerpt"
+                ></textarea>
+              </div>
+            </div>
+            <div className="w-full px-4">
+              <div className="pt-4 text-center">
+                <button
+                  type="submit"
+                  disabled={isCreating}
+                  className="inline-flex justify-center items-center py-4 px-9 rounded-full font-semibold text-white bg-primary mx-auto transition duration-300 ease-in-out hover:shadow-signUp hover:bg-opacity-90"
+                >
+                  {isCreating ? "Working..." : "Add post"}
+                </button>
+              </div>
+            </div>
+          </div>
+        </Form>
+      </div>
+    </section>
   );
 };
 

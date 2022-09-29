@@ -11,7 +11,7 @@ import StyledTitle from "~/common/components/StyledTitle";
 
 const TechStack: React.FC = () => {
   return (
-    <section id="tech-stack" className="pt-[120px]">
+    <section id="tech-stack" className="pt-[80px]">
       <div className="container">
         <StyledTitle
           title={"My Tech Stack"}

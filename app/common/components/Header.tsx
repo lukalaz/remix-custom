@@ -25,7 +25,7 @@ const Header: React.FC = () => {
     <div className="mt-24">
       <header
         className={`header box-content bg-white fixed h-24 top-0 left-0 z-40 w-full flex items-center transition justify-center ${
-          isMenuSticky ? "bg-opacity-75 border-b" : ""
+          isMenuSticky ? "bg-opacity-90 border-b" : ""
         }`}
       >
         <div className="container">
