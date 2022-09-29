@@ -25,7 +25,7 @@ const Header: React.FC = () => {
     <div className="mt-24">
       <header
         className={`header box-content bg-white fixed h-24 top-0 left-0 z-40 w-full flex items-center transition justify-center ${
-          isMenuSticky ? "bg-opacity-75 border-b" : ""
+          isMenuSticky ? "bg-opacity-90 border-b" : ""
         }`}
       >
         <div className="container">
@@ -54,7 +54,7 @@ const Header: React.FC = () => {
                   <ul className="blcok lg:flex">
                     <li className="relative group">
                       <Link
-                        to={"/#tech-stack"}
+                        to={"/"}
                         className="menu-scroll text-base text-black group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12"
                       >
                         Tech Stack
