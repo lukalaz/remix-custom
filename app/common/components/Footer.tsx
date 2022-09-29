@@ -58,14 +58,14 @@ const Footer: React.FC = () => {
 
         <div className="mt-10 pt-12 border-t border-white border-opacity-10">
           <p className="font-medium text-base text-body-color text-center">
-            All rights reserved by... šalim se bre,{" "}
+            All rights reserved by... just kidding,{" "}
             <a
               href="https://github.com/lukalaz/remix-custom"
               target="_blank"
               rel="noreferrer"
               className="underline"
             >
-              slobodno skidaj!
+              fork it freely! I'd appreciate it!
             </a>{" "}
             :D
           </p>
