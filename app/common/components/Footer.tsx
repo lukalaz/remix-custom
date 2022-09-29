@@ -1,4 +1,5 @@
 import { Link } from "@remix-run/react";
+import logo from "../../assets/images/bracketLogo.svg";
 
 const Footer: React.FC = () => {
   //TODO: clean this up
@@ -31,7 +32,9 @@ const Footer: React.FC = () => {
 
           <div className="w-full md:w-1/2 lg:w-3/12 px-4">
             <div className="mb-10">
-              <h3 className="font-semibold text-white text-xl mb-9">
+              <img src={logo} alt="logo" className="w-full" />
+              {/* TODO: Try to figure out some content for this or remove it in the future */}
+              {/* <h3 className="font-semibold text-white text-xl mb-9">
                 Quick Links
               </h3>
               <ul>
@@ -51,7 +54,7 @@ const Footer: React.FC = () => {
                     Legal & Privacy
                   </a>
                 </li>
-              </ul>
+              </ul> */}
             </div>
           </div>
         </div>
@@ -65,7 +68,7 @@ const Footer: React.FC = () => {
               rel="noreferrer"
               className="underline"
             >
-              fork it freely! I'd appreciate it!
+              fork this freely! I'd appreciate it!
             </a>{" "}
             :D
           </p>
