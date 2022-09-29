@@ -55,6 +55,7 @@ const addNewPost = () => {
       <div className="container pt-12">
         <StyledTitle
           title="Add a new post"
+          preTitle="Be Eloquent"
           description="All data is required and checked"
         />
         <Form method="post">
