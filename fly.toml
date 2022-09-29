@@ -1,4 +1,4 @@
-# fly.toml file generated for ll-blog on 2022-09-29T14:36:32+02:00
+# fly.toml file generated for ll-blog on 2022-09-30T00:55:43+02:00
 
 app = "ll-blog"
 kill_signal = "SIGINT"
