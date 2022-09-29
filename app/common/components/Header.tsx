@@ -31,7 +31,7 @@ const Header: React.FC = () => {
         <div className="container">
           <div className="flex items-center justify-between relative">
             <div className="w-60 max-w-full">
-              <Link to={"/"} className="w-full block py-6 lg:py-8">
+              <Link to={"/"} className="w-full block">
                 <img src={logo} alt="logo" className="w-full" />
               </Link>
             </div>
