@@ -1,23 +1,14 @@
+import StyledTitle from "~/common/components/StyledTitle";
+
 const ContactMe: React.FC = () => {
   return (
-    <section id="contact">
+    <section id="contact" className="pt-[120px]">
       <div className="container">
-        <div className="flex flex-wrap mx-[-16px] pt-[120px]">
-          <div className="w-full px-4">
-            <div className="max-w-[600px] mx-auto text-center mb-[50px]">
-              <span className="font-semibold text-lg text-primary block mb-2">
-                Contact Me
-              </span>
-              <h2 className="font-bold text-black text-3xl sm:text-4xl md:text-[45px] mb-5">
-                Have an Project in Mind?
-              </h2>
-              <p className="font-medium text-lg text-body-color">
-                There are many variations of passages of Lorem Ipsum available
-                but the majority have suffered alteration in some form.
-              </p>
-            </div>
-          </div>
-        </div>
+        <StyledTitle
+          title="Have an Project in Mind?"
+          preTitle="Contact Me"
+          description="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
+        />
         <div className="flex justify-center -mx-4">
           <div className="w-full lg:w-9/12 px-4">
             <form>
