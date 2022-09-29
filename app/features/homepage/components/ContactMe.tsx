@@ -2,7 +2,7 @@ import StyledTitle from "~/common/components/StyledTitle";
 
 const ContactMe: React.FC = () => {
   return (
-    <section id="contact" className="pt-[80px]">
+    <section id="contact" className="pt-[120px]">
       <div className="container">
         <StyledTitle
           title="Have an Project in Mind?"
