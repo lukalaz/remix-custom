@@ -10,11 +10,11 @@ const SkillCard: React.FC<ISkillCard> = ({ title, content, icon }) => {
   return (
     <div className="w-full md:w-1/2 xl:w-1/4 px-4">
       <div className="bg-white group hover:bg-primary shadow-service py-10 px-8 rounded-xl relative z-10 overflow-hidden text-center duration-200 mb-8">
-        <div className="mx-auto w-20 h-20 mb-6 rounded-full bg-primary flex items-center justify-center text-white group-hover:bg-white group-hover:text-primary">
+        <div className="mx-auto w-20 h-20 mb-6 rounded-full border-2 border-primary flex items-center justify-center text-white group-hover:bg-white group-hover:text-primary duration-200">
           <img
             src={icon}
             alt={title}
-            className={"grayscale group-hover:grayscale-0"}
+            className={"group-hover:grayscale duration-200"}
           />
         </div>
         <h3 className="font-bold text-black text-xl sm:text-2xl lg:text-xl 2xl:text-2xl group-hover:text-white mb-3">
