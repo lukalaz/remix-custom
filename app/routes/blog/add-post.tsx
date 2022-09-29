@@ -72,7 +72,7 @@ const addNewPost = () => {
       <p>
         <label>
           Post Excerpt:{" "}
-          {errors?.slug ? (
+          {errors?.excerpt ? (
             <em className="text-red-600">{errors.excerpt}</em>
           ) : null}
           <input type="text" name="excerpt" className={""} />
