@@ -1,9 +1,5 @@
 import { motion } from "framer-motion";
-import {
-  fadeInFromTopAnimation,
-  snapFromLeftAnimation,
-  snapFromRightAnimation,
-} from "../utils/AnimationVariants";
+import useAnimationVariants from "../utils/AnimationVariants";
 
 interface IStyledTitle {
   title: string;
@@ -16,6 +12,11 @@ const StyledTitle: React.FC<IStyledTitle> = ({
   preTitle,
   description,
 }) => {
+  const {
+    fadeInFromTopAnimation,
+    snapFromLeftAnimation,
+    snapFromRightAnimation,
+  } = useAnimationVariants();
   return (
     <div className="flex flex-wrap mx-[-16px]">
       <div className="w-full px-4">
