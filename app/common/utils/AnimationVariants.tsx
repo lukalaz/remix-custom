@@ -27,3 +27,19 @@ export const snapFromTopAnimation = {
     hidden: { y: -50, opacity: 0 },
   },
 };
+
+export const snapFromBottomAnimation = {
+  initial: "hidden",
+  whileInView: "visible",
+  viewport: { once: true },
+  variants: {
+    visible: { y: 0, opacity: 1 },
+    hidden: { y: 50, opacity: 0 },
+  },
+};
+
+function generateRandomInteger(max: number) {
+  return Math.floor(Math.random() * max) + 1;
+}
+
+export const randomShortInterval = () => generateRandomInteger(50) / 100;

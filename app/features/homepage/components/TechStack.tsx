@@ -8,8 +8,7 @@ import prisma from "../../../assets/images/logo-icons/prisma.svg";
 import node from "../../../assets/images/logo-icons/node.svg";
 import azure from "../../../assets/images/logo-icons/azure.svg";
 import StyledTitle from "~/common/components/StyledTitle";
-import { motion } from "framer-motion";
-import { snapFromTopAnimation } from "~/common/utils/AnimationVariants";
+import { randomShortInterval } from "~/common/utils/AnimationVariants";
 
 const TechStack: React.FC = () => {
   return (
@@ -20,27 +19,56 @@ const TechStack: React.FC = () => {
           preTitle="What I love to work with the most"
           description="These are some technologies I enjoy using. At one point I'm going to write descriptions for them and turn this into a slider. Currently I am too lazy for that."
         />
-        <motion.div
-          {...snapFromTopAnimation}
-          className="flex flex-wrap mx-[-16px]"
-        >
-          <SkillCard title={"React"} content={"Nije los React"} icon={react} />
-          <SkillCard title={"Remix"} content={"Nije los React"} icon={remix} />
+        <div className="flex flex-wrap mx-[-16px]">
+          <SkillCard
+            title={"React"}
+            content={"Nije los React"}
+            icon={react}
+            animationDelay={randomShortInterval()}
+          />
+          <SkillCard
+            title={"Remix"}
+            content={"Nije los React"}
+            icon={remix}
+            animationDelay={randomShortInterval()}
+          />
           <SkillCard
             title={"react-query"}
             content={"Nije los React"}
             icon={reactQuery}
+            animationDelay={randomShortInterval()}
           />
-          <SkillCard title={"SQL"} content={"Nije los React"} icon={sql} />
+          <SkillCard
+            title={"SQL"}
+            content={"Nije los React"}
+            icon={sql}
+            animationDelay={randomShortInterval()}
+          />
           <SkillCard
             title={"Prisma"}
             content={"Nije los React"}
             icon={prisma}
+            animationDelay={randomShortInterval()}
           />
-          <SkillCard title={"Azure"} content={"Nije los React"} icon={azure} />
-          <SkillCard title={"Node"} content={"Nije los React"} icon={node} />
-          <SkillCard title={"Git"} content={"Nije los React"} icon={git} />
-        </motion.div>
+          <SkillCard
+            title={"Azure"}
+            content={"Nije los React"}
+            icon={azure}
+            animationDelay={randomShortInterval()}
+          />
+          <SkillCard
+            title={"Node"}
+            content={"Nije los React"}
+            icon={node}
+            animationDelay={randomShortInterval()}
+          />
+          <SkillCard
+            title={"Git"}
+            content={"Nije los React"}
+            icon={git}
+            animationDelay={randomShortInterval()}
+          />
+        </div>
       </div>
     </section>
   );
