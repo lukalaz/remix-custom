@@ -2,6 +2,7 @@ import { Link } from "@remix-run/react";
 import { motion } from "framer-motion";
 import logo from "../../assets/images/bracketLogo.svg";
 import {
+  fadeInFromTopAnimation,
   snapFromLeftAnimation,
   snapFromRightAnimation,
 } from "../utils/AnimationVariants";
@@ -13,7 +14,7 @@ const Footer: React.FC = () => {
       <div className="container">
         <div className="flex flex-wrap justify-between -mx-4">
           <motion.div
-            {...snapFromLeftAnimation}
+            {...snapFromRightAnimation}
             transition={{ delay: 0.45 }}
             className="w-full md:w-1/2 lg:w-4/12 px-4"
           >
@@ -40,7 +41,7 @@ const Footer: React.FC = () => {
           </motion.div>
 
           <motion.div
-            {...snapFromRightAnimation}
+            {...snapFromLeftAnimation}
             transition={{ delay: 0.6 }}
             className="w-full md:w-1/2 lg:w-3/12 px-4"
           >
@@ -73,7 +74,11 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="mt-10 pt-12 border-t border-white border-opacity-10">
-          <p className="font-medium text-base text-body-color text-center">
+          <motion.p
+            {...fadeInFromTopAnimation}
+            transition={{ delay: 0.6 }}
+            className="font-medium text-base text-body-color text-center"
+          >
             All rights reserved by... just kidding,{" "}
             <a
               href="https://github.com/lukalaz/remix-custom"
@@ -84,7 +89,7 @@ const Footer: React.FC = () => {
               fork this freely! I'd appreciate it!
             </a>{" "}
             :D
-          </p>
+          </motion.p>
         </div>
       </div>
     </footer>
