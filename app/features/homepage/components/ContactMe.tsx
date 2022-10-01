@@ -1,10 +1,8 @@
 import { motion } from "framer-motion";
 import StyledTitle from "~/common/components/StyledTitle";
-import useAnimationVariants from "~/common/utils/AnimationVariants";
+import { fadeInFromTopAnimation } from "~/common/utils/AnimationVariants";
 
 const ContactMe: React.FC = () => {
-  const { fadeInFromTopAnimation } = useAnimationVariants();
-
   return (
     <section id="contact" className="pt-[120px]">
       <div className="container">

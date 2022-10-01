@@ -9,11 +9,9 @@ import node from "../../../assets/images/logo-icons/node.svg";
 import azure from "../../../assets/images/logo-icons/azure.svg";
 import StyledTitle from "~/common/components/StyledTitle";
 import { motion } from "framer-motion";
-import useAnimationVariants from "~/common/utils/AnimationVariants";
+import { fadeInFromTopAnimation } from "~/common/utils/AnimationVariants";
 
 const TechStack: React.FC = () => {
-  const { fadeInFromTopAnimation } = useAnimationVariants();
-
   return (
     <section id="tech-stack" className="pt-[40px]">
       <div className="container">
