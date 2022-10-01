@@ -1,19 +1,33 @@
 const useAnimationVariants = () => {
   const snapFromLeftAnimation = {
-    animate: { left: 0 },
-    initial: { left: "100vw" },
+    initial: "hidden",
+    whileInView: "visible",
+    viewport: { once: true },
     transition: { delay: 0.3 },
+    variants: {
+      visible: { left: 0, opacity: 1 },
+      hidden: { left: "50vw", opacity: 0 },
+    },
   };
 
   const snapFromRightAnimation = {
-    animate: { right: 0 },
-    initial: { right: "100vw" },
-    transition: { delay: 0.3 },
+    initial: "hidden",
+    whileInView: "visible",
+    viewport: { once: true },
+    variants: {
+      visible: { right: 0, opacity: 1 },
+      hidden: { right: "50vw", opacity: 0 },
+    },
   };
 
   const fadeInFromTopAnimation = {
-    animate: { y: 0, opacity: 1 },
-    initial: { y: -50, opacity: 0 },
+    initial: "hidden",
+    whileInView: "visible",
+    viewport: { once: true },
+    variants: {
+      visible: { y: 0, opacity: 1 },
+      hidden: { y: -50, opacity: 0 },
+    },
   };
 
   return {
