@@ -91,12 +91,12 @@ const Header: React.FC = () => {
                       transition={{ delay: 0.5 }}
                       className="relative group"
                     >
-                      <a
-                        href="/#contact"
+                      <Link
+                        to="/#contact"
                         className="menu-scroll text-base text-black group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12"
                       >
                         Contact
-                      </a>
+                      </Link>
                     </motion.li>
                   </ul>
                 </nav>
