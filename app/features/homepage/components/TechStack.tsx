@@ -8,8 +8,12 @@ import prisma from "../../../assets/images/logo-icons/prisma.svg";
 import node from "../../../assets/images/logo-icons/node.svg";
 import azure from "../../../assets/images/logo-icons/azure.svg";
 import StyledTitle from "~/common/components/StyledTitle";
+import { motion } from "framer-motion";
+import useAnimationVariants from "~/common/utils/AnimationVariants";
 
 const TechStack: React.FC = () => {
+  const { fadeInFromTopAnimation } = useAnimationVariants();
+
   return (
     <section id="tech-stack" className="pt-[40px]">
       <div className="container">
@@ -18,7 +22,10 @@ const TechStack: React.FC = () => {
           preTitle="What I love to work with the most"
           description="These are some technologies I enjoy using. At one point I'm going to write descriptions for them and turn this into a slider. Currently I am too lazy for that."
         />
-        <div className="flex flex-wrap mx-[-16px]">
+        <motion.div
+          {...fadeInFromTopAnimation}
+          className="flex flex-wrap mx-[-16px]"
+        >
           <SkillCard title={"React"} content={"Nije los React"} icon={react} />
           <SkillCard title={"Remix"} content={"Nije los React"} icon={remix} />
           <SkillCard
@@ -35,7 +42,7 @@ const TechStack: React.FC = () => {
           <SkillCard title={"Azure"} content={"Nije los React"} icon={azure} />
           <SkillCard title={"Node"} content={"Nije los React"} icon={node} />
           <SkillCard title={"Git"} content={"Nije los React"} icon={git} />
-        </div>
+        </motion.div>
       </div>
     </section>
   );

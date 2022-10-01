@@ -5,7 +5,7 @@ const ContactMe: React.FC = () => {
     <section id="contact" className="pt-[120px]">
       <div className="container">
         <StyledTitle
-          title="Have an Project in Mind?"
+          title="Got anything for me?"
           preTitle="Contact Me"
           description="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
         />

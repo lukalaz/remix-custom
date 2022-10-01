@@ -13,9 +13,9 @@ const StyledTitle: React.FC<IStyledTitle> = ({
   description,
 }) => {
   const {
-    fadeInFromTopAnimation,
     snapFromLeftAnimation,
     snapFromRightAnimation,
+    fadeInFromTopAnimation,
   } = useAnimationVariants();
   return (
     <div className="flex flex-wrap mx-[-16px]">
@@ -27,18 +27,22 @@ const StyledTitle: React.FC<IStyledTitle> = ({
           {preTitle && (
             <motion.span
               {...snapFromLeftAnimation}
-              className="font-semibold text-lg text-primary block mb-2 relative fromleft"
+              className="font-semibold text-lg text-primary block mb-2"
             >
               {preTitle}
             </motion.span>
           )}
-          <h2 className="font-bold text-black text-3xl sm:text-4xl md:text-[45px] mb-5">
-            {title}
-          </h2>
-          <motion.p
+          <motion.h2
             {...snapFromRightAnimation}
+            transition={{ delay: 0.45 }}
+            className="font-bold text-black text-3xl sm:text-4xl md:text-[45px] mb-5"
+          >
+            {title}
+          </motion.h2>
+          <motion.p
+            {...snapFromLeftAnimation}
             transition={{ delay: 0.6 }}
-            className="font-medium text-lg text-body-color relative"
+            className="font-medium text-lg text-body-color"
           >
             {description}
           </motion.p>
