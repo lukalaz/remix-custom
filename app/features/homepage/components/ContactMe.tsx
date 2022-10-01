@@ -1,15 +1,22 @@
+import { motion } from "framer-motion";
 import StyledTitle from "~/common/components/StyledTitle";
+import useAnimationVariants from "~/common/utils/AnimationVariants";
 
 const ContactMe: React.FC = () => {
+  const { fadeInFromTopAnimation } = useAnimationVariants();
+
   return (
     <section id="contact" className="pt-[120px]">
       <div className="container">
         <StyledTitle
-          title="Got anything for me?"
+          title="Have an Project in Mind?"
           preTitle="Contact Me"
           description="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
         />
-        <div className="flex justify-center -mx-4">
+        <motion.div
+          {...fadeInFromTopAnimation}
+          className="flex justify-center -mx-4 relative"
+        >
           <div className="w-full lg:w-9/12 px-4">
             <form>
               <div className="flex flex-wrap -mx-4">
@@ -50,7 +57,7 @@ const ContactMe: React.FC = () => {
               </div>
             </form>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
