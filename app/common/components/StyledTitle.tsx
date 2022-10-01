@@ -1,4 +1,9 @@
 import { motion } from "framer-motion";
+import {
+  fadeInFromTopAnimation,
+  snapFromLeftAnimation,
+  snapFromRightAnimation,
+} from "../utils/AnimationVariants";
 
 interface IStyledTitle {
   title: string;
@@ -15,16 +20,13 @@ const StyledTitle: React.FC<IStyledTitle> = ({
     <div className="flex flex-wrap mx-[-16px]">
       <div className="w-full px-4">
         <motion.div
-          animate={{ y: 0 }}
-          initial={{ y: -50 }}
+          {...fadeInFromTopAnimation}
           className="max-w-[600px] mx-auto text-center mb-[70px]"
         >
           {preTitle && (
             <motion.span
-              animate={{ left: 0 }}
-              initial={{ left: "100vw" }}
-              transition={{ delay: 0.3 }}
-              className="font-semibold text-lg text-primary block mb-2 relative"
+              {...snapFromLeftAnimation}
+              className="font-semibold text-lg text-primary block mb-2 relative fromleft"
             >
               {preTitle}
             </motion.span>
@@ -33,8 +35,7 @@ const StyledTitle: React.FC<IStyledTitle> = ({
             {title}
           </h2>
           <motion.p
-            animate={{ right: 0 }}
-            initial={{ right: "100vw" }}
+            {...snapFromRightAnimation}
             transition={{ delay: 0.6 }}
             className="font-medium text-lg text-body-color relative"
           >
