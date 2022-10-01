@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import {
-  fadeInFromTopAnimation,
   snapFromLeftAnimation,
   snapFromRightAnimation,
 } from "../utils/AnimationVariants";

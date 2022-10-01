@@ -2,7 +2,7 @@ import { Link } from "@remix-run/react";
 import { motion } from "framer-motion";
 import logo from "../../assets/images/bracketLogo.svg";
 import {
-  fadeInFromTopAnimation,
+  snapFromTopAnimation,
   snapFromLeftAnimation,
   snapFromRightAnimation,
 } from "../utils/AnimationVariants";
@@ -75,7 +75,7 @@ const Footer: React.FC = () => {
 
         <div className="mt-10 pt-12 border-t border-white border-opacity-10">
           <motion.p
-            {...fadeInFromTopAnimation}
+            {...snapFromTopAnimation}
             transition={{ delay: 0.6 }}
             className="font-medium text-base text-body-color text-center"
           >

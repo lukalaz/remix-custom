@@ -9,7 +9,7 @@ import node from "../../../assets/images/logo-icons/node.svg";
 import azure from "../../../assets/images/logo-icons/azure.svg";
 import StyledTitle from "~/common/components/StyledTitle";
 import { motion } from "framer-motion";
-import { fadeInFromTopAnimation } from "~/common/utils/AnimationVariants";
+import { snapFromTopAnimation } from "~/common/utils/AnimationVariants";
 
 const TechStack: React.FC = () => {
   return (
@@ -21,7 +21,7 @@ const TechStack: React.FC = () => {
           description="These are some technologies I enjoy using. At one point I'm going to write descriptions for them and turn this into a slider. Currently I am too lazy for that."
         />
         <motion.div
-          {...fadeInFromTopAnimation}
+          {...snapFromTopAnimation}
           className="flex flex-wrap mx-[-16px]"
         >
           <SkillCard title={"React"} content={"Nije los React"} icon={react} />

@@ -1,14 +1,21 @@
+import { motion } from "framer-motion";
 import React from "react";
 
 interface ISkillCard {
   title: string;
   content: string;
   icon?: string;
+  animationDelay?: number;
 }
 
-const SkillCard: React.FC<ISkillCard> = ({ title, content, icon }) => {
+const SkillCard: React.FC<ISkillCard> = ({
+  title,
+  content,
+  icon,
+  animationDelay,
+}) => {
   return (
-    <div className="w-full md:w-1/2 xl:w-1/4 px-4">
+    <motion.div className="w-full md:w-1/2 xl:w-1/4 px-4">
       <div className="bg-white group hover:bg-primary shadow-service py-10 px-8 rounded-xl relative z-10 overflow-hidden text-center duration-200 mb-8">
         <div className="mx-auto w-20 h-20 mb-6 rounded-full border-2 border-primary flex items-center justify-center text-white group-hover:bg-white group-hover:text-primary duration-200">
           <img
@@ -44,7 +51,7 @@ const SkillCard: React.FC<ISkillCard> = ({ title, content, icon }) => {
           </span>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

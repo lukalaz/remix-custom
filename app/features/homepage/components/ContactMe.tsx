@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import StyledTitle from "~/common/components/StyledTitle";
-import { fadeInFromTopAnimation } from "~/common/utils/AnimationVariants";
+import { snapFromTopAnimation } from "~/common/utils/AnimationVariants";
 
 const ContactMe: React.FC = () => {
   return (
@@ -12,7 +12,7 @@ const ContactMe: React.FC = () => {
           description="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
         />
         <motion.div
-          {...fadeInFromTopAnimation}
+          {...snapFromTopAnimation}
           className="flex justify-center -mx-4 relative"
         >
           <div className="w-full lg:w-9/12 px-4">

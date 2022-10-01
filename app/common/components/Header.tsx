@@ -2,7 +2,7 @@ import { Link } from "@remix-run/react";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import logo from "../../assets/images/logotype.svg";
-import { fadeInFromTopAnimation } from "../utils/AnimationVariants";
+import { snapFromTopAnimation } from "../utils/AnimationVariants";
 
 const Header: React.FC = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -33,7 +33,7 @@ const Header: React.FC = () => {
         <div className="container">
           <div className="flex items-center justify-between relative">
             <motion.div
-              {...fadeInFromTopAnimation}
+              {...snapFromTopAnimation}
               transition={{ delay: 0.2 }}
               className="w-60 max-w-full"
             >
@@ -59,7 +59,7 @@ const Header: React.FC = () => {
                 >
                   <ul className="blcok lg:flex">
                     <motion.li
-                      {...fadeInFromTopAnimation}
+                      {...snapFromTopAnimation}
                       transition={{ delay: 0.3 }}
                       className="relative group"
                     >
@@ -71,7 +71,7 @@ const Header: React.FC = () => {
                       </Link>
                     </motion.li>
                     <motion.li
-                      {...fadeInFromTopAnimation}
+                      {...snapFromTopAnimation}
                       transition={{ delay: 0.4 }}
                       className="relative group"
                     >
@@ -83,7 +83,7 @@ const Header: React.FC = () => {
                       </Link>
                     </motion.li>
                     <motion.li
-                      {...fadeInFromTopAnimation}
+                      {...snapFromTopAnimation}
                       transition={{ delay: 0.5 }}
                       className="relative group"
                     >

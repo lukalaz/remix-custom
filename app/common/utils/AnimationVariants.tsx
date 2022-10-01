@@ -18,7 +18,7 @@ export const snapFromLeftAnimation = {
   },
 };
 
-export const fadeInFromTopAnimation = {
+export const snapFromTopAnimation = {
   initial: "hidden",
   whileInView: "visible",
   viewport: { once: true },
