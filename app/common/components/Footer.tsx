@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
       <div className="container">
         <div className="flex flex-wrap justify-between -mx-4">
           <motion.div
-            {...snapFromRightAnimation}
+            {...snapFromLeftAnimation}
             transition={{ delay: 0.45 }}
             className="w-full md:w-1/2 lg:w-4/12 px-4"
           >
@@ -41,7 +41,7 @@ const Footer: React.FC = () => {
           </motion.div>
 
           <motion.div
-            {...snapFromLeftAnimation}
+            {...snapFromRightAnimation}
             transition={{ delay: 0.6 }}
             className="w-full md:w-1/2 lg:w-3/12 px-4"
           >
