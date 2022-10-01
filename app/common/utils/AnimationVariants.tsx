@@ -1,5 +1,3 @@
-import { motion } from "framer-motion";
-
 const useAnimationVariants = () => {
   const snapFromLeftAnimation = {
     initial: "hidden",
@@ -32,15 +30,10 @@ const useAnimationVariants = () => {
     },
   };
 
-  const fadeInFromTopDiv = (children: React.ReactNode) => {
-    return <motion.div {...fadeInFromTopAnimation}>{children}</motion.div>;
-  };
-
   return {
     snapFromLeftAnimation,
     snapFromRightAnimation,
     fadeInFromTopAnimation,
-    fadeInFromTopDiv,
   };
 };
 
