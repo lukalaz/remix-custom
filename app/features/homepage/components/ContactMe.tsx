@@ -7,9 +7,9 @@ const ContactMe: React.FC = () => {
     <section id="contact" className="pt-[120px]">
       <div className="container">
         <StyledTitle
-          title="Have an Project in Mind?"
+          title="Got anything for me?"
           preTitle="Contact Me"
-          description="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
+          description="In case you have some questions or just want to say hi, this is a good place to do so. Just need to make it functional first :D"
         />
         <motion.div
           {...snapFromTopAnimation}

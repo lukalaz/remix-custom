@@ -2,7 +2,11 @@ import { Link } from "@remix-run/react";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import logo from "../../assets/images/logotype.svg";
-import { snapFromTopAnimation } from "../utils/AnimationVariants";
+import {
+  snapFromLeftAnimation,
+  snapFromRightAnimation,
+  snapFromTopAnimation,
+} from "../utils/AnimationVariants";
 
 const Header: React.FC = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -33,7 +37,7 @@ const Header: React.FC = () => {
         <div className="container">
           <div className="flex items-center justify-between relative">
             <motion.div
-              {...snapFromTopAnimation}
+              {...snapFromLeftAnimation}
               transition={{ delay: 0.2 }}
               className="w-60 max-w-full"
             >
@@ -97,14 +101,18 @@ const Header: React.FC = () => {
                   </ul>
                 </nav>
               </div>
-              <div className="sm:flex justify-end hidden pr-16 lg:pr-0">
+              <motion.div
+                {...snapFromRightAnimation}
+                transition={{ delay: 0.6 }}
+                className="sm:flex justify-end hidden pr-16 lg:pr-0"
+              >
                 <a
                   href="#contact"
                   className=" text-base font-bold text-white bg-primary rounded-full py-3 px-8 md:px-9 lg:px-8 xl:px-9 hover:shadow-signUp hover:bg-opacity-90 transition ease-in-out duration-300"
                 >
-                  Download CV
+                  View my work
                 </a>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
