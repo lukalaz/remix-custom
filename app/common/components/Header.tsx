@@ -1,6 +1,8 @@
 import { Link } from "@remix-run/react";
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import logo from "../../assets/images/logotype.svg";
+import { fadeInFromTopAnimation } from "../utils/AnimationVariants";
 
 const Header: React.FC = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -30,11 +32,15 @@ const Header: React.FC = () => {
       >
         <div className="container">
           <div className="flex items-center justify-between relative">
-            <div className="w-60 max-w-full">
+            <motion.div
+              {...fadeInFromTopAnimation}
+              transition={{ delay: 0.2 }}
+              className="w-60 max-w-full"
+            >
               <Link to={"/"} className="w-full block">
                 <img src={logo} alt="logo" className="w-full" />
               </Link>
-            </div>
+            </motion.div>
             <div className="flex px-4 justify-between items-center w-full">
               <div>
                 <button
@@ -52,30 +58,42 @@ const Header: React.FC = () => {
                   className="absolute py-5 lg:py-0 lg:px-4 xl:px-6 bg-white lg:bg-transparent shadow-lg rounded-lg max-w-[250px] w-full lg:max-w-full lg:w-full right-4 top-full hidden lg:block lg:static lg:shadow-none"
                 >
                   <ul className="blcok lg:flex">
-                    <li className="relative group">
+                    <motion.li
+                      {...fadeInFromTopAnimation}
+                      transition={{ delay: 0.3 }}
+                      className="relative group"
+                    >
                       <Link
                         to={"/"}
                         className="menu-scroll text-base text-black group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12"
                       >
                         Tech Stack
                       </Link>
-                    </li>
-                    <li className="relative group">
+                    </motion.li>
+                    <motion.li
+                      {...fadeInFromTopAnimation}
+                      transition={{ delay: 0.4 }}
+                      className="relative group"
+                    >
                       <Link
                         to={"/blog"}
                         className="menu-scroll text-base text-black group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12"
                       >
                         Blog
                       </Link>
-                    </li>
-                    <li className="relative group">
+                    </motion.li>
+                    <motion.li
+                      {...fadeInFromTopAnimation}
+                      transition={{ delay: 0.5 }}
+                      className="relative group"
+                    >
                       <a
                         href="/#contact"
                         className="menu-scroll text-base text-black group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12"
                       >
                         Contact
                       </a>
-                    </li>
+                    </motion.li>
                   </ul>
                 </nav>
               </div>
