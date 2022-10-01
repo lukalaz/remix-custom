@@ -1,5 +1,10 @@
 import { Link } from "@remix-run/react";
+import { motion } from "framer-motion";
 import logo from "../../assets/images/bracketLogo.svg";
+import {
+  snapFromLeftAnimation,
+  snapFromRightAnimation,
+} from "../utils/AnimationVariants";
 
 const Footer: React.FC = () => {
   //TODO: clean this up
@@ -7,7 +12,11 @@ const Footer: React.FC = () => {
     <footer className="bg-black pt-12 pb-12 relative mt-10">
       <div className="container">
         <div className="flex flex-wrap justify-between -mx-4">
-          <div className="w-full md:w-1/2 lg:w-4/12 px-4">
+          <motion.div
+            {...snapFromLeftAnimation}
+            transition={{ delay: 0.45 }}
+            className="w-full md:w-1/2 lg:w-4/12 px-4"
+          >
             <div className="mb-10">
               <h2 className="font-bold text-white text-[44px] leading-tight mb-5">
                 Let's Talk!
@@ -28,9 +37,13 @@ const Footer: React.FC = () => {
                 LinkedIn
               </Link>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="w-full md:w-1/2 lg:w-3/12 px-4">
+          <motion.div
+            {...snapFromRightAnimation}
+            transition={{ delay: 0.6 }}
+            className="w-full md:w-1/2 lg:w-3/12 px-4"
+          >
             <div className="mb-10">
               <img src={logo} alt="logo" className="w-full" />
               {/* TODO: Try to figure out some content for this or remove it in the future */}
@@ -56,7 +69,7 @@ const Footer: React.FC = () => {
                 </li>
               </ul> */}
             </div>
-          </div>
+          </motion.div>
         </div>
 
         <div className="mt-10 pt-12 border-t border-white border-opacity-10">
