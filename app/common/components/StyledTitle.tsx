@@ -1,3 +1,9 @@
+import { motion } from "framer-motion";
+import {
+  snapFromLeftAnimation,
+  snapFromRightAnimation,
+} from "../utils/AnimationVariants";
+
 interface IStyledTitle {
   title: string;
   preTitle?: string;
@@ -14,14 +20,28 @@ const StyledTitle: React.FC<IStyledTitle> = ({
       <div className="w-full px-4">
         <div className="max-w-[600px] mx-auto text-center mb-[70px]">
           {preTitle && (
-            <span className="font-semibold text-lg text-primary block mb-2">
+            <motion.span
+              {...snapFromLeftAnimation}
+              transition={{ delay: 0.3 }}
+              className="font-semibold text-lg text-primary block mb-2"
+            >
               {preTitle}
-            </span>
+            </motion.span>
           )}
-          <h2 className="font-bold text-black text-3xl sm:text-4xl md:text-[45px] mb-5">
+          <motion.h2
+            {...snapFromRightAnimation}
+            transition={{ delay: 0.45 }}
+            className="font-bold text-black text-3xl sm:text-4xl md:text-[45px] mb-5"
+          >
             {title}
-          </h2>
-          <p className="font-medium text-lg text-body-color">{description}</p>
+          </motion.h2>
+          <motion.p
+            {...snapFromLeftAnimation}
+            transition={{ delay: 0.6 }}
+            className="font-medium text-lg text-body-color"
+          >
+            {description}
+          </motion.p>
         </div>
       </div>
     </div>
