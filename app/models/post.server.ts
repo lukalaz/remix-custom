@@ -4,7 +4,13 @@ import { prisma } from "prisma/db.server";
 export type { Post } from "@prisma/client";
 
 export async function getPosts() {
-  const posts = await prisma.post.findMany();
+  const posts = await prisma.post.findMany({
+    orderBy: [
+      {
+        createdAt: "desc",
+      },
+    ],
+  });
   return posts;
 }
 

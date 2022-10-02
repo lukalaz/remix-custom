@@ -1,5 +1,9 @@
 import { Link } from "@remix-run/react";
+import { motion } from "framer-motion";
+import { fadeInAnimation } from "~/common/utils/AnimationVariants";
 import { Post } from "~/models/post.server";
+import avatar from "../../../assets/images/avatar.jpg";
+import { timeZone } from "~/common/constants/dateTimeConstants";
 
 interface IPostCard {
   post: Post;
@@ -7,7 +11,11 @@ interface IPostCard {
 
 export const PostCard: React.FC<IPostCard> = ({ post }) => {
   return (
-    <section className="bg-white dark:bg-gray-900">
+    <motion.section
+      {...fadeInAnimation}
+      transition={{ delay: 0.65 }}
+      className="bg-white dark:bg-gray-900"
+    >
       <div className="py-6 px-4 mx-auto lg:px-6">
         <div className="grid gap-8 lg:grid-cols-1">
           <article className="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
@@ -23,10 +31,12 @@ export const PostCard: React.FC<IPostCard> = ({ post }) => {
                 </svg>
                 Tutorial
               </span>
-              <span className="text-sm">14 days ago</span>
+              <span className="text-sm">
+                {new Date(post.createdAt).toLocaleDateString(timeZone)}
+              </span>
             </div>
             <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              <a href="#">{post.title}</a>
+              <Link to={post.slug}>{post.title}</Link>
             </h2>
             <p className="mb-5 font-light text-gray-500 dark:text-gray-400">
               {post.excerpt}
@@ -35,10 +45,10 @@ export const PostCard: React.FC<IPostCard> = ({ post }) => {
               <div className="flex items-center space-x-4">
                 <img
                   className="w-7 h-7 rounded-full"
-                  src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
-                  alt="Jese Leos avatar"
+                  src={avatar}
+                  alt="Luka Lazic"
                 />
-                <span className="font-medium dark:text-white">Jese Leos</span>
+                <span className="font-medium dark:text-white">Luka Lazic</span>
               </div>
               <Link
                 to={post.slug}
@@ -62,6 +72,6 @@ export const PostCard: React.FC<IPostCard> = ({ post }) => {
           </article>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
