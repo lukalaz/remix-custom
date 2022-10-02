@@ -22,7 +22,8 @@ export function links() {
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
-  title: "New Remix App",
+  title: "Luka Lazic | ll-tech",
+  description: "I like to build things TODO: promeni ovo",
   viewport: "width=device-width,initial-scale=1",
 });
 
