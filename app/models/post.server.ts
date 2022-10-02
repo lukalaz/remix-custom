@@ -19,7 +19,10 @@ export async function getPost(slug: string) {
 }
 
 export async function createPost(
-  post: Pick<Post, "slug" | "title" | "markdown" | "excerpt">
+  post: Pick<
+    Post,
+    "slug" | "title" | "markdown" | "excerpt" | "seo_title" | "seo_description"
+  >
 ) {
   return prisma.post.create({ data: post });
 }

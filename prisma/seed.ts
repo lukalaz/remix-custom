@@ -13,6 +13,8 @@ async function seed() {
   Isn't it great?
       `.trim(),
       excerpt: "This is the excerpt of the first seeded post.",
+      seo_title: "My first Post",
+      seo_description: "This is the seo description of the first seeded post.",
     },
     {
       slug: "my-second-post",
@@ -23,6 +25,8 @@ async function seed() {
   Isn't it great?
       `.trim(),
       excerpt: "This is the excerpt of the second seeded post.",
+      seo_title: "My second Post",
+      seo_description: "This is the seo description of the second seeded post.",
     },
     {
       slug: "my-third-post",
@@ -33,6 +37,8 @@ async function seed() {
   Isn't it great?
       `.trim(),
       excerpt: "This is the excerpt of the third seeded post.",
+      seo_title: "My Third Post",
+      seo_description: "This is the seo description of the third seeded post.",
     },
 
     {
@@ -60,6 +66,8 @@ async function seed() {
   - C'mon N' Ride it (Quad City DJ's)
       `.trim(),
       excerpt: "This is the excerpt of the mixtape seeded post.",
+      seo_title: "A Mixtape I Made Just For You",
+      seo_description: "This is the seo description of the mistape post.",
     },
   ];
 

@@ -13,6 +13,8 @@ model Post {
   title    String
   markdown String
   excerpt  String
+  seo_title String
+  seo_description String
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
