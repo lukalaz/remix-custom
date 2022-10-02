@@ -34,7 +34,7 @@ const Blog: React.FC<IBlog> = ({ posts }) => {
             Add New Post
           </Link>
         </motion.div>
-        <div className="flex flex-wrap justify-center p-0">
+        <div className="justify-center p-0 max-w-[800px] m-auto">
           {posts.map((post: Post) => (
             <PostCard post={post} key={post.slug} />
           ))}
