@@ -1,5 +1,7 @@
 #!/bin/sh
 
 set -ex
-npx prisma migrate deploy
+# When deploying to an empty database, replace the db push with 'npx prisma migrate deploy'
+
+npx prisma db push --force-reset
 npm run start
