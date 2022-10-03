@@ -1,6 +1,9 @@
 import { Link } from "@remix-run/react";
 import { motion } from "framer-motion";
-import { fadeInAnimation } from "~/common/utils/AnimationVariants";
+import {
+  animationDelay,
+  fadeInAnimation,
+} from "~/common/utils/AnimationVariants";
 import { Post } from "~/models/post.server";
 import avatar from "../../../assets/images/avatar.jpg";
 import { timeZone } from "~/common/constants/dateTimeConstants";
@@ -13,7 +16,7 @@ export const PostCard: React.FC<IPostCard> = ({ post }) => {
   return (
     <motion.section
       {...fadeInAnimation}
-      transition={{ delay: 0.65 }}
+      transition={{ delay: animationDelay[2] }}
       className="bg-white dark:bg-gray-900"
     >
       <div className="py-6 px-4 mx-auto lg:px-6">

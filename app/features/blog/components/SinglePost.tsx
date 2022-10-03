@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import {
+  animationDelay,
   snapFromRightAnimation,
   snapFromTopAnimation,
 } from "~/common/utils/AnimationVariants";
@@ -18,12 +19,12 @@ export const SinglePost: React.FC<ISinglePost> = ({ post, markdown }) => {
       <div className="pb-[120px]">
         <div className="flex flex-wrap justify-center mx-[-16px]">
           <div className="w-full px-4">
-            <motion.div {...snapFromTopAnimation} transition={{ delay: 0.65 }}>
+            <motion.div {...snapFromTopAnimation} transition={{ delay: 0.15 }}>
               <PostHeader post={post} />
               <div dangerouslySetInnerHTML={{ __html: markdown }} />
               <motion.div
                 {...snapFromRightAnimation}
-                transition={{ delay: 0.9 }}
+                transition={{ delay: animationDelay[2] }}
               >
                 <PostShare />
               </motion.div>
