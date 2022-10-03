@@ -10,25 +10,28 @@ type ActionData =
       slug: null | string;
       markdown: null | string;
       excerpt: null | string;
+      seo_title: null | string;
+      seo_description: null | string;
     }
   | undefined;
 
 export const action: ActionFunction = async ({ request }) => {
   const formData = await request.formData();
-  console.log(formData, "formData");
 
   const title = formData.get("title");
   const slug = formData.get("slug");
   const markdown = formData.get("markdown");
   const excerpt = formData.get("excerpt");
-
-  console.log(title, "title");
+  const seo_title = formData.get("seo_title");
+  const seo_description = formData.get("seo_description");
 
   const errors: ActionData = {
     title: title ? null : "Title is required",
     slug: slug ? null : "Slug is required",
     markdown: markdown ? null : "Markdown is required",
     excerpt: excerpt ? null : "Please provide a short description of the post",
+    seo_title: seo_title ? null : "Meta title is required",
+    seo_description: seo_description ? null : "Meta description is required",
   };
   const hasErrors = Object.values(errors).some((errorMessage) => errorMessage);
   if (hasErrors) {
@@ -39,8 +42,20 @@ export const action: ActionFunction = async ({ request }) => {
   invariant(typeof slug === "string", "slug must be a string");
   invariant(typeof markdown === "string", "markdown must be a string");
   invariant(typeof excerpt === "string", "excerpt must be a string");
+  invariant(typeof seo_title === "string", "SEO title must be a string");
+  invariant(
+    typeof seo_description === "string",
+    "SEO description must be a string"
+  );
 
-  await createPost({ title, slug, markdown, excerpt });
+  await createPost({
+    title,
+    slug,
+    markdown,
+    excerpt,
+    seo_title,
+    seo_description,
+  });
 
   return redirect("/blog");
 };
@@ -59,6 +74,7 @@ const addNewPost = () => {
           description="All data is required and checked"
         />
         <Form method="post">
+          <h3 className="text-xl font-bold mb-2">Post data</h3>
           <div className="flex flex-wrap -mx-4">
             <div className="w-full px-4">
               <div className="mb-6">
@@ -110,6 +126,34 @@ const addNewPost = () => {
                   className="input-field resize-none"
                   name="excerpt"
                 ></textarea>
+              </div>
+            </div>
+            <div className="w-full px-4">
+              <h3 className="text-xl font-bold mb-2">SEO data</h3>
+              <div className="mb-6">
+                {errors?.seo_title ? (
+                  <em className="text-red-600">{errors.seo_title}</em>
+                ) : null}
+                <input
+                  type="text"
+                  placeholder="Meta Title"
+                  className="input-field"
+                  name="seo_title"
+                />
+              </div>
+            </div>
+
+            <div className="w-full px-4">
+              <div className="mb-6">
+                {errors?.seo_description ? (
+                  <em className="text-red-600">{errors.seo_description}</em>
+                ) : null}
+                <input
+                  type="text"
+                  placeholder="Meta Description"
+                  className="input-field"
+                  name="seo_description"
+                />
               </div>
             </div>
             <div className="w-full px-4">

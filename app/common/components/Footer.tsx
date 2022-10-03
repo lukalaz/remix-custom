@@ -47,28 +47,6 @@ const Footer: React.FC = () => {
           >
             <div className="mb-10">
               <img src={logo} alt="logo" className="w-full" />
-              {/* TODO: Try to figure out some content for this or remove it in the future */}
-              {/* <h3 className="font-semibold text-white text-xl mb-9">
-                Quick Links
-              </h3>
-              <ul>
-                <li>
-                  <a
-                    href="javascript:void(0)"
-                    className="inline-block text-base text-body-color mb-3 hover:text-primary"
-                  >
-                    Relationship
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="javascript:void(0)"
-                    className="inline-block text-base text-body-color mb-3 hover:text-primary"
-                  >
-                    Legal & Privacy
-                  </a>
-                </li>
-              </ul> */}
             </div>
           </motion.div>
         </div>
@@ -86,9 +64,9 @@ const Footer: React.FC = () => {
               rel="noreferrer"
               className="underline"
             >
-              fork this freely! I'd appreciate it!
+              fork this freely!
             </a>{" "}
-            :D
+            ♥
           </motion.p>
         </div>
       </div>

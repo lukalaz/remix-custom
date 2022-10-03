@@ -1,5 +1,5 @@
 import { marked } from "marked";
-import type { LoaderFunction } from "@remix-run/node";
+import type { LoaderFunction, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import invariant from "tiny-invariant";
@@ -18,6 +18,15 @@ export const loader: LoaderFunction = async ({ params }) => {
 
   const html = marked(post.markdown);
   return json<LoaderData>({ post, html });
+};
+
+export const meta: MetaFunction = ({ data }) => {
+  return {
+    charset: "utf-8",
+    title: data.post.seo_title + " | Luka Lazic l-l tech",
+    description: data.post.seo_description,
+    viewport: "width=device-width,initial-scale=1",
+  };
 };
 
 export default function PostSlug() {

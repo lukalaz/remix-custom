@@ -14,7 +14,7 @@ const ContactMe: React.FC = () => {
     <section id="contact" className="pt-[120px]">
       <div className="container">
         <StyledTitle
-          title="Got anything for me?"
+          title="Got something for me?"
           preTitle="Contact Me"
           description="In case you have some questions or just want to say hi, this is a good place to do so. Just need to make it functional first :D"
         />
