@@ -9,8 +9,6 @@ import {
 } from "@remix-run/react";
 import styles from "./styles/app.css";
 import Header from "~/common/components/Header";
-import "app/styles/animate.css";
-import "app/styles/glightbox.min.css";
 import Footer from "./common/components/Footer";
 
 export function links() {

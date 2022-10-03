@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import {
+  animationDelay,
   snapFromLeftAnimation,
   snapFromRightAnimation,
 } from "../utils/AnimationVariants";
@@ -22,7 +23,7 @@ const StyledTitle: React.FC<IStyledTitle> = ({
           {preTitle && (
             <motion.span
               {...snapFromLeftAnimation}
-              transition={{ delay: 0.3 }}
+              transition={{ delay: animationDelay[1] }}
               className="font-semibold text-lg text-primary block mb-2"
             >
               {preTitle}
@@ -30,14 +31,14 @@ const StyledTitle: React.FC<IStyledTitle> = ({
           )}
           <motion.h2
             {...snapFromRightAnimation}
-            transition={{ delay: 0.45 }}
+            transition={{ delay: animationDelay[2] }}
             className="font-bold text-black text-3xl sm:text-4xl md:text-[45px] mb-5"
           >
             {title}
           </motion.h2>
           <motion.p
             {...snapFromLeftAnimation}
-            transition={{ delay: 0.6 }}
+            transition={{ delay: animationDelay[2] }}
             className="font-medium text-lg text-body-color"
           >
             {description}

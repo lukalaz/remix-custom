@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import logo from "../../assets/images/logotype.svg";
 import {
+  animationDelay,
   snapFromLeftAnimation,
   snapFromRightAnimation,
   snapFromTopAnimation,
@@ -38,7 +39,7 @@ const Header: React.FC = () => {
           <div className="flex items-center justify-between relative">
             <motion.div
               {...snapFromLeftAnimation}
-              transition={{ delay: 0.2 }}
+              transition={{ delay: animationDelay[1] }}
               className="w-60 max-w-full"
             >
               <Link to={"/"} className="w-full block">
@@ -64,7 +65,7 @@ const Header: React.FC = () => {
                   <ul className="blcok lg:flex">
                     <motion.li
                       {...snapFromTopAnimation}
-                      transition={{ delay: 0.3 }}
+                      transition={{ delay: animationDelay[2] }}
                       className="relative group"
                     >
                       <Link
@@ -76,7 +77,7 @@ const Header: React.FC = () => {
                     </motion.li>
                     <motion.li
                       {...snapFromTopAnimation}
-                      transition={{ delay: 0.4 }}
+                      transition={{ delay: animationDelay[3] }}
                       className="relative group"
                     >
                       <Link
@@ -88,7 +89,7 @@ const Header: React.FC = () => {
                     </motion.li>
                     <motion.li
                       {...snapFromTopAnimation}
-                      transition={{ delay: 0.5 }}
+                      transition={{ delay: animationDelay[4] }}
                       className="relative group"
                     >
                       <Link
@@ -103,7 +104,7 @@ const Header: React.FC = () => {
               </div>
               <motion.div
                 {...snapFromRightAnimation}
-                transition={{ delay: 0.6 }}
+                transition={{ delay: animationDelay[5] }}
                 className="sm:flex justify-end hidden pr-16 lg:pr-0"
               >
                 <a

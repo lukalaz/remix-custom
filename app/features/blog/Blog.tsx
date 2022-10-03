@@ -25,7 +25,7 @@ const Blog: React.FC<IBlog> = ({ posts }) => {
         <motion.div
           className="mt-[-40px] text-center mb-10"
           {...fadeInAnimation}
-          transition={{ delay: randomShortInterval() + 0.5 }}
+          transition={{ delay: randomShortInterval() + 0.15 }}
         >
           <Link
             to="add-post"

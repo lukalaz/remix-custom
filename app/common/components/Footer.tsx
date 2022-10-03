@@ -5,6 +5,7 @@ import {
   snapFromTopAnimation,
   snapFromLeftAnimation,
   snapFromRightAnimation,
+  animationDelay,
 } from "../utils/AnimationVariants";
 
 const Footer: React.FC = () => {
@@ -15,7 +16,7 @@ const Footer: React.FC = () => {
         <div className="flex flex-wrap justify-between -mx-4">
           <motion.div
             {...snapFromRightAnimation}
-            transition={{ delay: 0.45 }}
+            transition={{ delay: animationDelay[2] }}
             className="w-full md:w-1/2 lg:w-4/12 px-4"
           >
             <div className="mb-10">
@@ -42,7 +43,7 @@ const Footer: React.FC = () => {
 
           <motion.div
             {...snapFromLeftAnimation}
-            transition={{ delay: 0.6 }}
+            transition={{ delay: animationDelay[3] }}
             className="w-full md:w-1/2 lg:w-3/12 px-4"
           >
             <div className="mb-10">
@@ -54,7 +55,7 @@ const Footer: React.FC = () => {
         <div className="mt-10 pt-12 border-t border-white border-opacity-10">
           <motion.p
             {...snapFromTopAnimation}
-            transition={{ delay: 0.6 }}
+            transition={{ delay: animationDelay[3] }}
             className="font-medium text-base text-body-color text-center"
           >
             All rights reserved by... just kidding,{" "}

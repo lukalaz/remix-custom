@@ -52,4 +52,12 @@ function generateRandomInteger(max: number) {
   return Math.floor(Math.random() * max) + 1;
 }
 
-export const randomShortInterval = () => generateRandomInteger(50) / 100;
+export const randomShortInterval = () => generateRandomInteger(30) / 100;
+
+export const animationDelay = {
+  1: 0.15,
+  2: 0.3,
+  3: 0.45,
+  4: 0.6,
+  5: 0.75,
+};
