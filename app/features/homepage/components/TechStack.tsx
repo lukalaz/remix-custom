@@ -1,12 +1,12 @@
 import SkillCard from "./SkillCard";
-import react from "../../../assets/images/logo-icons/react.svg";
-import remix from "../../../assets/images/logo-icons/remix.svg";
-import sql from "../../../assets/images/logo-icons/sql.svg";
-import git from "../../../assets/images/logo-icons/git.svg";
-import reactQuery from "../../../assets/images/logo-icons/react-query.svg";
-import prisma from "../../../assets/images/logo-icons/prisma.svg";
-import node from "../../../assets/images/logo-icons/node.svg";
-import azure from "../../../assets/images/logo-icons/azure.svg";
+import react from "../../../assets/images/logo-icons/react.png";
+import remix from "../../../assets/images/logo-icons/remix.png";
+import sql from "../../../assets/images/logo-icons/sql.png";
+import git from "../../../assets/images/logo-icons/git.png";
+import reactQuery from "../../../assets/images/logo-icons/react-query.png";
+import prisma from "../../../assets/images/logo-icons/prisma.png";
+import node from "../../../assets/images/logo-icons/node.png";
+import azure from "../../../assets/images/logo-icons/azure.png";
 import StyledTitle from "~/common/components/StyledTitle";
 import { randomShortInterval } from "~/common/utils/AnimationVariants";
 
