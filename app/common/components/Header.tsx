@@ -77,7 +77,7 @@ const Header: React.FC = () => {
                     </motion.li>
                     <motion.li
                       {...snapFromTopAnimation}
-                      transition={{ delay: animationDelay[3] }}
+                      transition={{ delay: animationDelay[2.1] }}
                       className="relative group"
                     >
                       <Link
@@ -89,7 +89,7 @@ const Header: React.FC = () => {
                     </motion.li>
                     <motion.li
                       {...snapFromTopAnimation}
-                      transition={{ delay: animationDelay[4] }}
+                      transition={{ delay: animationDelay[2.2] }}
                       className="relative group"
                     >
                       <Link
@@ -104,7 +104,7 @@ const Header: React.FC = () => {
               </div>
               <motion.div
                 {...snapFromRightAnimation}
-                transition={{ delay: animationDelay[5] }}
+                transition={{ delay: animationDelay[3] }}
                 className="sm:flex justify-end hidden pr-16 lg:pr-0"
               >
                 <a

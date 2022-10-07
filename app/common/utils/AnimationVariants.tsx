@@ -57,6 +57,10 @@ export const randomShortInterval = () => generateRandomInteger(30) / 100;
 export const animationDelay = {
   1: 0.15,
   2: 0.3,
+  2.1: 0.325,
+  2.2: 0.35,
+  2.3: 0.375,
+  2.4: 0.4,
   3: 0.45,
   4: 0.6,
   5: 0.75,
