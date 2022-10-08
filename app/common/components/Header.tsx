@@ -62,7 +62,7 @@ const Header: React.FC = () => {
                   id="navbarCollapse"
                   className={`${
                     isOpenMobileMenu ? "" : "hidden"
-                  } absolute py-5 lg:py-0 lg:px-4 xl:px-6 bg-white lg:bg-transparent shadow-lg rounded-lg max-w-[250px] w-full lg:max-w-full lg:w-full right-4 top-full lg:block lg:static lg:shadow-none`}
+                  } absolute py-5 lg:py-0 lg:px-4 xl:px-6 bg-white lg:bg-transparent border-2 lg:border-0 shadow-l rounded-lg max-w-[250px] w-full lg:max-w-full lg:w-full right-4 top-full lg:block lg:static lg:shadow-none`}
                 >
                   <ul className="lg:flex">
                     <motion.li
