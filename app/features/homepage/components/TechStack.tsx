@@ -22,49 +22,41 @@ const TechStack: React.FC = () => {
         <div className="flex flex-wrap mx-[-16px]">
           <SkillCard
             title={"React"}
-            content={"Nije los React"}
             icon={react}
             animationDelay={randomShortInterval()}
           />
           <SkillCard
             title={"Remix"}
-            content={"Nije los React"}
             icon={remix}
             animationDelay={randomShortInterval()}
           />
           <SkillCard
             title={"react-query"}
-            content={"Nije los React"}
             icon={reactQuery}
             animationDelay={randomShortInterval()}
           />
           <SkillCard
             title={"SQL"}
-            content={"Nije los React"}
             icon={sql}
             animationDelay={randomShortInterval()}
           />
           <SkillCard
             title={"Prisma"}
-            content={"Nije los React"}
             icon={prisma}
             animationDelay={randomShortInterval()}
           />
           <SkillCard
             title={"Azure"}
-            content={"Nije los React"}
             icon={azure}
             animationDelay={randomShortInterval()}
           />
           <SkillCard
             title={"Node"}
-            content={"Nije los React"}
             icon={node}
             animationDelay={randomShortInterval()}
           />
           <SkillCard
             title={"Git"}
-            content={"Nije los React"}
             icon={git}
             animationDelay={randomShortInterval()}
           />

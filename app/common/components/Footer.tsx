@@ -65,7 +65,7 @@ const Footer: React.FC = () => {
               className="underline"
             >
               fork this freely!
-            </a>
+            </a>{" "}
             ♥
           </motion.p>
         </div>
