@@ -8,20 +8,21 @@ import {
   snapFromRightAnimation,
   snapFromTopAnimation,
 } from "../utils/AnimationVariants";
+import useWindowDimensions from "../utils/WindowDimensions";
 
 const Header: React.FC = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [isMenuSticky, setIsMenuSticky] = useState(false);
+  const [isOpenMobileMenu, setIsOpenMobileMenu] = useState(false);
+  const { isMobileView } = useWindowDimensions();
 
   useEffect(() => {
+    //TODO: extract this as separate hook
     const scrollListener = () => {
       setScrollPosition(window.scrollY);
     };
 
-    // Avoid running during SSR
-    if (typeof window !== "undefined") {
-      window.addEventListener("scroll", scrollListener);
-    }
+    window.addEventListener("scroll", scrollListener);
   }, []);
 
   useEffect(() => {
@@ -49,9 +50,8 @@ const Header: React.FC = () => {
             <div className="flex px-4 justify-between items-center w-full">
               <div>
                 <button
-                  id="navbarToggler"
+                  onClick={() => setIsOpenMobileMenu(!isOpenMobileMenu)}
                   name="navbarToggler"
-                  aria-label="navbarToggler"
                   className="block absolute right-4 top-1/2 translate-y-[-50%] lg:hidden focus:ring-2 ring-primary px-3 py-[6px] rounded-lg"
                 >
                   <span className="relative w-[30px] h-[2px] my-[6px] block bg-dark"></span>
@@ -59,16 +59,20 @@ const Header: React.FC = () => {
                   <span className="relative w-[30px] h-[2px] my-[6px] block bg-dark"></span>
                 </button>
                 <nav
-                  id="navbarCollapse"
-                  className="absolute py-5 lg:py-0 lg:px-4 xl:px-6 bg-white lg:bg-transparent shadow-lg rounded-lg max-w-[250px] w-full lg:max-w-full lg:w-full right-4 top-full hidden lg:block lg:static lg:shadow-none"
+                  className={`${
+                    isOpenMobileMenu ? "" : "hidden"
+                  } absolute py-2 lg:py-0 lg:px-4 xl:px-6 bg-white lg:bg-transparent border-2 lg:border-0 shadow-l rounded-lg max-w-[250px] w-full lg:max-w-full lg:w-full right-4 top-full lg:block lg:static lg:shadow-none`}
                 >
-                  <ul className="blcok lg:flex">
+                  <ul className="lg:flex">
                     <motion.li
                       {...snapFromTopAnimation}
-                      transition={{ delay: animationDelay[2] }}
+                      transition={{
+                        delay: isMobileView ? 0 : animationDelay[2],
+                      }}
                       className="relative group"
                     >
                       <Link
+                        onClick={() => setIsOpenMobileMenu(false)}
                         to={"/"}
                         className="menu-scroll text-base text-black group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12"
                       >
@@ -77,10 +81,13 @@ const Header: React.FC = () => {
                     </motion.li>
                     <motion.li
                       {...snapFromTopAnimation}
-                      transition={{ delay: animationDelay[2.1] }}
+                      transition={{
+                        delay: isMobileView ? 0 : animationDelay[2.1],
+                      }}
                       className="relative group"
                     >
                       <Link
+                        onClick={() => setIsOpenMobileMenu(false)}
                         to={"/blog"}
                         className="menu-scroll text-base text-black group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12"
                       >
@@ -89,10 +96,13 @@ const Header: React.FC = () => {
                     </motion.li>
                     <motion.li
                       {...snapFromTopAnimation}
-                      transition={{ delay: animationDelay[2.2] }}
+                      transition={{
+                        delay: isMobileView ? 0 : animationDelay[2.2],
+                      }}
                       className="relative group"
                     >
                       <Link
+                        onClick={() => setIsOpenMobileMenu(false)}
                         to="/#contact"
                         className="menu-scroll text-base text-black group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12"
                       >

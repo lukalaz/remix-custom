@@ -11,7 +11,7 @@ import {
 
 const ContactMe: React.FC = () => {
   return (
-    <section id="contact" className="pt-[120px]">
+    <section id="contact" className="pt-[120px] overflow-x-hidden">
       <div className="container">
         <StyledTitle
           title="Got something for me?"
