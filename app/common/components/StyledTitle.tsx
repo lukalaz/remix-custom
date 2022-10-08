@@ -17,7 +17,7 @@ const StyledTitle: React.FC<IStyledTitle> = ({
   description,
 }) => {
   return (
-    <div className="flex flex-wrap mx-[-16px]">
+    <div className="flex flex-wrap mx-[-16px] overflow-x-hidden">
       <div className="w-full px-4">
         <div className="max-w-[600px] mx-auto text-center mb-[70px]">
           {preTitle && (

@@ -9,9 +9,8 @@ import {
 } from "../utils/AnimationVariants";
 
 const Footer: React.FC = () => {
-  //TODO: clean this up
   return (
-    <footer className="bg-black pt-12 pb-12 relative mt-10">
+    <footer className="bg-black pt-12 pb-12 relative mt-10 overflow-x-hidden">
       <div className="container">
         <div className="flex flex-wrap justify-between -mx-4">
           <motion.div
@@ -66,7 +65,7 @@ const Footer: React.FC = () => {
               className="underline"
             >
               fork this freely!
-            </a>{" "}
+            </a>
             ♥
           </motion.p>
         </div>
