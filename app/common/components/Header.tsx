@@ -14,7 +14,7 @@ const Header: React.FC = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [isMenuSticky, setIsMenuSticky] = useState(false);
   const [isOpenMobileMenu, setIsOpenMobileMenu] = useState(false);
-  const { width, height } = useWindowDimensions();
+  const { isMobileView } = useWindowDimensions();
 
   useEffect(() => {
     //TODO: extract this as separate hook
@@ -28,8 +28,6 @@ const Header: React.FC = () => {
   useEffect(() => {
     setIsMenuSticky(scrollPosition > 0);
   }, [scrollPosition]);
-
-  const isMobileView = width > 960;
 
   return (
     <div className="mt-24">
@@ -70,11 +68,12 @@ const Header: React.FC = () => {
                     <motion.li
                       {...snapFromTopAnimation}
                       transition={{
-                        delay: isMobileView ? animationDelay[2] : 0,
+                        delay: isMobileView ? 0 : animationDelay[2],
                       }}
                       className="relative group"
                     >
                       <Link
+                        onClick={() => setIsOpenMobileMenu(false)}
                         to={"/"}
                         className="menu-scroll text-base text-black group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12"
                       >
@@ -84,11 +83,12 @@ const Header: React.FC = () => {
                     <motion.li
                       {...snapFromTopAnimation}
                       transition={{
-                        delay: isMobileView ? animationDelay[2.1] : 0,
+                        delay: isMobileView ? 0 : animationDelay[2.1],
                       }}
                       className="relative group"
                     >
                       <Link
+                        onClick={() => setIsOpenMobileMenu(false)}
                         to={"/blog"}
                         className="menu-scroll text-base text-black group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12"
                       >
@@ -98,11 +98,12 @@ const Header: React.FC = () => {
                     <motion.li
                       {...snapFromTopAnimation}
                       transition={{
-                        delay: isMobileView ? animationDelay[2.2] : 0,
+                        delay: isMobileView ? 0 : animationDelay[2.2],
                       }}
                       className="relative group"
                     >
                       <Link
+                        onClick={() => setIsOpenMobileMenu(false)}
                         to="/#contact"
                         className="menu-scroll text-base text-black group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12"
                       >

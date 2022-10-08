@@ -5,6 +5,7 @@ function getWindowDimensions() {
   return {
     width,
     height,
+    isMobileView: width < 960,
   };
 }
 
@@ -12,6 +13,7 @@ export default function useWindowDimensions() {
   const [windowDimensions, setWindowDimensions] = useState({
     width: 0,
     height: 0,
+    isMobileView: false,
   });
 
   useEffect(() => {
@@ -20,11 +22,12 @@ export default function useWindowDimensions() {
     }
 
     if (typeof window !== "undefined") {
+      handleResize();
       window.addEventListener("resize", handleResize);
     }
 
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  }, [typeof window !== "undefined"]);
 
   return windowDimensions;
 }
