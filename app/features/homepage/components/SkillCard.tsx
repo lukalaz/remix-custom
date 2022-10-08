@@ -19,7 +19,7 @@ const SkillCard: React.FC<ISkillCard> = ({
     <motion.div
       {...snapFromBottomAnimation}
       transition={{ delay: animationDelay }}
-      className="w-full md:w-1/2 xl:w-1/4 px-4"
+      className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 px-4"
     >
       <div className="bg-white group hover:bg-primary shadow-service py-10 px-8 rounded-xl relative z-10 overflow-hidden text-center duration-200 mb-8">
         <div className="mx-auto w-20 h-20 mb-6 rounded-full border-2 border-primary flex items-center justify-center text-white group-hover:bg-white group-hover:text-primary duration-200">
