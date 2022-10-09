@@ -30,9 +30,9 @@ const Header: React.FC = () => {
   }, [scrollPosition]);
 
   return (
-    <div className="pt-20 bg-black">
+    <div className="pt-20">
       <header
-        className={`header box-content bg-white fixed h-18 top-0 left-0 z-40 w-full flex items-center transition justify-center bg-opacity-90 ${
+        className={`header box-content bg-white fixed h-20 top-0 left-0 z-40 w-full flex items-center transition justify-center bg-opacity-90 ${
           isMenuSticky ? "border-b" : ""
         }`}
       >
