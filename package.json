@@ -14,6 +14,7 @@
     "@remix-run/node": "^1.6.8",
     "@remix-run/react": "^1.6.8",
     "@remix-run/serve": "^1.6.8",
+    "@sendgrid/mail": "^7.7.0",
     "framer-motion": "^7.5.1",
     "marked": "^4.1.0",
     "prisma": "^4.3.1",
