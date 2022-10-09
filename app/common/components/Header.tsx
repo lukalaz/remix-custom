@@ -30,10 +30,10 @@ const Header: React.FC = () => {
   }, [scrollPosition]);
 
   return (
-    <div className="mt-24">
+    <div className="pt-20 bg-black">
       <header
-        className={`header box-content bg-white fixed h-24 top-0 left-0 z-40 w-full flex items-center transition justify-center ${
-          isMenuSticky ? "bg-opacity-90 border-b" : ""
+        className={`header box-content bg-white fixed h-18 top-0 left-0 z-40 w-full flex items-center transition justify-center bg-opacity-90 ${
+          isMenuSticky ? "border-b" : ""
         }`}
       >
         <div className="container">
@@ -41,7 +41,7 @@ const Header: React.FC = () => {
             <motion.div
               {...snapFromLeftAnimation}
               transition={{ delay: animationDelay[1] }}
-              className="w-60 max-w-full"
+              className="w-48 max-w-full"
             >
               <Link to={"/"} className="w-full block">
                 <img src={logo} alt="logo" className="w-full" />

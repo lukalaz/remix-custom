@@ -19,10 +19,11 @@ const Hero: React.FC = () => {
           </h1>
           <p className="mt-5 sm:mt-10 lg:w-10/12 text-gray-400 font-normal text-center text-sm sm:text-lg">
             This is my personal website where I post my projects and write about
-            web development and life. My prefered tech stack includes react,
-            remix and prisma. I put my name up big not because I'm egoistic but
-            because it's good for SEO 😀. Feel free to check out some of my
-            projects or my blog!
+            web development and life. I like building things with React,
+            tailwind and various other technologies which can be seen{" "}
+            <Link to="#tech-stack">just underneath</Link>. I put my name up big
+            not because I'm egoistic but because it's good for SEO 😀. Feel free
+            to check out some of my projects or my blog!
           </p>
         </motion.div>
         <div className="flex justify-center items-center">
@@ -37,7 +38,7 @@ const Hero: React.FC = () => {
           <Link to="/blog">
             <motion.div
               {...snapFromRightAnimation}
-              className="ml-4 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 bg-transparent transition duration-150 ease-in-out hover:border-indigo-600 lg:text-xl lg:font-bold  hover:text-indigo-600 rounded border border-indigo-700 text-indigo-700 px-4 sm:px-10 py-2 sm:py-4 text-sm"
+              className="ml-4 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 bg-transparent transition duration-150 ease-in-out hover:border-indigo-600 lg:text-xl lg:font-bold  hover:text-indigo-600 rounded border border-indigo-700 text-white px-4 sm:px-10 py-2 sm:py-4 text-sm"
             >
               Blog
             </motion.div>
