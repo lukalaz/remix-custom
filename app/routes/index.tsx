@@ -2,6 +2,7 @@ import { ActionFunction, json } from "@remix-run/node";
 import ContactMe from "~/features/homepage/components/ContactMe";
 import Hero from "~/features/homepage/components/Hero";
 import TechStack from "~/features/homepage/components/TechStack";
+import Sendgrid from "@sendgrid/mail";
 
 type ActionData =
   | {
@@ -33,6 +34,30 @@ export const action: ActionFunction = async ({ request }) => {
   if (hasErrors) {
     return json<ActionData>(errors);
   }
+
+  Sendgrid.setApiKey(process.env.SENDGRID_API_KEY || "");
+  console.log(process.env.SENDGRID_API_KEY, "apibroj");
+
+  const msg = {
+    to: "luka.web.php@gmail.com", // Change to your recipient
+    from: "luka.web.php@gmail.com", // Change to your verified sender
+    subject: "Sending with SendGrid is Fun",
+    text: "and easy to do anywhere, even with Node.js",
+    html: "<strong>and easy to do anywhere, even with Node.js</strong>",
+  };
+
+  await Sendgrid.send(msg)
+    .then(() => {
+      console.log("poslasmo");
+
+      return json<Success>({
+        successMessage: "Email sent succesfully. Hvala!",
+      });
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+
   return json<Success>({ successMessage: "WAHUUU" });
 };
 
