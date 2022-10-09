@@ -1,3 +1,4 @@
+import { Form } from "@remix-run/react";
 import { motion } from "framer-motion";
 import StyledTitle from "~/common/components/StyledTitle";
 import {
@@ -6,7 +7,6 @@ import {
   snapFromBottomAnimation,
   snapFromLeftAnimation,
   snapFromRightAnimation,
-  snapFromTopAnimation,
 } from "~/common/utils/AnimationVariants";
 
 const ContactMe: React.FC = () => {
@@ -20,7 +20,7 @@ const ContactMe: React.FC = () => {
         />
         <div className="flex justify-center -mx-4 relative">
           <div className="w-full lg:w-9/12 px-4">
-            <form>
+            <Form method="post">
               <div className="flex flex-wrap -mx-4">
                 <div className="w-full md:w-1/2 px-4">
                   <div className="mb-6">
@@ -30,6 +30,7 @@ const ContactMe: React.FC = () => {
                       type="text"
                       placeholder="Enter your name"
                       className="input-field"
+                      name="name"
                     />
                   </div>
                 </div>
@@ -41,6 +42,7 @@ const ContactMe: React.FC = () => {
                       type="email"
                       placeholder="Enter your email"
                       className="input-field"
+                      name="email"
                     />
                   </div>
                 </div>
@@ -52,6 +54,7 @@ const ContactMe: React.FC = () => {
                       rows={4}
                       placeholder="Tell me about your project"
                       className="input-field resize-none"
+                      name="message"
                     ></motion.textarea>
                   </div>
                 </div>
@@ -67,7 +70,7 @@ const ContactMe: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </form>
+            </Form>
           </div>
         </div>
       </div>
