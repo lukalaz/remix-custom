@@ -1,6 +1,7 @@
-import { Form } from "@remix-run/react";
+import { Form, useActionData } from "@remix-run/react";
 import { motion } from "framer-motion";
 import StyledTitle from "~/common/components/StyledTitle";
+import SuccessMessage from "~/common/components/SuccessMessage";
 import {
   fadeInAnimation,
   randomShortInterval,
@@ -10,6 +11,8 @@ import {
 } from "~/common/utils/AnimationVariants";
 
 const ContactMe: React.FC = () => {
+  const response = useActionData();
+
   return (
     <section id="contact" className="pt-[120px] overflow-x-hidden">
       <div className="container">
@@ -24,6 +27,9 @@ const ContactMe: React.FC = () => {
               <div className="flex flex-wrap -mx-4">
                 <div className="w-full md:w-1/2 px-4">
                   <div className="mb-6">
+                    {response?.name ? (
+                      <em className="text-red-600">{response.name}</em>
+                    ) : null}
                     <motion.input
                       {...snapFromLeftAnimation}
                       transition={{ delay: randomShortInterval() }}
@@ -36,6 +42,9 @@ const ContactMe: React.FC = () => {
                 </div>
                 <div className="w-full md:w-1/2 px-4">
                   <div className="mb-6">
+                    {response?.email ? (
+                      <em className="text-red-600">{response.email}</em>
+                    ) : null}
                     <motion.input
                       {...snapFromRightAnimation}
                       transition={{ delay: randomShortInterval() }}
@@ -48,6 +57,9 @@ const ContactMe: React.FC = () => {
                 </div>
                 <div className="w-full px-4">
                   <div className="mb-6">
+                    {response?.message ? (
+                      <em className="text-red-600">{response.message}</em>
+                    ) : null}
                     <motion.textarea
                       {...snapFromBottomAnimation}
                       transition={{ delay: randomShortInterval() }}
@@ -57,6 +69,12 @@ const ContactMe: React.FC = () => {
                       name="message"
                     ></motion.textarea>
                   </div>
+                  {response?.successMessage && (
+                    <SuccessMessage
+                      heading="bravo poslao si mail!"
+                      description={response?.successMessage}
+                    />
+                  )}
                 </div>
                 <div className="w-full px-4">
                   <div className="pt-4 text-center">
