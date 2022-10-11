@@ -1,15 +1,18 @@
+import { Form, useActionData } from "@remix-run/react";
 import { motion } from "framer-motion";
 import StyledTitle from "~/common/components/StyledTitle";
+import SuccessMessage from "~/common/components/SuccessMessage";
 import {
   fadeInAnimation,
   randomShortInterval,
   snapFromBottomAnimation,
   snapFromLeftAnimation,
   snapFromRightAnimation,
-  snapFromTopAnimation,
 } from "~/common/utils/AnimationVariants";
 
 const ContactMe: React.FC = () => {
+  const response = useActionData();
+
   return (
     <section id="contact" className="pt-[120px] overflow-x-hidden">
       <div className="container">
@@ -20,40 +23,66 @@ const ContactMe: React.FC = () => {
         />
         <div className="flex justify-center -mx-4 relative">
           <div className="w-full lg:w-9/12 px-4">
-            <form>
+            <Form method="post">
               <div className="flex flex-wrap -mx-4">
                 <div className="w-full md:w-1/2 px-4">
                   <div className="mb-6">
+                    {response?.name ? (
+                      <em className="text-red-600">{response.name}</em>
+                    ) : null}
                     <motion.input
                       {...snapFromLeftAnimation}
                       transition={{ delay: randomShortInterval() }}
                       type="text"
                       placeholder="Enter your name"
                       className="input-field"
+                      name="name"
                     />
                   </div>
                 </div>
                 <div className="w-full md:w-1/2 px-4">
                   <div className="mb-6">
+                    {response?.email ? (
+                      <em className="text-red-600">{response.email}</em>
+                    ) : null}
                     <motion.input
                       {...snapFromRightAnimation}
                       transition={{ delay: randomShortInterval() }}
                       type="email"
                       placeholder="Enter your email"
                       className="input-field"
+                      name="email"
                     />
                   </div>
                 </div>
                 <div className="w-full px-4">
                   <div className="mb-6">
+                    {response?.message ? (
+                      <em className="text-red-600">{response.message}</em>
+                    ) : null}
                     <motion.textarea
                       {...snapFromBottomAnimation}
                       transition={{ delay: randomShortInterval() }}
                       rows={4}
                       placeholder="Tell me about your project"
                       className="input-field resize-none"
+                      name="message"
                     ></motion.textarea>
                   </div>
+                  {response?.successMessage && (
+                    <SuccessMessage
+                      heading="Success"
+                      description={
+                        response?.successMessage || "Your email has been sent"
+                      }
+                    />
+                  )}
+                  {response?.errorMessage && (
+                    <SuccessMessage
+                      heading="Error"
+                      description={response?.errorMessage}
+                    />
+                  )}
                 </div>
                 <div className="w-full px-4">
                   <div className="pt-4 text-center">
@@ -67,7 +96,7 @@ const ContactMe: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </form>
+            </Form>
           </div>
         </div>
       </div>
