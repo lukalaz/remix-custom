@@ -18,6 +18,12 @@ type Success =
     }
   | undefined;
 
+type Error =
+  | {
+      errorMessage: string;
+    }
+  | undefined;
+
 export const action: ActionFunction = async ({ request }) => {
   const formData = await request.formData();
 
@@ -36,7 +42,6 @@ export const action: ActionFunction = async ({ request }) => {
   }
 
   Sendgrid.setApiKey(process.env.SENDGRID_API_KEY || "");
-  console.log(process.env.SENDGRID_API_KEY, "apibroj");
 
   const msg = {
     to: "luka.web.php@gmail.com", // Change to your recipient
@@ -46,7 +51,7 @@ export const action: ActionFunction = async ({ request }) => {
     html: "<strong>and easy to do anywhere, even with Node.js</strong>",
   };
 
-  await Sendgrid.send(msg)
+  const res = await Sendgrid.send(msg)
     .then(() => {
       console.log("poslasmo");
 
@@ -55,10 +60,12 @@ export const action: ActionFunction = async ({ request }) => {
       });
     })
     .catch((error) => {
-      console.error(error);
+      return json<Error>({
+        errorMessage: `The email failed to send. We're sorry! Message: ${error}`,
+      });
     });
 
-  return json<Success>({ successMessage: "WAHUUU" });
+  return res;
 };
 
 const Index: React.FC = () => {

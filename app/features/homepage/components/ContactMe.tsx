@@ -71,8 +71,16 @@ const ContactMe: React.FC = () => {
                   </div>
                   {response?.successMessage && (
                     <SuccessMessage
-                      heading="bravo poslao si mail!"
-                      description={response?.successMessage}
+                      heading="Success"
+                      description={
+                        response?.successMessage || "Your email has been sent"
+                      }
+                    />
+                  )}
+                  {response?.errorMessage && (
+                    <SuccessMessage
+                      heading="Error"
+                      description={response?.errorMessage}
                     />
                   )}
                 </div>
