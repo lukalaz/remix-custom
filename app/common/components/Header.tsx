@@ -35,7 +35,7 @@ const Header: React.FC = () => {
               className="w-48 max-w-full"
             >
               <Link to={"/"} className="w-full block">
-                <img src={logo} alt="logo" className="w-full" />
+                <img src={logo} alt="logo" className="w-full invert" />
               </Link>
             </motion.div>
             <div className="flex px-4 justify-between items-center w-full">
