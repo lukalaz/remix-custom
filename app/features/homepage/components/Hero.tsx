@@ -8,7 +8,7 @@ import {
 
 const Hero: React.FC = () => {
   return (
-    <div className="bg-black overflow-hidden center-container items-center flex">
+    <div className="bg-black overflow-hidden center-container items-center flex starground">
       <div id="stars"></div>
       <div id="stars2"></div>
       <div id="stars3"></div>

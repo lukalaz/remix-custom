@@ -32,7 +32,7 @@ const StyledTitle: React.FC<IStyledTitle> = ({
           <motion.h2
             {...snapFromRightAnimation}
             transition={{ delay: animationDelay[2] }}
-            className="font-bold text-black text-3xl sm:text-4xl md:text-[45px] mb-5"
+            className="font-bold text-white text-3xl sm:text-4xl md:text-[45px] mb-5"
           >
             {title}
           </motion.h2>
