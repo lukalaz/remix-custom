@@ -26,7 +26,7 @@ const Header: React.FC = () => {
 
   return (
     <div className="pt-20">
-      <header className="box-content bg-gray-700 fixed h-20 top-0 left-0 z-40 w-full flex items-center transition justify-center">
+      <header className="box-content bg-gray-800 border-gray-700 border-b fixed h-20 top-0 left-0 z-40 w-full flex items-center transition justify-center">
         <div className="container">
           <div className="flex items-center justify-between relative">
             <motion.div
