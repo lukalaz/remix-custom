@@ -10,7 +10,7 @@ import {
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-black pt-12 pb-12 relative mt-10 overflow-x-hidden">
+    <footer className="bg-gray-800 border-t border-gray-700 pt-12 pb-12 relative mt-10 overflow-x-hidden">
       <div className="container">
         <div className="flex flex-wrap justify-between -mx-4">
           <motion.div

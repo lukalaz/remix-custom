@@ -20,8 +20,9 @@ export function links() {
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
-  title: "Luka Lazic | ll-tech",
-  description: "I like to build things TODO: promeni ovo",
+  title: "Luka Lazic | Typescript Development | ll-tech",
+  description:
+    "This is my personal website where I showcase my projects and write about web development. I like to use React, Remix, Tailwind, Prisma and more!",
   viewport: "width=device-width,initial-scale=1",
 });
 
@@ -32,7 +33,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="bg-gray-900">
         <Header />
         <Outlet />
         <ScrollRestoration />

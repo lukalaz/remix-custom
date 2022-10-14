@@ -12,12 +12,11 @@ import useWindowDimensions from "../utils/WindowDimensions";
 
 const Header: React.FC = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
-  const [isMenuSticky, setIsMenuSticky] = useState(false);
   const [isOpenMobileMenu, setIsOpenMobileMenu] = useState(false);
   const { isMobileView } = useWindowDimensions();
 
   useEffect(() => {
-    //TODO: extract this as separate hook
+    //TODO: create fancy scroller, this is not really how it's going to work but a part might be reused
     const scrollListener = () => {
       setScrollPosition(window.scrollY);
     };
@@ -25,17 +24,9 @@ const Header: React.FC = () => {
     window.addEventListener("scroll", scrollListener);
   }, []);
 
-  useEffect(() => {
-    setIsMenuSticky(scrollPosition > 0);
-  }, [scrollPosition]);
-
   return (
     <div className="pt-20">
-      <header
-        className={`header box-content bg-white fixed h-20 top-0 left-0 z-40 w-full flex items-center transition justify-center bg-opacity-90 ${
-          isMenuSticky ? "border-b" : ""
-        }`}
-      >
+      <header className="box-content bg-gray-800 border-gray-700 border-b fixed h-20 top-0 left-0 z-40 w-full flex items-center transition justify-center">
         <div className="container">
           <div className="flex items-center justify-between relative">
             <motion.div
@@ -44,7 +35,7 @@ const Header: React.FC = () => {
               className="w-48 max-w-full"
             >
               <Link to={"/"} className="w-full block">
-                <img src={logo} alt="logo" className="w-full" />
+                <img src={logo} alt="logo" className="w-full invert" />
               </Link>
             </motion.div>
             <div className="flex px-4 justify-between items-center w-full">
@@ -74,7 +65,7 @@ const Header: React.FC = () => {
                       <Link
                         onClick={() => setIsOpenMobileMenu(false)}
                         to={"/"}
-                        className="menu-scroll text-base text-black group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12"
+                        className="menu-scroll text-base text-white group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12"
                       >
                         Tech Stack
                       </Link>
@@ -89,7 +80,7 @@ const Header: React.FC = () => {
                       <Link
                         onClick={() => setIsOpenMobileMenu(false)}
                         to={"/blog"}
-                        className="menu-scroll text-base text-black group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12"
+                        className="menu-scroll text-base text-white group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12"
                       >
                         Blog
                       </Link>
@@ -104,7 +95,7 @@ const Header: React.FC = () => {
                       <Link
                         onClick={() => setIsOpenMobileMenu(false)}
                         to="/#contact"
-                        className="menu-scroll text-base text-black group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12"
+                        className="menu-scroll text-base text-white group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12"
                       >
                         Contact
                       </Link>
