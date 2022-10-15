@@ -16,7 +16,7 @@ body {
 
 
 #stars {
-  opacity: 0.5;
+  opacity: 0.8;
   width: 1px;
   height: 1px;
   background: transparent;
@@ -35,7 +35,7 @@ body {
 }
 
 #stars2 {
-  opacity: 0.4;
+  opacity: 0.8;
   width: 2px;
   height: 2px;
   background: transparent;
@@ -54,7 +54,7 @@ body {
 }
 
 #stars3 {
-  opacity: 0.3;
+  opacity: 0.6;
   width: 3px;
   height: 3px;
   background: transparent;
