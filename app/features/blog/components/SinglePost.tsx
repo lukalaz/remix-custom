@@ -15,11 +15,14 @@ interface ISinglePost {
 
 export const SinglePost: React.FC<ISinglePost> = ({ post, markdown }) => {
   return (
-    <div className="container mt-24 pt-12">
+    <div className="container mt-12">
       <div className="pb-[120px]">
         <div className="flex flex-wrap justify-center mx-[-16px]">
           <div className="w-full px-4">
-            <motion.div {...snapFromTopAnimation} transition={{ delay: 0.15 }}>
+            <motion.div
+              {...snapFromTopAnimation}
+              transition={{ delay: animationDelay[1] }}
+            >
               <PostHeader post={post} />
               <div dangerouslySetInnerHTML={{ __html: markdown }} />
               <motion.div
