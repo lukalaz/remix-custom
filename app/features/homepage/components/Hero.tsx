@@ -4,7 +4,10 @@ import {
   snapFromTopAnimation,
   snapFromLeftAnimation,
   snapFromRightAnimation,
+  fadeInAnimation,
 } from "../../../common/utils/AnimationVariants";
+import avatar from "../../../assets/images/Luka-Lazic.png";
+import { ChevronDoubleDownIcon } from "@heroicons/react/24/solid";
 
 const Hero: React.FC = () => {
   return (
@@ -12,7 +15,13 @@ const Hero: React.FC = () => {
       <div id="stars"></div>
       <div id="stars2"></div>
       <div id="stars3"></div>
-
+      <motion.img
+        className="absolute bottom-0 w-48 h-48 md:h-60 md:w-60 lg:h-80 lg:w-80 2xl:w-96 2xl:h-96 z-10"
+        src={avatar}
+        alt="Luka Lazic"
+        {...snapFromLeftAnimation}
+        transition={{ duration: 0.5 }}
+      />
       <div className="container mx-auto flex flex-col items-center py-12 sm:py-24 pb-24 sm:pb-48">
         <motion.div
           {...snapFromTopAnimation}
@@ -45,6 +54,11 @@ const Hero: React.FC = () => {
           </Link>
         </div>
       </div>
+      <motion.div {...fadeInAnimation}>
+        <Link to={"/#tech-stack"} className="w-full block">
+          <ChevronDoubleDownIcon className="chevron-scroll-position bottom-10 cursor-pointer h-14 w-14 text-indigo-600 absolute" />
+        </Link>
+      </motion.div>
     </div>
   );
 };

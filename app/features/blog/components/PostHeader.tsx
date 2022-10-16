@@ -12,9 +12,9 @@ export const PostHeader: React.FC<IPostHeader> = ({ post }) => {
 
   return (
     <div>
-      <h2 className="font-bold text-black text-3xl sm:text-4xl leading-tight sm:leading-tight mb-8">
+      <h1 className="text-white font-bold text-3xl sm:text-4xl leading-tight sm:leading-tight mb-8">
         {title}
-      </h2>
+      </h1>
       <div className="flex flex-wrap items-center justify-between pb-4 mb-10 border-b border-[#E9ECF8]">
         <div className="flex flex-wrap items-center">
           <div className="flex items-center mr-10 mb-5">

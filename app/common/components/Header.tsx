@@ -26,7 +26,7 @@ const Header: React.FC = () => {
 
   return (
     <div className="pt-20">
-      <header className="box-content bg-gray-800 border-gray-700 border-b fixed h-20 top-0 left-0 z-40 w-full flex items-center transition justify-center">
+      <header className="header box-content bg-gray-800 border-gray-700 border-b fixed h-20 top-0 left-0 z-40 w-full flex items-center transition justify-center z-100">
         <div className="container">
           <div className="flex items-center justify-between relative">
             <motion.div
@@ -45,9 +45,9 @@ const Header: React.FC = () => {
                   name="navbarToggler"
                   className="block absolute right-4 top-1/2 translate-y-[-50%] lg:hidden focus:ring-2 ring-primary px-3 py-[6px] rounded-lg"
                 >
-                  <span className="relative w-[30px] h-[2px] my-[6px] block bg-dark"></span>
-                  <span className="relative w-[30px] h-[2px] my-[6px] block bg-dark"></span>
-                  <span className="relative w-[30px] h-[2px] my-[6px] block bg-dark"></span>
+                  <span className="relative w-[30px] h-[2px] my-[6px] block bg-white"></span>
+                  <span className="relative w-[30px] h-[2px] my-[6px] block bg-white"></span>
+                  <span className="relative w-[30px] h-[2px] my-[6px] block bg-white"></span>
                 </button>
                 <nav
                   className={`${
@@ -65,7 +65,7 @@ const Header: React.FC = () => {
                       <Link
                         onClick={() => setIsOpenMobileMenu(false)}
                         to={"/"}
-                        className="menu-scroll text-base text-white group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12"
+                        className="menu-scroll text-base lg:text-white group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12"
                       >
                         Tech Stack
                       </Link>
@@ -80,7 +80,7 @@ const Header: React.FC = () => {
                       <Link
                         onClick={() => setIsOpenMobileMenu(false)}
                         to={"/blog"}
-                        className="menu-scroll text-base text-white group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12"
+                        className="menu-scroll text-base lg:text-white group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12"
                       >
                         Blog
                       </Link>
@@ -95,7 +95,7 @@ const Header: React.FC = () => {
                       <Link
                         onClick={() => setIsOpenMobileMenu(false)}
                         to="/#contact"
-                        className="menu-scroll text-base text-white group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12"
+                        className="menu-scroll text-base lg:text-white group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12"
                       >
                         Contact
                       </Link>

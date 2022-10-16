@@ -9,10 +9,14 @@ import node from "../../../assets/images/logo-icons/node.png";
 import azure from "../../../assets/images/logo-icons/azure.png";
 import StyledTitle from "~/common/components/StyledTitle";
 import { randomShortInterval } from "~/common/utils/AnimationVariants";
+import { Slider } from "./Slider";
 
 const TechStack: React.FC = () => {
   return (
-    <section id="tech-stack" className="pt-[40px] border-t border-gray-700">
+    <section
+      id="tech-stack"
+      className="pt-[120px] border-t border-gray-700 relative z-40"
+    >
       <div className="container">
         <StyledTitle
           title={"My Tech Stack"}
@@ -20,7 +24,7 @@ const TechStack: React.FC = () => {
           description="These are some technologies I enjoy using. At one point I'm going to write descriptions for them and turn this into a slider. Currently I am too lazy for that."
         />
         <div className="flex flex-wrap mx-[-16px]">
-          <SkillCard
+          {/* <SkillCard
             title={"React"}
             icon={react}
             animationDelay={randomShortInterval()}
@@ -59,8 +63,9 @@ const TechStack: React.FC = () => {
             title={"Git"}
             icon={git}
             animationDelay={randomShortInterval()}
-          />
+          /> */}
         </div>
+        <Slider />
       </div>
     </section>
   );
