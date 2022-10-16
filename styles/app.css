@@ -14,6 +14,10 @@ body {
   height: calc(100vh - 5rem);
 }
 
+.header{
+  z-index: 101;
+}
+
 
 #stars {
   opacity: 0.8;
