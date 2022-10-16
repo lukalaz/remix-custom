@@ -7,6 +7,8 @@ interface ISkillCard {
   content?: string;
   icon?: string;
   animationDelay?: number;
+  middle?: boolean;
+  className?: string;
 }
 
 const SkillCard: React.FC<ISkillCard> = ({
@@ -14,12 +16,17 @@ const SkillCard: React.FC<ISkillCard> = ({
   content,
   icon,
   animationDelay,
+  middle,
+  className,
 }) => {
   return (
     <motion.div
       {...snapFromBottomAnimation}
       transition={{ delay: animationDelay }}
-      className="w-1/2 xl:w-1/6 px-4"
+      className={
+        `w-5/6 lg:w-1/2 xl:w-1/3 ${!middle && "px-4 hidden lg:block"} ` +
+        className
+      }
     >
       <div className="bg-gray-800 group hover:bg-primary shadow-service py-10 px-8 rounded-xl relative z-10 overflow-hidden text-center duration-200 mb-8">
         <div className="mx-auto w-20 h-20 mb-6 rounded-full bg-white border-2 border-primary flex items-center justify-center text-white group-hover:bg-white group-hover:text-primary duration-200">
