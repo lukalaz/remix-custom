@@ -11,7 +11,7 @@ import { ChevronDoubleDownIcon } from "@heroicons/react/24/solid";
 
 const Hero: React.FC = () => {
   return (
-    <div className="bg-black overflow-hidden center-container items-center flex starground">
+    <div className="bg-black overflow-hidden center-container items-center flex starground relative">
       <div id="stars"></div>
       <div id="stars2"></div>
       <div id="stars3"></div>
