@@ -4,7 +4,6 @@ import {
   snapFromTopAnimation,
   snapFromLeftAnimation,
   snapFromRightAnimation,
-  snapFromBottomAnimation,
 } from "../../../common/utils/AnimationVariants";
 import avatar from "../../../assets/images/LukaBigNoBg.png";
 
@@ -15,10 +14,10 @@ const Hero: React.FC = () => {
       <div id="stars2"></div>
       <div id="stars3"></div>
       <motion.img
-        className="absolute bottom-0 w-48 h-48 md:h-60 md:w-60 lg:h-80 lg:w-80 2xl:w-96 2xl:h-96"
+        className="absolute bottom-0 w-48 h-48 md:h-60 md:w-60 lg:h-80 lg:w-80 2xl:w-96 2xl:h-96 z-10"
         src={avatar}
         alt="Luka Lazic"
-        {...snapFromBottomAnimation}
+        {...snapFromLeftAnimation}
         transition={{ duration: 0.5 }}
       />
 

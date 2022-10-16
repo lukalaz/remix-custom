@@ -12,7 +12,10 @@ import { randomShortInterval } from "~/common/utils/AnimationVariants";
 
 const TechStack: React.FC = () => {
   return (
-    <section id="tech-stack" className="pt-[40px] border-t border-gray-700">
+    <section
+      id="tech-stack"
+      className="pt-[40px] border-t border-gray-700 relative z-40"
+    >
       <div className="container">
         <StyledTitle
           title={"My Tech Stack"}
