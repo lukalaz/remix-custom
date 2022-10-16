@@ -18,6 +18,10 @@ body {
   z-index: 101;
 }
 
+.chevron-scroll-position{
+  left: calc(50vw - 1.75rem);
+}
+
 
 #stars {
   opacity: 0.8;
