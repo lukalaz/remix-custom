@@ -6,7 +6,7 @@ import {
   snapFromRightAnimation,
   fadeInAnimation,
 } from "../../../common/utils/AnimationVariants";
-import avatar from "../../../assets/images/LukaBigNoBg.png";
+import avatar from "../../../assets/images/Luka-Lazic.png";
 import { ChevronDoubleDownIcon } from "@heroicons/react/24/solid";
 
 const Hero: React.FC = () => {
