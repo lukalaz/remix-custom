@@ -49,5 +49,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: ['postcss-import', 'postcss-100vh-fix'],
+  plugins: [],
 };
