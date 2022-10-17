@@ -8,15 +8,10 @@ import {
 } from "../../../common/utils/AnimationVariants";
 import avatar from "../../../assets/images/Luka-Lazic.png";
 import { ChevronDoubleDownIcon } from "@heroicons/react/24/solid";
-import useWindowDimensions from "~/common/utils/WindowDimensions";
 
 const Hero: React.FC = () => {
-  const { height } = useWindowDimensions();
   return (
-    <div
-      className="bg-black overflow-hidden center-container items-center flex starground relative trada"
-      style={{ height: `calc(${height.toString()}px - 5rem` }}
-    >
+    <div className="bg-black overflow-hidden center-container items-center flex starground relative">
       <div id="stars"></div>
       <div id="stars2"></div>
       <div id="stars3"></div>
