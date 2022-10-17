@@ -70,10 +70,6 @@ const variants = {
 export const Slider = () => {
   const [[page, direction], setPage] = useState([0, 0]);
 
-  // We only have 3 images, but we paginate them absolutely (ie 1, 2, 3, 4, 5...) and
-  // then wrap that within 0-2 to find our image ID in the array below. By passing an
-  // absolute page index as the `motion` component's `key` prop, `AnimatePresence` will
-  // detect it as an entirely new image. So you can infinitely paginate as few as 1 images.
   const slideIndex = wrap(0, skills.length, page);
 
   const paginate = (newDirection: number) => {
@@ -102,45 +98,45 @@ export const Slider = () => {
 
   return (
     <div className="relative overflow-hidden">
-      <AnimatePresence custom={direction}>
-        <span className="text-white">{skills[slideIndex]?.description}</span>
-        <ChevronDoubleLeftIcon
-          className="cursor-pointer h-14 w-14 text-indigo-600 absolute top-1/2 -mt-7 left-0"
-          onClick={() => paginate(-1)}
-        />
-        <motion.div
-          layout
-          key={page}
-          custom={direction}
-          variants={variants}
-          initial="enter"
-          animate="center"
-          exit={{ display: "none" }}
-          transition={{
-            opacity: { duration: 0.2 },
-          }}
-        >
-          <div className="flex justify-center px-10">
-            <SkillCard
-              title={getPreviousTitle(slideIndex - 1)}
-              icon={getPreviousImage(slideIndex - 1)}
-            />
-            <SkillCard
-              title={skills[slideIndex]?.name}
-              icon={skills[slideIndex]?.image}
-              middle
-            />
-            <SkillCard
-              title={getNextTitle(slideIndex + 1)}
-              icon={getNextImage(slideIndex + 1)}
-            />
-          </div>
-        </motion.div>
-        <ChevronDoubleRightIcon
-          className="cursor-pointer h-14 w-14 text-indigo-600 absolute top-1/2 -mt-7 right-0"
-          onClick={() => paginate(1)}
-        />
-      </AnimatePresence>
+      <span className="text-white">{skills[slideIndex]?.description}</span>
+      <ChevronDoubleLeftIcon
+        className="cursor-pointer h-14 w-14 text-indigo-600 absolute top-1/2 -mt-7 left-0 noselect"
+        onClick={() => paginate(-1)}
+      />
+      <motion.div
+        layout
+        key={page}
+        custom={direction}
+        variants={variants}
+        initial="enter"
+        animate="center"
+        exit={{ display: "none" }}
+        transition={{
+          opacity: { duration: 0.2 },
+        }}
+      >
+        <div className="flex justify-center px-10">
+          <SkillCard
+            title={getPreviousTitle(slideIndex - 1)}
+            icon={getPreviousImage(slideIndex - 1)}
+            position={"left"}
+          />
+          <SkillCard
+            title={skills[slideIndex]?.name}
+            icon={skills[slideIndex]?.image}
+            position="middle"
+          />
+          <SkillCard
+            title={getNextTitle(slideIndex + 1)}
+            icon={getNextImage(slideIndex + 1)}
+            position="right"
+          />
+        </div>
+      </motion.div>
+      <ChevronDoubleRightIcon
+        className="cursor-pointer h-14 w-14 text-indigo-600 absolute top-1/2 -mt-7 right-0 noselect"
+        onClick={() => paginate(1)}
+      />
     </div>
   );
 };

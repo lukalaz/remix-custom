@@ -22,6 +22,15 @@ body {
   left: calc(50vw - 1.75rem);
 }
 
+.noselect {
+  -webkit-touch-callout: none; 
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 
 #stars {
   opacity: 0.8;

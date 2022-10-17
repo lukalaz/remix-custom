@@ -1,13 +1,17 @@
 import { motion } from "framer-motion";
 import React from "react";
-import { snapFromBottomAnimation } from "~/common/utils/AnimationVariants";
+import {
+  snapFromBottomAnimation,
+  snapFromLeftAnimation,
+  snapFromRightAnimation,
+} from "~/common/utils/AnimationVariants";
 
 interface ISkillCard {
   title: string;
   content?: string;
   icon?: string;
   animationDelay?: number;
-  middle?: boolean;
+  position: "left" | "middle" | "right";
   className?: string;
 }
 
@@ -16,16 +20,18 @@ const SkillCard: React.FC<ISkillCard> = ({
   content,
   icon,
   animationDelay,
-  middle,
+  position,
   className,
 }) => {
   return (
     <motion.div
-      {...snapFromBottomAnimation}
+      {...(position === "left" && snapFromLeftAnimation)}
+      {...(position === "right" && snapFromRightAnimation)}
       transition={{ delay: animationDelay }}
       className={
-        `w-5/6 lg:w-1/2 xl:w-1/3 ${!middle && "px-4 hidden lg:block"} ` +
-        className
+        `w-5/6 lg:w-1/2 xl:w-1/3 ${
+          position != "middle" && "px-4 hidden lg:block"
+        } ` + className
       }
     >
       <div className="bg-gray-800 group hover:bg-primary shadow-service py-10 px-8 rounded-xl relative z-10 overflow-hidden text-center duration-200 mb-8">
