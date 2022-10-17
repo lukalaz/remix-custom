@@ -24,7 +24,10 @@ export const SinglePost: React.FC<ISinglePost> = ({ post, markdown }) => {
               transition={{ delay: animationDelay[1] }}
             >
               <PostHeader post={post} />
-              <div dangerouslySetInnerHTML={{ __html: markdown }} />
+              <div
+                className="postBody"
+                dangerouslySetInnerHTML={{ __html: markdown }}
+              />
               <motion.div
                 {...snapFromRightAnimation}
                 transition={{ delay: animationDelay[2] }}
