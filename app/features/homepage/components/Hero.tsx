@@ -56,7 +56,7 @@ const Hero: React.FC = () => {
       </div>
       <motion.div {...fadeInAnimation}>
         <Link to={"/#tech-stack"} className="w-full block">
-          <ChevronDoubleDownIcon className="chevron-scroll-position bottom-10 cursor-pointer h-14 w-14 text-indigo-600 absolute" />
+          <ChevronDoubleDownIcon className="chevron-scroll-position bottom-20 cursor-pointer h-14 w-14 text-indigo-600 absolute" />
         </Link>
       </motion.div>
     </div>
