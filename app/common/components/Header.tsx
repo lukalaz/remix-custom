@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import logo from "../../assets/images/logotype.svg";
 import {
   animationDelay,
+  hoverAndTapAnimation,
   snapFromLeftAnimation,
   snapFromRightAnimation,
   snapFromTopAnimation,
@@ -108,12 +109,13 @@ const Header: React.FC = () => {
                 transition={{ delay: animationDelay[3] }}
                 className="sm:flex justify-end hidden pr-16 lg:pr-0"
               >
-                <a
+                <motion.a
                   href="#contact"
                   className=" text-base font-bold text-white bg-primary rounded-full py-3 px-8 md:px-9 lg:px-8 xl:px-9 hover:shadow-signUp hover:bg-opacity-90 transition ease-in-out duration-300"
+                  {...hoverAndTapAnimation}
                 >
                   View my work
-                </a>
+                </motion.a>
               </motion.div>
             </div>
           </div>

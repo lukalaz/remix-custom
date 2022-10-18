@@ -69,6 +69,12 @@ export const infiniteBouncyAnimation = {
   },
 };
 
+export const hoverAndTapAnimation = {
+  whileHover: { scale: 1.1 },
+  whileTap: { scale: 0.9 },
+  transition: { duration: 0.05 },
+};
+
 function generateRandomInteger(max: number) {
   return Math.floor(Math.random() * max) + 1;
 }
