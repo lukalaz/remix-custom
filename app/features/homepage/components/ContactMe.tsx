@@ -4,6 +4,7 @@ import StyledTitle from "~/common/components/StyledTitle";
 import SuccessMessage from "~/common/components/SuccessMessage";
 import {
   fadeInAnimation,
+  hoverAndTapAnimation,
   randomShortInterval,
   snapFromBottomAnimation,
   snapFromLeftAnimation,
@@ -85,11 +86,11 @@ const ContactMe: React.FC = () => {
                   )}
                 </div>
                 <div className="w-full px-4">
-                  <div className="pt-4 text-center">
+                  <div className="py-4 text-center">
                     <motion.button
-                      {...fadeInAnimation}
+                      {...hoverAndTapAnimation}
                       transition={{ delay: randomShortInterval() }}
-                      className="inline-flex justify-center items-center py-4 px-9 rounded-full font-semibold text-white bg-primary mx-auto transition duration-300 ease-in-out hover:shadow-signUp hover:bg-opacity-90"
+                      className="inline-flex justify-center items-center py-4 px-9 rounded-full font-semibold text-white bg-primary mx-auto transition duration-300 ease-in-out hover:hover:bg-opacity-90"
                     >
                       Contact Me
                     </motion.button>

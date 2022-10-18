@@ -111,7 +111,7 @@ const Header: React.FC = () => {
               >
                 <motion.a
                   href="#contact"
-                  className="text-base font-bold text-white bg-primary rounded-full py-3 px-8 md:px-9 lg:px-8 xl:px-9 hover:shadow-signUp hover:bg-opacity-90 transition ease-in-out duration-300"
+                  className="text-base font-bold text-white bg-primary rounded-full py-3 px-8 md:px-9 lg:px-8 xl:px-9 hover:hover:bg-opacity-90 transition ease-in-out duration-300"
                   {...hoverAndTapAnimation}
                 >
                   View my work

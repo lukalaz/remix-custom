@@ -161,7 +161,7 @@ const addNewPost = () => {
                 <button
                   type="submit"
                   disabled={isCreating}
-                  className="inline-flex justify-center items-center py-4 px-9 rounded-full font-semibold text-white bg-primary mx-auto transition duration-300 ease-in-out hover:shadow-signUp hover:bg-opacity-90"
+                  className="inline-flex justify-center items-center py-4 px-9 rounded-full font-semibold text-white bg-primary mx-auto transition duration-300 ease-in-out hover:hover:bg-opacity-90"
                 >
                   {isCreating ? "Working..." : "Add post"}
                 </button>
