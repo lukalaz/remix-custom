@@ -38,7 +38,7 @@ export const PostCard: React.FC<IPostCard> = ({ post }) => {
                 {new Date(post.createdAt).toLocaleDateString(timeZone)}
               </span>
             </div>
-            <h2 className="mb-2 text-2xl font-bold tracking-tight text-white">
+            <h2 className="hover-underline-animation mb-2 text-2xl font-bold tracking-tight text-white">
               <Link to={post.slug}>{post.title}</Link>
             </h2>
             <p className="mb-5 font-light text-gray-400">{post.excerpt}</p>
@@ -53,7 +53,7 @@ export const PostCard: React.FC<IPostCard> = ({ post }) => {
               </div>
               <Link
                 to={post.slug}
-                className="inline-flex items-center font-medium text-white hover:underline"
+                className="inline-flex-important items-center font-medium text-white hover-underline-animation"
               >
                 Read more
                 <svg

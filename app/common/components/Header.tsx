@@ -65,7 +65,7 @@ const Header: React.FC = () => {
                       <Link
                         onClick={() => setIsOpenMobileMenu(false)}
                         to={"/"}
-                        className="menu-scroll text-base lg:text-white group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12"
+                        className="hover-underline-animation menu-scroll text-base lg:text-white py-2 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12"
                       >
                         Tech Stack
                       </Link>
@@ -80,7 +80,7 @@ const Header: React.FC = () => {
                       <Link
                         onClick={() => setIsOpenMobileMenu(false)}
                         to={"/blog"}
-                        className="menu-scroll text-base lg:text-white group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12"
+                        className="hover-underline-animation menu-scroll text-base lg:text-white py-2 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12"
                       >
                         Blog
                       </Link>
@@ -95,7 +95,7 @@ const Header: React.FC = () => {
                       <Link
                         onClick={() => setIsOpenMobileMenu(false)}
                         to="/#contact"
-                        className="menu-scroll text-base lg:text-white group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12"
+                        className="hover-underline-animation menu-scroll text-base lg:text-white py-2 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12"
                       >
                         Contact
                       </Link>
@@ -110,7 +110,7 @@ const Header: React.FC = () => {
               >
                 <a
                   href="#contact"
-                  className=" text-base font-bold text-white bg-primary rounded-full py-3 px-8 md:px-9 lg:px-8 xl:px-9 hover:shadow-signUp hover:bg-opacity-90 transition ease-in-out duration-300"
+                  className="hover-zoom-animation text-base font-bold text-white bg-primary rounded-full py-3 px-8 md:px-9 lg:px-8 xl:px-9 hover:hover:bg-opacity-90 transition ease-in-out duration-300"
                 >
                   View my work
                 </a>

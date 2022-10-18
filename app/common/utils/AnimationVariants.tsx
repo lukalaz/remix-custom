@@ -59,6 +59,23 @@ export const fadeInAnimation = {
   },
 };
 
+export const infiniteBouncyAnimation = {
+  transition: {
+    duration: 0.8,
+    yoyo: Infinity,
+  },
+  animate: {
+    y: ["-1rem", "1rem"],
+  },
+};
+
+export const boldOnHoverAnimation = {
+  whileHover: {
+    strong: true,
+    transition: { duration: 1 },
+  },
+};
+
 function generateRandomInteger(max: number) {
   return Math.floor(Math.random() * max) + 1;
 }

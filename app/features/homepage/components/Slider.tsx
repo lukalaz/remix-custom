@@ -100,7 +100,7 @@ export const Slider = () => {
     <div className="relative overflow-hidden">
       <span className="text-white">{skills[slideIndex]?.description}</span>
       <ChevronDoubleLeftIcon
-        className="cursor-pointer h-14 w-14 text-indigo-600 absolute top-1/2 -mt-7 left-0 noselect"
+        className="hover-zoom-animation cursor-pointer h-14 w-14 text-indigo-600 absolute top-1/2 -mt-7 left-0 noselect"
         onClick={() => paginate(-1)}
       />
       <motion.div
@@ -134,7 +134,7 @@ export const Slider = () => {
         </div>
       </motion.div>
       <ChevronDoubleRightIcon
-        className="cursor-pointer h-14 w-14 text-indigo-600 absolute top-1/2 -mt-7 right-0 noselect"
+        className="hover-zoom-animation cursor-pointer h-14 w-14 text-indigo-600 absolute top-1/2 -mt-7 right-0 noselect"
         onClick={() => paginate(1)}
       />
     </div>
