@@ -53,7 +53,7 @@ export const PostCard: React.FC<IPostCard> = ({ post }) => {
               </div>
               <Link
                 to={post.slug}
-                className="inline-flex items-center font-medium text-white hover:underline"
+                className="inline-flex-important items-center font-medium text-white hover-underline-animation"
               >
                 Read more
                 <svg

@@ -82,7 +82,10 @@ body {
   @apply scale-110 ease-in ease-out duration-200
 }
 
-/* Hover zoom animation END */
+/* Inline flex override */
+.inline-flex-important{
+  display: inline-flex!important;
+}
 
 
 /* Stars background style */
