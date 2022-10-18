@@ -5,6 +5,7 @@ import {
   snapFromLeftAnimation,
   snapFromRightAnimation,
   infiniteBouncyAnimation,
+  fadeInAnimation,
 } from "../../../common/utils/AnimationVariants";
 import avatar from "../../../assets/images/Luka-Lazic.png";
 import { ChevronDoubleDownIcon } from "@heroicons/react/24/solid";
@@ -56,7 +57,7 @@ const Hero: React.FC = () => {
       </div>
       <div className="chevron-scroll-position bottom-20 cursor-pointer absolute">
         <motion.div {...infiniteBouncyAnimation}>
-          <motion.div>
+          <motion.div {...fadeInAnimation}>
             <Link to={"/#tech-stack"} className="w-full block">
               <ChevronDoubleDownIcon className="hover-zoom-animation h-16 w-16 text-indigo-600 " />
             </Link>
