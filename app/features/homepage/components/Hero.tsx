@@ -5,7 +5,6 @@ import {
   snapFromLeftAnimation,
   snapFromRightAnimation,
   infiniteBouncyAnimation,
-  hoverAndTapAnimation,
 } from "../../../common/utils/AnimationVariants";
 import avatar from "../../../assets/images/Luka-Lazic.png";
 import { ChevronDoubleDownIcon } from "@heroicons/react/24/solid";
@@ -37,19 +36,17 @@ const Hero: React.FC = () => {
           </p>
         </motion.div>
         <div className="flex justify-center items-center relative">
-          <Link to="/projects">
+          <Link to="/projects" className="hover-zoom-animation">
             <motion.div
               {...snapFromLeftAnimation}
-              {...hoverAndTapAnimation}
               className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary bg-primary transition duration-150 ease-in-out hover:bg-indigo-600 lg:text-xl lg:font-bold  rounded text-white px-4 sm:px-10 border border-primary py-2 sm:py-4 text-sm"
             >
               Projects
             </motion.div>
           </Link>
-          <Link to="/blog">
+          <Link to="/blog" className="hover-zoom-animation">
             <motion.div
               {...snapFromRightAnimation}
-              {...hoverAndTapAnimation}
               className="ml-4 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary bg-gray-900 transition duration-150 ease-in-out hover:border-indigo-600 lg:text-xl lg:font-bold  hover:text-indigo-600 rounded border border-primary text-white px-4 sm:px-10 py-2 sm:py-4 text-sm"
             >
               Blog
@@ -59,9 +56,9 @@ const Hero: React.FC = () => {
       </div>
       <div className="chevron-scroll-position bottom-20 cursor-pointer absolute">
         <motion.div {...infiniteBouncyAnimation}>
-          <motion.div {...hoverAndTapAnimation}>
+          <motion.div>
             <Link to={"/#tech-stack"} className="w-full block">
-              <ChevronDoubleDownIcon className="h-16 w-16 text-indigo-600 " />
+              <ChevronDoubleDownIcon className="hover-zoom-animation h-16 w-16 text-indigo-600 " />
             </Link>
           </motion.div>
         </motion.div>

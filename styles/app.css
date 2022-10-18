@@ -77,6 +77,15 @@ body {
 
 /* / Hover underline animation END /*
 
+/* Hover zoom animation */
+
+.hover-zoom-animation:hover {
+  @apply scale-110 ease-in ease-out duration-200
+}
+
+/* Hover zoom animation END */
+
+
 /* Stars background style */
 #stars {
   opacity: 0.8;
