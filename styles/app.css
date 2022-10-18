@@ -54,7 +54,6 @@ body {
 .hover-underline-animation {
   display: inline-block;
   position: relative;
-  color: #0087ca;
 }
 
 .hover-underline-animation:after {

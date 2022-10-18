@@ -69,6 +69,13 @@ export const infiniteBouncyAnimation = {
   },
 };
 
+export const boldOnHoverAnimation = {
+  whileHover: {
+    strong: true,
+    transition: { duration: 1 },
+  },
+};
+
 function generateRandomInteger(max: number) {
   return Math.floor(Math.random() * max) + 1;
 }
