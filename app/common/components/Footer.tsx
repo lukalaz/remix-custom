@@ -7,6 +7,8 @@ import {
   snapFromRightAnimation,
   animationDelay,
 } from "../utils/AnimationVariants";
+import { EnvelopeIcon } from "@heroicons/react/24/solid";
+import linkedInLogo from "../../assets/images/linkedIn.svg";
 
 const Footer: React.FC = () => {
   return (
@@ -25,18 +27,25 @@ const Footer: React.FC = () => {
               <h3 className="font-bold text-white opacity-70 text-2xl mb-2">
                 Contact Info
               </h3>
-              <a
-                href="mailto:luka.web.php@gmail.com"
-                className="font-medium text-base text-body-color mb-1 block"
-              >
-                luka.web.php@email.com
-              </a>
-              <Link
-                to={"https://www.linkedin.com/in/luka-lazic-b3411aa1/"}
-                className="font-medium text-base text-body-color mb-1"
-              >
-                LinkedIn
-              </Link>
+              <div className="flex items-center">
+                <a
+                  href="mailto:luka.web.php@gmail.com"
+                  className="font-medium text-base text-white w-8 h-8 mb-1 mr-2 block"
+                >
+                  <EnvelopeIcon title="luka.web.php@gmail" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/luka-lazic-b3411aa1/"
+                  className="font-medium text-base text-body-color mb-1"
+                  target="_blank"
+                >
+                  <img
+                    src={linkedInLogo}
+                    alt="logo"
+                    className="w-6 h-6 invert"
+                  />
+                </a>
+              </div>
             </div>
           </motion.div>
 
