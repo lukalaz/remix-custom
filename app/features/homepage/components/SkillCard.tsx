@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import React from "react";
 import {
-  snapFromBottomAnimation,
   snapFromLeftAnimation,
   snapFromRightAnimation,
 } from "~/common/utils/AnimationVariants";
@@ -34,7 +33,7 @@ const SkillCard: React.FC<ISkillCard> = ({
         } ` + className
       }
     >
-      <div className="bg-gray-800 group hover:bg-primary shadow-service py-10 px-8 rounded-xl relative z-10 overflow-hidden text-center duration-200">
+      <div className="border-gray-700 border bg-gray-800 group hover:bg-primary shadow-service py-10 px-8 rounded-xl relative z-10 overflow-hidden text-center duration-200">
         <div className="mx-auto w-20 h-20 mb-6 rounded-full bg-white border-2 border-primary flex items-center justify-center text-white group-hover:bg-white group-hover:text-primary duration-200">
           <img
             src={icon}
