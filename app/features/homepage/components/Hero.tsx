@@ -56,7 +56,7 @@ const Hero: React.FC = () => {
         </div>
       </div>
       <div className="chevron-scroll-position bottom-20 cursor-pointer absolute">
-        <motion.div {...infiniteBouncyAnimation}>
+        <motion.div {...infiniteBouncyAnimation()}>
           <motion.div {...fadeInAnimation}>
             <Link to={"/#tech-stack"} className="w-full block">
               <ChevronDoubleDownIcon className="hover-zoom-animation h-16 w-16 text-indigo-600 " />

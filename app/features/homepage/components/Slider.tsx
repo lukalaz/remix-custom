@@ -12,7 +12,9 @@ import SkillCard from "./SkillCard";
 import {
   ChevronDoubleLeftIcon,
   ChevronDoubleRightIcon,
+  ChevronUpIcon,
 } from "@heroicons/react/24/solid";
+import { infiniteBouncyAnimation } from "~/common/utils/AnimationVariants";
 
 const skills = [
   {
@@ -97,46 +99,65 @@ export const Slider = () => {
   };
 
   return (
-    <div className="relative overflow-hidden">
-      <span className="text-white">{skills[slideIndex]?.description}</span>
-      <ChevronDoubleLeftIcon
-        className="hover-zoom-animation cursor-pointer h-14 w-14 text-indigo-600 absolute top-1/2 -mt-7 left-0 noselect"
-        onClick={() => paginate(-1)}
-      />
-      <motion.div
-        layout
-        key={page}
-        custom={direction}
-        variants={variants}
-        initial="enter"
-        animate="center"
-        exit={{ display: "none" }}
-        transition={{
-          opacity: { duration: 0.2 },
-        }}
-      >
-        <div className="flex justify-center px-10">
-          <SkillCard
-            title={getPreviousTitle(slideIndex - 1)}
-            icon={getPreviousImage(slideIndex - 1)}
-            position={"left"}
+    <>
+      <div className="relative overflow-hidden">
+        <motion.div
+          {...infiniteBouncyAnimation(0.2, true)}
+          className="absolute top-1/2 left-0"
+        >
+          <ChevronDoubleLeftIcon
+            className="hover-zoom-animation cursor-pointer h-14 w-14 text-indigo-600 -mt-7 noselect"
+            onClick={() => paginate(-1)}
           />
-          <SkillCard
-            title={skills[slideIndex]?.name}
-            icon={skills[slideIndex]?.image}
-            position="middle"
+        </motion.div>
+        <motion.div
+          layout
+          key={page}
+          custom={direction}
+          variants={variants}
+          initial="enter"
+          animate="center"
+          exit={{ display: "none" }}
+          transition={{
+            opacity: { duration: 0.2 },
+          }}
+        >
+          <div className="flex justify-center px-10">
+            <SkillCard
+              title={getPreviousTitle(slideIndex - 1)}
+              icon={getPreviousImage(slideIndex - 1)}
+              position={"left"}
+            />
+            <SkillCard
+              title={skills[slideIndex]?.name}
+              icon={skills[slideIndex]?.image}
+              position="middle"
+            />
+            <SkillCard
+              title={getNextTitle(slideIndex + 1)}
+              icon={getNextImage(slideIndex + 1)}
+              position="right"
+            />
+          </div>
+        </motion.div>
+        <motion.div
+          {...infiniteBouncyAnimation(0.2, true)}
+          className="absolute top-1/2 right-0"
+        >
+          <ChevronDoubleRightIcon
+            className="hover-zoom-animation cursor-pointer h-14 w-14 text-indigo-600 -mt-7 noselect"
+            onClick={() => paginate(1)}
           />
-          <SkillCard
-            title={getNextTitle(slideIndex + 1)}
-            icon={getNextImage(slideIndex + 1)}
-            position="right"
-          />
+        </motion.div>
+      </div>
+      <div className="flex flex-col items-center mt-2">
+        <motion.div>
+          <ChevronUpIcon className="h-14 w-14 text-indigo-600 noselect" />
+        </motion.div>
+        <div className="text-white text-center">
+          {skills[slideIndex]?.description}
         </div>
-      </motion.div>
-      <ChevronDoubleRightIcon
-        className="hover-zoom-animation cursor-pointer h-14 w-14 text-indigo-600 absolute top-1/2 -mt-7 right-0 noselect"
-        onClick={() => paginate(1)}
-      />
-    </div>
+      </div>
+    </>
   );
 };

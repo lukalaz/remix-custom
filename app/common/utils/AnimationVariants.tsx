@@ -59,15 +59,17 @@ export const fadeInAnimation = {
   },
 };
 
-export const infiniteBouncyAnimation = {
+export const infiniteBouncyAnimation = (space = 1, horizontal = false) => ({
   transition: {
     duration: 0.8,
     yoyo: Infinity,
   },
   animate: {
-    y: ["-1rem", "1rem"],
+    ...(horizontal
+      ? { x: [`-${space}rem`, `${space}rem`] }
+      : { y: [`-${space}rem`, `${space}rem`] }),
   },
-};
+});
 
 export const boldOnHoverAnimation = {
   whileHover: {
