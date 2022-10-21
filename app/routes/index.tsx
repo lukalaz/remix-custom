@@ -1,8 +1,6 @@
 import { ActionFunction, json } from "@remix-run/node";
-import ContactMe from "~/features/homepage/components/ContactMe";
-import Hero from "~/features/homepage/components/Hero";
-import TechStack from "~/features/homepage/components/TechStack";
 import Sendgrid from "@sendgrid/mail";
+import { Homepage } from "~/features/homepage/Homepage";
 
 type ActionData =
   | {
@@ -69,13 +67,7 @@ export const action: ActionFunction = async ({ request }) => {
 };
 
 const Index: React.FC = () => {
-  return (
-    <>
-      <Hero />
-      <TechStack />
-      <ContactMe />
-    </>
-  );
+  return <Homepage />;
 };
 
 export default Index;
