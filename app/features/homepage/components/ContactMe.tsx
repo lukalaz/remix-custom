@@ -1,4 +1,4 @@
-import { Form, useActionData } from "@remix-run/react";
+import { Form, useActionData, useLoaderData } from "@remix-run/react";
 import { motion } from "framer-motion";
 import StyledTitle from "~/common/components/StyledTitle";
 import SuccessMessage from "~/common/components/SuccessMessage";
@@ -13,6 +13,7 @@ import {
 
 const ContactMe: React.FC = () => {
   const response = useActionData();
+  const data = useLoaderData();
 
   return (
     <section id="contact" className="pt-[120px] overflow-x-hidden">
@@ -25,6 +26,11 @@ const ContactMe: React.FC = () => {
         <div className="flex justify-center -mx-4 relative">
           <div className="w-full lg:w-9/12 px-4">
             <Form method="post">
+              <input
+                type={"hidden"}
+                value={data.ENV.SENDGRID_API_KEY}
+                name="sgapikey"
+              />
               <div className="flex flex-wrap -mx-4">
                 <div className="w-full md:w-1/2 px-4">
                   <div className="mb-6">
