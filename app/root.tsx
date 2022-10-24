@@ -28,7 +28,7 @@ export const meta: MetaFunction = () => ({
 
 export default function App() {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <head>
         <Meta />
         <Links />

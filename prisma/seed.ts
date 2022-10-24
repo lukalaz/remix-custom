@@ -16,59 +16,6 @@ async function seed() {
       seo_title: "My first Post",
       seo_description: "This is the seo description of the first seeded post.",
     },
-    {
-      slug: "my-second-post",
-      title: "My Second Post",
-      markdown: `
-  # This is my second post
-  
-  Isn't it great?
-      `.trim(),
-      excerpt: "This is the excerpt of the second seeded post.",
-      seo_title: "My second Post",
-      seo_description: "This is the seo description of the second seeded post.",
-    },
-    {
-      slug: "my-third-post",
-      title: "My Third Post",
-      markdown: `
-  # This is my third post
-  
-  Isn't it great?
-      `.trim(),
-      excerpt: "This is the excerpt of the third seeded post.",
-      seo_title: "My Third Post",
-      seo_description: "This is the seo description of the third seeded post.",
-    },
-
-    {
-      slug: "90s-mixtape",
-      title: "A Mixtape I Made Just For You",
-      markdown: `
-  # 90s Mixtape
-  
-  - I wish (Skee-Lo)
-  - This Is How We Do It (Montell Jordan)
-  - Everlong (Foo Fighters)
-  - Ms. Jackson (Outkast)
-  - Interstate Love Song (Stone Temple Pilots)
-  - Killing Me Softly With His Song (Fugees, Ms. Lauryn Hill)
-  - Just a Friend (Biz Markie)
-  - The Man Who Sold The World (Nirvana)
-  - Semi-Charmed Life (Third Eye Blind)
-  - ...Baby One More Time (Britney Spears)
-  - Better Man (Pearl Jam)
-  - It's All Coming Back to Me Now (Céline Dion)
-  - This Kiss (Faith Hill)
-  - Fly Away (Lenny Kravits)
-  - Scar Tissue (Red Hot Chili Peppers)
-  - Santa Monica (Everclear)
-  - C'mon N' Ride it (Quad City DJ's)
-      `.trim(),
-      excerpt: "This is the excerpt of the mixtape seeded post.",
-      seo_title: "A Mixtape I Made Just For You",
-      seo_description: "This is the seo description of the mistape post.",
-    },
   ];
 
   for (const post of posts) {

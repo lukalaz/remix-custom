@@ -1,21 +1,21 @@
-datasource db {
-  provider = "sqlite"
-  url      = "file:/data/sqlite.db"
-  // figure out why env file doesn't work
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["referentialIntegrity"]
 }
 
-generator client {
-  provider = "prisma-client-js"
+datasource db {
+  provider             = "mysql"
+  url                  = env("DATABASE_URL")
+  referentialIntegrity = "prisma"
 }
 
 model Post {
-  slug     String @id
-  title    String
-  markdown String
-  excerpt  String
-  seo_title String
+  slug            String   @id
+  title           String
+  markdown        String
+  excerpt         String
+  seo_title       String
   seo_description String
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
 }
