@@ -51,7 +51,7 @@ export const action: ActionFunction = async ({ request }) => {
     return json<ActionData>(errors);
   }
 
-  Sendgrid.setApiKey(sgapikey?.toString() || "");
+  Sendgrid.setApiKey(process.env.SENDGRID_API_KEY || "");
   // This might not be the best way to handle this api key
   // but since it's a free Sendgrid account for my personal website
   // I didn't want to waste too much time on this. If you read this
