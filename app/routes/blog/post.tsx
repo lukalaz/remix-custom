@@ -1,4 +1,4 @@
-import { createPost } from "~/models/post.server";
+import { createPost, deletePost } from "~/models/post.server";
 import invariant from "tiny-invariant";
 import { ActionFunction, json, redirect } from "@remix-run/node";
 import { Form, useActionData, useTransition } from "@remix-run/react";
@@ -24,6 +24,16 @@ export const action: ActionFunction = async ({ request }) => {
   const excerpt = formData.get("excerpt");
   const seo_title = formData.get("seo_title");
   const seo_description = formData.get("seo_description");
+  const intent = formData.get("intent");
+
+  console.log(intent, slug);
+
+  if (intent === "delete" && slug) {
+    console.log("usli u delete pitalicu");
+
+    await deletePost(slug.toString());
+    return redirect("/blog");
+  }
 
   const errors: ActionData = {
     title: title ? null : "Title is required",
@@ -164,6 +174,15 @@ const addNewPost = () => {
                   className="inline-flex justify-center items-center py-4 px-9 rounded-full font-semibold text-white bg-primary mx-auto transition duration-300 ease-in-out hover:hover:bg-opacity-90"
                 >
                   {isCreating ? "Working..." : "Add post"}
+                </button>
+                <button
+                  type="submit"
+                  name="intent"
+                  disabled={false /*TODO*/}
+                  value="delete"
+                  className="inline-flex justify-center items-center py-4 px-9 rounded-full font-semibold text-white bg-primary mx-auto transition duration-300 ease-in-out hover:hover:bg-opacity-90"
+                >
+                  {isCreating ? "Deleting..." : "Delete post"}
                 </button>
               </div>
             </div>
