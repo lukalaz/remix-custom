@@ -26,3 +26,15 @@ export async function createPost(
 ) {
   return prisma.post.create({ data: post });
 }
+
+export async function deletePost(slug: string) {
+  console.log("ovde smo dosli");
+
+  return prisma.post.delete({ where: { slug } });
+}
+
+export async function findPost(postSlug: string) {
+  console.log(postSlug, "postslug");
+
+  return prisma.post.findFirst({ where: { slug: postSlug } });
+}
