@@ -39,7 +39,6 @@ export const action: ActionFunction = async ({ request }) => {
   const name = formData.get("name");
   const email = formData.get("email");
   const message = formData.get("message");
-  const sgapikey = formData.get("sgapikey");
 
   const errors: ActionData = {
     name: name ? null : "Name is required",

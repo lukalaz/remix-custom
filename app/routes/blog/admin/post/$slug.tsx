@@ -1,7 +1,17 @@
-import { createPost, deletePost } from "~/models/post.server";
+import { createPost, deletePost, getPost, Post } from "~/models/post.server";
 import invariant from "tiny-invariant";
-import { ActionFunction, json, redirect } from "@remix-run/node";
-import { Form, useActionData, useTransition } from "@remix-run/react";
+import {
+  ActionFunction,
+  json,
+  LoaderFunction,
+  redirect,
+} from "@remix-run/node";
+import {
+  Form,
+  useActionData,
+  useLoaderData,
+  useTransition,
+} from "@remix-run/react";
 import StyledTitle from "~/common/components/StyledTitle";
 
 type ActionData =
@@ -14,6 +24,17 @@ type ActionData =
       seo_description: null | string;
     }
   | undefined;
+
+type LoaderData = { post: Post };
+
+export const loader: LoaderFunction = async ({ params }) => {
+  invariant(params.slug, `params.slug is required`);
+
+  const post = await getPost(params.slug);
+  invariant(post, `Post not found: ${params.slug}`);
+
+  return json<LoaderData>({ post });
+};
 
 export const action: ActionFunction = async ({ request }) => {
   const formData = await request.formData();
@@ -29,11 +50,16 @@ export const action: ActionFunction = async ({ request }) => {
   console.log(intent, slug);
 
   if (intent === "delete" && slug) {
-    console.log("usli u delete pitalicu");
-
-    await deletePost(slug.toString());
+    deletePost(slug.toString());
     return redirect("/blog");
   }
+
+  const getUrlParam = (param: string) => {
+    const url = new URL(request.url);
+    return url.searchParams.get(param);
+  };
+
+  console.log(getUrlParam("slug"));
 
   const errors: ActionData = {
     title: title ? null : "Title is required",
@@ -74,6 +100,7 @@ const addNewPost = () => {
   const transition = useTransition();
   const isCreating = Boolean(transition.submission);
   const errors = useActionData();
+  const { post } = useLoaderData();
 
   return (
     <section id="add-post">
@@ -96,6 +123,7 @@ const addNewPost = () => {
                   placeholder="Post Title"
                   className="input-field"
                   name="title"
+                  defaultValue={post.title}
                 />
               </div>
             </div>
@@ -109,6 +137,7 @@ const addNewPost = () => {
                   placeholder="Post Slug"
                   className="input-field"
                   name="slug"
+                  defaultValue={post.slug}
                 />
               </div>
             </div>
@@ -122,6 +151,7 @@ const addNewPost = () => {
                   placeholder="Post content (written in markdown)"
                   className="input-field resize-none"
                   name="markdown"
+                  defaultValue={post.markdown}
                 ></textarea>
               </div>
             </div>
@@ -135,6 +165,7 @@ const addNewPost = () => {
                   placeholder="Post excerpt (a short version of the content shown on blog archive pages, written in plain text)"
                   className="input-field resize-none"
                   name="excerpt"
+                  defaultValue={post.excerpt}
                 ></textarea>
               </div>
             </div>
@@ -149,6 +180,7 @@ const addNewPost = () => {
                   placeholder="Meta Title"
                   className="input-field"
                   name="seo_title"
+                  defaultValue={post.seo_title}
                 />
               </div>
             </div>
@@ -163,6 +195,7 @@ const addNewPost = () => {
                   placeholder="Meta Description"
                   className="input-field"
                   name="seo_description"
+                  defaultValue={post.seo_description}
                 />
               </div>
             </div>
@@ -178,7 +211,7 @@ const addNewPost = () => {
                 <button
                   type="submit"
                   name="intent"
-                  disabled={false /*TODO*/}
+                  disabled={isCreating}
                   value="delete"
                   className="inline-flex justify-center items-center py-4 px-9 rounded-full font-semibold text-white bg-primary mx-auto transition duration-300 ease-in-out hover:hover:bg-opacity-90"
                 >
