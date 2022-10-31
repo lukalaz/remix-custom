@@ -30,6 +30,9 @@ type LoaderData = { post: Post };
 export const loader: LoaderFunction = async ({ params }) => {
   invariant(params.slug, `params.slug is required`);
 
+  if (params.slug == "new") {
+    return json<LoaderData>({ post: {} as any });
+  }
   const post = await getPost(params.slug);
   invariant(post, `Post not found: ${params.slug}`);
 
@@ -101,6 +104,9 @@ const addNewPost = () => {
   const isCreating = Boolean(transition.submission);
   const errors = useActionData();
   const { post } = useLoaderData();
+  const postExists = !!post.slug;
+
+  const submitButtonText = postExists ? "Update Post" : "Add Post";
 
   return (
     <section id="add-post">
@@ -206,7 +212,7 @@ const addNewPost = () => {
                   disabled={isCreating}
                   className="inline-flex justify-center items-center py-4 px-9 rounded-full font-semibold text-white bg-primary mx-auto transition duration-300 ease-in-out hover:hover:bg-opacity-90"
                 >
-                  {isCreating ? "Working..." : "Add post"}
+                  {isCreating ? "Working..." : submitButtonText}
                 </button>
                 <button
                   type="submit"
