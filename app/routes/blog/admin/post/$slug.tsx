@@ -107,12 +107,13 @@ const addNewPost = () => {
   const postExists = !!post.slug;
 
   const submitButtonText = postExists ? "Update Post" : "Add Post";
+  const pageTitle = postExists ? post.title : "Add a new post";
 
   return (
     <section id="add-post">
       <div className="container pt-12">
         <StyledTitle
-          title="Add a new post"
+          title={pageTitle}
           preTitle="Be Eloquent"
           description="All data is required and checked"
         />
