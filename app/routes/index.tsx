@@ -39,7 +39,6 @@ export const action: ActionFunction = async ({ request }) => {
   const name = formData.get("name");
   const email = formData.get("email");
   const message = formData.get("message");
-  const sgapikey = formData.get("sgapikey");
 
   const errors: ActionData = {
     name: name ? null : "Name is required",
@@ -51,7 +50,7 @@ export const action: ActionFunction = async ({ request }) => {
     return json<ActionData>(errors);
   }
 
-  Sendgrid.setApiKey(sgapikey?.toString() || "");
+  Sendgrid.setApiKey(process.env.SENDGRID_API_KEY || "");
   // This might not be the best way to handle this api key
   // but since it's a free Sendgrid account for my personal website
   // I didn't want to waste too much time on this. If you read this
@@ -62,9 +61,9 @@ export const action: ActionFunction = async ({ request }) => {
   const msg = {
     to: "luka.web.php@gmail.com", // Change to your recipient
     from: "luka.web.php@gmail.com", // Change to your verified sender
-    subject: "Sending with SendGrid is Fun",
-    text: "and easy to do anywhere, even with Node.js",
-    html: "<strong>and easy to do anywhere, even with Node.js</strong>",
+    subject: "Mail sa l-l.tech sajta",
+    text: message?.toString(),
+    html: message?.toString() || "",
   };
 
   const res = await Sendgrid.send(msg)

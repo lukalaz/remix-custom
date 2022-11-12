@@ -1,7 +1,17 @@
-import { createPost } from "~/models/post.server";
+import { createPost, deletePost, getPost, Post } from "~/models/post.server";
 import invariant from "tiny-invariant";
-import { ActionFunction, json, redirect } from "@remix-run/node";
-import { Form, useActionData, useTransition } from "@remix-run/react";
+import {
+  ActionFunction,
+  json,
+  LoaderFunction,
+  redirect,
+} from "@remix-run/node";
+import {
+  Form,
+  useActionData,
+  useLoaderData,
+  useTransition,
+} from "@remix-run/react";
 import StyledTitle from "~/common/components/StyledTitle";
 
 type ActionData =
@@ -15,6 +25,20 @@ type ActionData =
     }
   | undefined;
 
+type LoaderData = { post: Post };
+
+export const loader: LoaderFunction = async ({ params }) => {
+  invariant(params.slug, `params.slug is required`);
+
+  if (params.slug == "new") {
+    return json<LoaderData>({ post: {} as any });
+  }
+  const post = await getPost(params.slug);
+  invariant(post, `Post not found: ${params.slug}`);
+
+  return json<LoaderData>({ post });
+};
+
 export const action: ActionFunction = async ({ request }) => {
   const formData = await request.formData();
 
@@ -24,6 +48,21 @@ export const action: ActionFunction = async ({ request }) => {
   const excerpt = formData.get("excerpt");
   const seo_title = formData.get("seo_title");
   const seo_description = formData.get("seo_description");
+  const intent = formData.get("intent");
+
+  console.log(intent, slug);
+
+  if (intent === "delete" && slug) {
+    deletePost(slug.toString());
+    return redirect("/blog");
+  }
+
+  const getUrlParam = (param: string) => {
+    const url = new URL(request.url);
+    return url.searchParams.get(param);
+  };
+
+  console.log(getUrlParam("slug"));
 
   const errors: ActionData = {
     title: title ? null : "Title is required",
@@ -64,12 +103,17 @@ const addNewPost = () => {
   const transition = useTransition();
   const isCreating = Boolean(transition.submission);
   const errors = useActionData();
+  const { post } = useLoaderData();
+  const postExists = !!post.slug;
+
+  const submitButtonText = postExists ? "Update Post" : "Add Post";
+  const pageTitle = postExists ? post.title : "Add a new post";
 
   return (
     <section id="add-post">
       <div className="container pt-12">
         <StyledTitle
-          title="Add a new post"
+          title={pageTitle}
           preTitle="Be Eloquent"
           description="All data is required and checked"
         />
@@ -86,6 +130,7 @@ const addNewPost = () => {
                   placeholder="Post Title"
                   className="input-field"
                   name="title"
+                  defaultValue={post.title}
                 />
               </div>
             </div>
@@ -99,6 +144,7 @@ const addNewPost = () => {
                   placeholder="Post Slug"
                   className="input-field"
                   name="slug"
+                  defaultValue={post.slug}
                 />
               </div>
             </div>
@@ -112,6 +158,7 @@ const addNewPost = () => {
                   placeholder="Post content (written in markdown)"
                   className="input-field resize-none"
                   name="markdown"
+                  defaultValue={post.markdown}
                 ></textarea>
               </div>
             </div>
@@ -125,6 +172,7 @@ const addNewPost = () => {
                   placeholder="Post excerpt (a short version of the content shown on blog archive pages, written in plain text)"
                   className="input-field resize-none"
                   name="excerpt"
+                  defaultValue={post.excerpt}
                 ></textarea>
               </div>
             </div>
@@ -139,6 +187,7 @@ const addNewPost = () => {
                   placeholder="Meta Title"
                   className="input-field"
                   name="seo_title"
+                  defaultValue={post.seo_title}
                 />
               </div>
             </div>
@@ -153,6 +202,7 @@ const addNewPost = () => {
                   placeholder="Meta Description"
                   className="input-field"
                   name="seo_description"
+                  defaultValue={post.seo_description}
                 />
               </div>
             </div>
@@ -163,7 +213,16 @@ const addNewPost = () => {
                   disabled={isCreating}
                   className="inline-flex justify-center items-center py-4 px-9 rounded-full font-semibold text-white bg-primary mx-auto transition duration-300 ease-in-out hover:hover:bg-opacity-90"
                 >
-                  {isCreating ? "Working..." : "Add post"}
+                  {isCreating ? "Working..." : submitButtonText}
+                </button>
+                <button
+                  type="submit"
+                  name="intent"
+                  disabled={isCreating}
+                  value="delete"
+                  className="inline-flex justify-center items-center py-4 px-9 rounded-full font-semibold text-white bg-primary mx-auto transition duration-300 ease-in-out hover:hover:bg-opacity-90"
+                >
+                  {isCreating ? "Deleting..." : "Delete post"}
                 </button>
               </div>
             </div>
