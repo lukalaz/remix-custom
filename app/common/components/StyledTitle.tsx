@@ -9,17 +9,23 @@ interface IStyledTitle {
   title: string;
   preTitle?: string;
   description?: string;
+  noMargin?: boolean;
 }
 
 const StyledTitle: React.FC<IStyledTitle> = ({
   title,
   preTitle,
   description,
+  noMargin,
 }) => {
   return (
     <div className="flex flex-wrap mx-[-16px] overflow-x-hidden">
       <div className="w-full px-4">
-        <div className="max-w-[600px] mx-auto text-center mb-[70px]">
+        <div
+          className={`max-w-[600px] mx-auto text-center ${
+            !noMargin ? "mb-[70px]" : ""
+          }`}
+        >
           {preTitle && (
             <motion.span
               {...snapFromLeftAnimation}
