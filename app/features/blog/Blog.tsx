@@ -1,10 +1,4 @@
-import { Link } from "@remix-run/react";
-import { motion } from "framer-motion";
 import StyledTitle from "~/common/components/StyledTitle";
-import {
-  fadeInAnimation,
-  randomShortInterval,
-} from "~/common/utils/AnimationVariants";
 import { Post } from "~/models/post.server";
 import { PostCard } from "./components/PostCard";
 
