@@ -10,6 +10,7 @@ import {
 import styles from "./styles/app.css";
 import Header from "~/common/components/Header";
 import Footer from "./common/components/Footer";
+import NotFound from "./features/NotFound/NotFound";
 
 export function links() {
   return [
@@ -36,6 +37,25 @@ export default function App() {
       <body className="bg-gray-900">
         <Header />
         <Outlet />
+        <ScrollRestoration />
+        <Scripts />
+        <Footer />
+        <LiveReload />
+      </body>
+    </html>
+  );
+}
+
+export function CatchBoundary() {
+  return (
+    <html lang="en" className="scroll-smooth">
+      <head>
+        <Meta />
+        <Links />
+      </head>
+      <body className="bg-gray-900">
+        <Header />
+        <NotFound />
         <ScrollRestoration />
         <Scripts />
         <Footer />
