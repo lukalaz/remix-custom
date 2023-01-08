@@ -38,6 +38,7 @@ const Footer: React.FC = () => {
                   href="https://www.linkedin.com/in/luka-lazic-b3411aa1/"
                   className="font-medium text-base text-body-color mb-1"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <img
                     src={linkedInLogo}
