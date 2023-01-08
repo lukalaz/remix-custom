@@ -6,12 +6,7 @@ import {
   LoaderFunction,
   redirect,
 } from "@remix-run/node";
-import {
-  Form,
-  useActionData,
-  useLoaderData,
-  useTransition,
-} from "@remix-run/react";
+import { useActionData, useLoaderData, useTransition } from "@remix-run/react";
 import StyledTitle from "~/common/components/StyledTitle";
 import { motion } from "framer-motion";
 import {
