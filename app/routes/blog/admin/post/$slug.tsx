@@ -13,6 +13,11 @@ import {
   useTransition,
 } from "@remix-run/react";
 import StyledTitle from "~/common/components/StyledTitle";
+import { motion } from "framer-motion";
+import {
+  animationDelay,
+  snapFromTopAnimation,
+} from "~/common/utils/AnimationVariants";
 
 type ActionData =
   | {
@@ -117,7 +122,11 @@ const addNewPost = () => {
           preTitle="Be Eloquent"
           description="All data is required and checked"
         />
-        <Form method="post">
+        <motion.form
+          method="post"
+          {...snapFromTopAnimation}
+          transition={{ delay: animationDelay[3] }}
+        >
           <h3 className="text-xl font-bold mb-2">Post data</h3>
           <div className="flex flex-wrap -mx-4">
             <div className="w-full px-4">
@@ -211,7 +220,7 @@ const addNewPost = () => {
                 <button
                   type="submit"
                   disabled={isCreating}
-                  className="inline-flex justify-center items-center py-4 px-9 rounded-full font-semibold text-white bg-primary mx-auto transition duration-300 ease-in-out hover:hover:bg-opacity-90"
+                  className="mr-2 inline-flex justify-center items-center py-4 px-9 rounded-full font-semibold text-white bg-primary mx-auto transition duration-300 ease-in-out hover:hover:bg-opacity-90"
                 >
                   {isCreating ? "Working..." : submitButtonText}
                 </button>
@@ -220,14 +229,14 @@ const addNewPost = () => {
                   name="intent"
                   disabled={isCreating}
                   value="delete"
-                  className="inline-flex justify-center items-center py-4 px-9 rounded-full font-semibold text-white bg-primary mx-auto transition duration-300 ease-in-out hover:hover:bg-opacity-90"
+                  className="ml-2 inline-flex justify-center items-center py-4 px-9 rounded-full font-semibold text-white bg-primary mx-auto transition duration-300 ease-in-out hover:hover:bg-opacity-90"
                 >
                   {isCreating ? "Deleting..." : "Delete post"}
                 </button>
               </div>
             </div>
           </div>
-        </Form>
+        </motion.form>
       </div>
     </section>
   );
