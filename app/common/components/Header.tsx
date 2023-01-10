@@ -24,8 +24,19 @@ const Header: React.FC = () => {
     window.addEventListener("scroll", scrollListener);
   }, []);
 
+  const GoogleAnalyticsCode = `<!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4PJ1HWKYRD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-4PJ1HWKYRD');
+  </script>`;
+
   return (
     <div className="pt-20">
+      <div dangerouslySetInnerHTML={{ __html: GoogleAnalyticsCode }} />
       <header className="header box-content bg-gray-800 border-gray-700 border-b fixed h-20 top-0 left-0 z-40 w-full flex items-center transition justify-center z-100">
         <div className="container">
           <div className="flex items-center justify-between relative">
