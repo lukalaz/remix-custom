@@ -23,6 +23,9 @@ export const PostCard: React.FC<IPostCard> = ({ post }) => {
         <div className="grid gap-8 lg:grid-cols-1">
           <article className="p-6 rounded-lg border shadow-md bg-gray-800 border-gray-700">
             <div className="flex justify-between items-center mb-5 text-gray-500">
+              {/*
+              TODO: Add category names and links to category pages in the future
+              
               <span className="text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded bg-primary-200 text-primary-800">
                 <svg
                   className="mr-1 w-3 h-3"
@@ -33,7 +36,7 @@ export const PostCard: React.FC<IPostCard> = ({ post }) => {
                   <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"></path>
                 </svg>
                 Tutorial
-              </span>
+              </span>*/}
               <span className="text-sm">
                 {new Date(post.createdAt).toLocaleDateString(timeZone)}
               </span>
