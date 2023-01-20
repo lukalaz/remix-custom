@@ -35,7 +35,7 @@ body {
 
 /* Blog post body */
 .postBody{
-  @apply text-body-color
+  @apply text-body-color text-lg
 }
 
 .postBody h3{
@@ -44,6 +44,10 @@ body {
 
 .postBody p{
   @apply mb-2
+}
+
+.postBody a {
+  @apply text-primary
 }
 
 /* / Blog post body END */

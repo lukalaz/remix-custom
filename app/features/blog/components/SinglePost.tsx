@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import {
   animationDelay,
+  snapFromLeftAnimation,
   snapFromRightAnimation,
-  snapFromTopAnimation,
 } from "~/common/utils/AnimationVariants";
 import { Post } from "~/models/post.server";
 import { PostHeader } from "./PostHeader";
@@ -19,18 +19,19 @@ export const SinglePost: React.FC<ISinglePost> = ({ post, markdown }) => {
       <div className="pb-[120px]">
         <div className="flex flex-wrap justify-center mx-[-16px]">
           <div className="w-full px-4">
-            <motion.div
-              {...snapFromTopAnimation}
-              transition={{ delay: animationDelay[1] }}
-            >
+            <motion.div>
               <PostHeader post={post} />
-              <div
+              <motion.div
+                {...snapFromLeftAnimation}
+                transition={{ delay: animationDelay[2] }}
                 className="postBody"
-                dangerouslySetInnerHTML={{ __html: markdown }}
+                dangerouslySetInnerHTML={{
+                  __html: markdown.replace(/href/g, "target='_blank' href"),
+                }}
               />
               <motion.div
                 {...snapFromRightAnimation}
-                transition={{ delay: animationDelay[2] }}
+                transition={{ delay: animationDelay[3] }}
               >
                 <PostShare />
               </motion.div>
