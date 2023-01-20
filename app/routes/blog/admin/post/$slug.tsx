@@ -1,4 +1,10 @@
-import { createPost, deletePost, getPost, Post } from "~/models/post.server";
+import {
+  createPost,
+  deletePost,
+  getPost,
+  Post,
+  updatePost,
+} from "~/models/post.server";
 import invariant from "tiny-invariant";
 import {
   ActionFunction,
@@ -49,20 +55,12 @@ export const action: ActionFunction = async ({ request }) => {
   const seo_title = formData.get("seo_title");
   const seo_description = formData.get("seo_description");
   const intent = formData.get("intent");
-
-  console.log(intent, slug);
+  const postExists = formData.get("postExists");
 
   if (intent === "delete" && slug) {
     deletePost(slug.toString());
     return redirect("/blog");
   }
-
-  const getUrlParam = (param: string) => {
-    const url = new URL(request.url);
-    return url.searchParams.get(param);
-  };
-
-  console.log(getUrlParam("slug"));
 
   const errors: ActionData = {
     title: title ? null : "Title is required",
@@ -87,7 +85,7 @@ export const action: ActionFunction = async ({ request }) => {
     "SEO description must be a string"
   );
 
-  await createPost({
+  await (postExists ? updatePost : createPost)({
     title,
     slug,
     markdown,
@@ -122,6 +120,7 @@ const addNewPost = () => {
           {...snapFromTopAnimation}
           transition={{ delay: animationDelay[3] }}
         >
+          <input type="hidden" name="postExists" value={+postExists} />
           <h3 className="text-xl font-bold mb-2">Post data</h3>
           <div className="flex flex-wrap -mx-4">
             <div className="w-full px-4">
