@@ -27,6 +27,18 @@ export async function createPost(
   return prisma.post.create({ data: post });
 }
 
+export async function updatePost(
+  post: Pick<
+    Post,
+    "slug" | "title" | "markdown" | "excerpt" | "seo_title" | "seo_description"
+  >
+) {
+  return prisma.post.update({
+    where: { slug: post.slug },
+    data: post,
+  });
+}
+
 export async function deletePost(slug: string) {
   console.log("ovde smo dosli");
 
