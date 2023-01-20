@@ -1,4 +1,10 @@
+import { motion } from "framer-motion";
 import { timeZone } from "~/common/constants/dateTimeConstants";
+import {
+  animationDelay,
+  snapFromLeftAnimation,
+  snapFromRightAnimation,
+} from "~/common/utils/AnimationVariants";
 import { Post } from "~/models/post.server";
 import avatar from "../../../assets/images/avatar.jpg";
 
@@ -12,10 +18,18 @@ export const PostHeader: React.FC<IPostHeader> = ({ post }) => {
 
   return (
     <div>
-      <h1 className="text-white font-bold text-3xl sm:text-4xl leading-tight sm:leading-tight mb-8">
+      <motion.h1
+        {...snapFromLeftAnimation}
+        transition={{ delay: animationDelay[1] }}
+        className="text-white font-bold text-3xl sm:text-4xl leading-tight sm:leading-tight mb-8"
+      >
         {title}
-      </h1>
-      <div className="flex flex-wrap items-center justify-between pb-4 mb-10 border-b border-[#E9ECF8]">
+      </motion.h1>
+      <motion.div
+        {...snapFromRightAnimation}
+        transition={{ delay: animationDelay[2] }}
+        className="flex flex-wrap items-center justify-between pb-4 mb-10 border-b border-[#E9ECF8]"
+      >
         <div className="flex flex-wrap items-center">
           <div className="flex items-center mr-10 mb-5">
             <div className="max-w-[40px] w-full h-[40px] rounded-full overflow-hidden mr-4">
@@ -55,7 +69,7 @@ export const PostHeader: React.FC<IPostHeader> = ({ post }) => {
             </p>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
