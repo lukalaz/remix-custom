@@ -44,8 +44,8 @@ export const action: ActionFunction = async ({ request }) => {
   Sendgrid.setApiKey(process.env.SENDGRID_API_KEY || "");
 
   const msg = {
-    to: "luka.web.php@gmail.com", // Change to your recipient
-    from: "luka.web.php@gmail.com", // Change to your verified sender
+    to: "luka.web.php@gmail.com",
+    from: "luka.web.php@gmail.com",
     subject: "Mail sa l-l.tech sajta",
     text: message?.toString(),
     html: message?.toString() || "",
