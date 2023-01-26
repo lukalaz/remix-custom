@@ -24,15 +24,6 @@ type Error =
     }
   | undefined;
 
-export async function loader() {
-  return json({
-    ENV: {
-      DATABASE_URL: process.env.DATABASE_URL,
-      SENDGRID_API_KEY: process.env.SENDGRID_API_KEY,
-    },
-  });
-}
-
 export const action: ActionFunction = async ({ request }) => {
   const formData = await request.formData();
 
@@ -51,16 +42,10 @@ export const action: ActionFunction = async ({ request }) => {
   }
 
   Sendgrid.setApiKey(process.env.SENDGRID_API_KEY || "");
-  // This might not be the best way to handle this api key
-  // but since it's a free Sendgrid account for my personal website
-  // I didn't want to waste too much time on this. If you read this
-  // and have a better idea on how to handle it, please do let me know :)
-  // Also, if someone actually reads this know that I really appreciate you!
-  // Mention this to me at any time and I WILL buy you a beer
 
   const msg = {
-    to: "luka.web.php@gmail.com", // Change to your recipient
-    from: "luka.web.php@gmail.com", // Change to your verified sender
+    to: "luka.web.php@gmail.com",
+    from: "luka.web.php@gmail.com",
     subject: "Mail sa l-l.tech sajta",
     text: message?.toString(),
     html: message?.toString() || "",

@@ -26,11 +26,6 @@ const ContactMe: React.FC = () => {
         <div className="flex justify-center -mx-4 relative">
           <div className="w-full lg:w-9/12 px-4">
             <Form method="post">
-              <input
-                type={"hidden"}
-                value={data.ENV.SENDGRID_API_KEY}
-                name="sgapikey"
-              />
               <div className="flex flex-wrap -mx-4">
                 <div className="w-full md:w-1/2 px-4">
                   <div className="mb-6">
