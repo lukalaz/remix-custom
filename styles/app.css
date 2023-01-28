@@ -91,6 +91,10 @@ body {
   display: inline-flex!important;
 }
 
+/* hide google captcha button */
+.grecaptcha-badge { 
+  visibility: hidden;
+}
 
 /* Stars background style */
 #stars {
