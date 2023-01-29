@@ -85,6 +85,8 @@ export const action: ActionFunction = async ({ request }) => {
     "SEO description must be a string"
   );
 
+  console.log(postExists ? "updatePost" : "createPost");
+
   await (postExists ? updatePost : createPost)({
     title,
     slug,
@@ -97,7 +99,7 @@ export const action: ActionFunction = async ({ request }) => {
   return redirect("/blog");
 };
 
-const addNewPost = () => {
+const addEditPost = () => {
   const transition = useTransition();
   const isCreating = Boolean(transition.submission);
   const errors = useActionData();
@@ -120,7 +122,6 @@ const addNewPost = () => {
           {...snapFromTopAnimation}
           transition={{ delay: animationDelay[3] }}
         >
-          <input type="hidden" name="postExists" value={+postExists} />
           <h3 className="text-xl font-bold mb-2">Post data</h3>
           <div className="flex flex-wrap -mx-4">
             <div className="w-full px-4">
@@ -236,4 +237,4 @@ const addNewPost = () => {
   );
 };
 
-export default addNewPost;
+export default addEditPost;
