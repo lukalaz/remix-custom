@@ -60,8 +60,9 @@ export const action: ActionFunction = async ({ request }) => {
       });
     })
     .catch((error) => {
+      // TODO: Maybe there can be multiple errors in a single response, to be investigated
       return json<Error>({
-        errorMessage: `The email failed to send. We're sorry! Message: ${error}`,
+        errorMessage: error.response.body.errors[0].message,
       });
     });
 

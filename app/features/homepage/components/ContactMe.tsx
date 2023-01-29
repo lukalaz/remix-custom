@@ -5,6 +5,7 @@ import {
   GoogleReCaptcha,
   GoogleReCaptchaProvider,
 } from "react-google-recaptcha-v3";
+import ErrorMessage from "~/common/components/ErrorMessage";
 import StyledTitle from "~/common/components/StyledTitle";
 import SuccessMessage from "~/common/components/SuccessMessage";
 import {
@@ -89,7 +90,7 @@ const ContactMe: React.FC = () => {
                       />
                     )}
                     {response?.errorMessage && (
-                      <SuccessMessage
+                      <ErrorMessage
                         heading="Error"
                         description={response?.errorMessage}
                       />
