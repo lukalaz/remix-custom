@@ -55,7 +55,7 @@ export const action: ActionFunction = async ({ request }) => {
   const seo_title = formData.get("seo_title");
   const seo_description = formData.get("seo_description");
   const intent = formData.get("intent");
-  const postExists = formData.get("postExists");
+  const postExists = formData.get("postExists") || 0;
 
   if (intent === "delete" && slug) {
     deletePost(slug.toString());
@@ -85,9 +85,7 @@ export const action: ActionFunction = async ({ request }) => {
     "SEO description must be a string"
   );
 
-  console.log(postExists ? "updatePost" : "createPost");
-
-  await (postExists ? updatePost : createPost)({
+  await (+postExists ? updatePost : createPost)({
     title,
     slug,
     markdown,
