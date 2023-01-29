@@ -122,6 +122,8 @@ const addEditPost = () => {
           {...snapFromTopAnimation}
           transition={{ delay: animationDelay[3] }}
         >
+          <input type="hidden" name="postExists" value={+postExists} />
+          {/* TODO: possibly write this in a cleaner way*/}
           <h3 className="text-xl font-bold mb-2">Post data</h3>
           <div className="flex flex-wrap -mx-4">
             <div className="w-full px-4">
