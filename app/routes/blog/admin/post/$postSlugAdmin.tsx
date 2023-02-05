@@ -34,13 +34,13 @@ type ActionData =
 type LoaderData = { post: Post };
 
 export const loader: LoaderFunction = async ({ params }) => {
-  invariant(params.slug, `params.slug is required`);
+  invariant(params.postSlugAdmin, `params.postSlugAdmin is required`);
 
-  if (params.slug == "new") {
+  if (params.postSlugAdmin == "new") {
     return json<LoaderData>({ post: {} as any });
   }
-  const post = await getPost(params.slug);
-  invariant(post, `Post not found: ${params.slug}`);
+  const post = await getPost(params.postSlugAdmin);
+  invariant(post, `Post not found: ${params.postSlugAdmin}`);
 
   return json<LoaderData>({ post });
 };

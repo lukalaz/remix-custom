@@ -35,13 +35,13 @@ type ActionData =
 type LoaderData = { project: Project };
 
 export const loader: LoaderFunction = async ({ params }) => {
-  invariant(params.slug, `params.slug is required`);
+  invariant(params.projectSlugAdmin, `params.slug is required`);
 
-  if (params.slug == "new") {
+  if (params.projectSlugAdmin == "new") {
     return json<LoaderData>({ project: {} as any });
   }
-  const project = await getProject(params.slug);
-  invariant(project, `Project not found: ${params.slug}`);
+  const project = await getProject(params.projectSlugAdmin);
+  invariant(project, `Project not found: ${params.projectSlugAdmin}`);
 
   return json<LoaderData>({ project });
 };

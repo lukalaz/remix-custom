@@ -11,10 +11,10 @@ import { SingleProject } from "~/features/projects/components/SingleProject";
 type LoaderData = { project: Project; html: string };
 
 export const loader: LoaderFunction = async ({ params }) => {
-  invariant(params.slug, `params.slug is required`);
+  invariant(params.projectSlug, `params.projectSlug is required`);
 
-  const project = await getProject(params.slug);
-  invariant(project, `Post not found: ${params.slug}`);
+  const project = await getProject(params.projectSlug);
+  invariant(project, `Project not found: ${params.projectSlug}`);
 
   const html = marked(project.markdown);
   return json<LoaderData>({ project, html });

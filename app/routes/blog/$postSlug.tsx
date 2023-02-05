@@ -11,10 +11,10 @@ import { SinglePost } from "../../features/blog/components/SinglePost";
 type LoaderData = { post: Post; html: string };
 
 export const loader: LoaderFunction = async ({ params }) => {
-  invariant(params.slug, `params.slug is required`);
+  invariant(params.postSlug, `params.slug is required`);
 
-  const post = await getPost(params.slug);
-  invariant(post, `Post not found: ${params.slug}`);
+  const post = await getPost(params.postSlug);
+  invariant(post, `Post not found: ${params.postSlug}`);
 
   const html = marked(post.markdown);
   return json<LoaderData>({ post, html });
