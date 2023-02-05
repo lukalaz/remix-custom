@@ -1,5 +1,6 @@
 import StyledTitle from "~/common/components/StyledTitle";
 import { Project } from "@prisma/client";
+import { ProjectCard } from "./components/ProjectCard";
 
 interface IProjects {
   projects: Project[];
@@ -16,7 +17,7 @@ const ProjectPosts: React.FC<IProjects> = ({ projects }) => {
         />
         <div className="justify-center p-0 max-w-[800px] m-auto">
           {projects.map((project: Project) => (
-            <>{project.slug}</>
+            <ProjectCard project={project} />
           ))}
         </div>
       </div>

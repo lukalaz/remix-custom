@@ -36,7 +36,13 @@ export async function createProject(
 export async function updateProject(
   project: Pick<
     Project,
-    "slug" | "title" | "markdown" | "excerpt" | "seo_title" | "seo_description"
+    | "slug"
+    | "title"
+    | "markdown"
+    | "excerpt"
+    | "seo_title"
+    | "seo_description"
+    | "technologies"
   >
 ) {
   return prisma.project.update({

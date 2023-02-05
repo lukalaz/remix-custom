@@ -4,15 +4,15 @@ import {
   animationDelay,
   fadeInAnimation,
 } from "~/common/utils/AnimationVariants";
-import { Post } from "~/models/post.server";
+import { Project } from "~/models/project.server";
 import avatar from "../../../assets/images/avatar.jpg";
 import { timeZone } from "~/common/constants/dateTimeConstants";
 
-interface IBlogCard {
-  post: Post;
+interface IProjectCard {
+  project: Project;
 }
 
-export const BlogCard: React.FC<IBlogCard> = ({ post }) => {
+export const ProjectCard: React.FC<IProjectCard> = ({ project }) => {
   return (
     <motion.section
       {...fadeInAnimation}
@@ -38,13 +38,13 @@ export const BlogCard: React.FC<IBlogCard> = ({ post }) => {
                 Tutorial
               </span>*/}
               <span className="text-sm">
-                {new Date(post.createdAt).toLocaleDateString(timeZone)}
+                {new Date(project.createdAt).toLocaleDateString(timeZone)}
               </span>
             </div>
             <h2 className="hover-underline-animation mb-2 text-2xl font-bold tracking-tight text-white">
-              <Link to={post.slug}>{post.title}</Link>
+              <Link to={project.slug}>{project.title}</Link>
             </h2>
-            <p className="mb-5 font-light text-gray-400">{post.excerpt}</p>
+            <p className="mb-5 font-light text-gray-400">{project.excerpt}</p>
             <div className="flex justify-between items-center">
               <div className="flex items-center space-x-4">
                 <img
@@ -55,7 +55,7 @@ export const BlogCard: React.FC<IBlogCard> = ({ post }) => {
                 <span className="font-medium text-white">Luka Lazic</span>
               </div>
               <Link
-                to={post.slug}
+                to={project.slug}
                 className="inline-flex-important items-center font-medium text-white hover-underline-animation"
               >
                 Read more
