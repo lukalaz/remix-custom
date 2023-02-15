@@ -19,3 +19,16 @@ model Post {
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
 }
+
+model Project {
+  slug            String   @id
+  title           String
+  markdown        String
+  excerpt         String
+  seo_title       String
+  seo_description String
+  technologies    String
+  github          String
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}

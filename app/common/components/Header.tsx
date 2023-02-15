@@ -105,6 +105,21 @@ const Header: React.FC = () => {
                     >
                       <Link
                         onClick={() => setIsOpenMobileMenu(false)}
+                        to={"/projects"}
+                        className="hover-underline-animation menu-scroll text-base lg:text-white py-2 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12"
+                      >
+                        Projects
+                      </Link>
+                    </motion.li>
+                    <motion.li
+                      {...snapFromTopAnimation}
+                      transition={{
+                        delay: isMobileView ? 0 : animationDelay[2.3],
+                      }}
+                      className="relative group"
+                    >
+                      <Link
+                        onClick={() => setIsOpenMobileMenu(false)}
                         to="/#contact"
                         className="hover-underline-animation menu-scroll text-base lg:text-white py-2 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12"
                       >

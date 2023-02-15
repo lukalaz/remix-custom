@@ -10,9 +10,15 @@ import avatar from "../../../assets/images/avatar.jpg";
 
 interface IPostHeader {
   post: Post;
+  technologies?: string;
+  github?: string;
 }
 
-export const PostHeader: React.FC<IPostHeader> = ({ post }) => {
+export const PostHeader: React.FC<IPostHeader> = ({
+  post,
+  technologies,
+  github,
+}) => {
   const { title, createdAt } = post;
   const createdDate = new Date(createdAt).toLocaleDateString(timeZone);
 
@@ -28,7 +34,7 @@ export const PostHeader: React.FC<IPostHeader> = ({ post }) => {
       <motion.div
         {...snapFromRightAnimation}
         transition={{ delay: animationDelay[2] }}
-        className="flex flex-wrap items-center justify-between pb-4 mb-10 border-b border-[#E9ECF8]"
+        className="flex flex-wrap flex-col items-start justify-between pb-4 mb-10 border-b border-[#E9ECF8]"
       >
         <div className="flex flex-wrap items-center">
           <div className="flex items-center mr-10 mb-5">
@@ -68,7 +74,25 @@ export const PostHeader: React.FC<IPostHeader> = ({ post }) => {
               {createdDate}
             </p>
           </div>
-        </div>
+        </div>{" "}
+        {technologies && (
+          <p className="mb-2 font-light text-sm text-gray-400">
+            <span className="text-gray-500">Technologies used:</span>{" "}
+            {technologies}
+          </p>
+        )}
+        {github && (
+          <p className="mb-2 font-light text-sm text-gray-400">
+            <span className="text-gray-500">Github repo: </span>
+            <a
+              href={github}
+              className="hover-underline-animation menu-scroll text-sm"
+              target={"_blank"}
+            >
+              {github}
+            </a>
+          </p>
+        )}
       </motion.div>
     </div>
   );

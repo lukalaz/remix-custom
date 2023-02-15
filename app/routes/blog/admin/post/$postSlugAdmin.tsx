@@ -34,13 +34,13 @@ type ActionData =
 type LoaderData = { post: Post };
 
 export const loader: LoaderFunction = async ({ params }) => {
-  invariant(params.slug, `params.slug is required`);
+  invariant(params.postSlugAdmin, `params.postSlugAdmin is required`);
 
-  if (params.slug == "new") {
+  if (params.postSlugAdmin == "new") {
     return json<LoaderData>({ post: {} as any });
   }
-  const post = await getPost(params.slug);
-  invariant(post, `Post not found: ${params.slug}`);
+  const post = await getPost(params.postSlugAdmin);
+  invariant(post, `Post not found: ${params.postSlugAdmin}`);
 
   return json<LoaderData>({ post });
 };
@@ -55,7 +55,7 @@ export const action: ActionFunction = async ({ request }) => {
   const seo_title = formData.get("seo_title");
   const seo_description = formData.get("seo_description");
   const intent = formData.get("intent");
-  const postExists = formData.get("postExists");
+  const postExists = formData.get("postExists") || 0;
 
   if (intent === "delete" && slug) {
     deletePost(slug.toString());
@@ -85,7 +85,7 @@ export const action: ActionFunction = async ({ request }) => {
     "SEO description must be a string"
   );
 
-  await (postExists ? updatePost : createPost)({
+  await (+postExists ? updatePost : createPost)({
     title,
     slug,
     markdown,
@@ -97,7 +97,7 @@ export const action: ActionFunction = async ({ request }) => {
   return redirect("/blog");
 };
 
-const addNewPost = () => {
+const addEditPost = () => {
   const transition = useTransition();
   const isCreating = Boolean(transition.submission);
   const errors = useActionData();
@@ -121,6 +121,7 @@ const addNewPost = () => {
           transition={{ delay: animationDelay[3] }}
         >
           <input type="hidden" name="postExists" value={+postExists} />
+          {/* TODO: possibly write this in a cleaner way*/}
           <h3 className="text-xl font-bold mb-2">Post data</h3>
           <div className="flex flex-wrap -mx-4">
             <div className="w-full px-4">
@@ -236,4 +237,4 @@ const addNewPost = () => {
   );
 };
 
-export default addNewPost;
+export default addEditPost;
