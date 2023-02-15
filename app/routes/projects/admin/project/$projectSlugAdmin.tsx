@@ -29,6 +29,7 @@ type ActionData =
       seo_title: null | string;
       seo_description: null | string;
       technologies: null | string;
+      github: null | string;
     }
   | undefined;
 
@@ -60,6 +61,7 @@ export const action: ActionFunction = async ({ request }) => {
   const technologies = formData.get("technologies");
   const intent = formData.get("intent");
   const projectExists = formData.get("projectExists") || 0;
+  const github = formData.get("github") || 0;
 
   if (intent === "delete" && slug) {
     deleteProject(slug.toString());
@@ -76,6 +78,7 @@ export const action: ActionFunction = async ({ request }) => {
     seo_title: seo_title ? null : "Meta title is required",
     seo_description: seo_description ? null : "Meta description is required",
     technologies: technologies ? null : "Technologies are required",
+    github: github ? null : "Github link is required",
   };
   const hasErrors = Object.values(errors).some((errorMessage) => errorMessage);
   if (hasErrors) {
@@ -88,6 +91,7 @@ export const action: ActionFunction = async ({ request }) => {
   invariant(typeof excerpt === "string", "excerpt must be a string");
   invariant(typeof seo_title === "string", "SEO title must be a string");
   invariant(typeof technologies === "string", "technologies must be a string");
+  invariant(typeof github === "string", "github must be a string");
   invariant(
     typeof seo_description === "string",
     "SEO description must be a string"
@@ -101,6 +105,7 @@ export const action: ActionFunction = async ({ request }) => {
     seo_title,
     seo_description,
     technologies,
+    github,
   });
 
   return redirect("/projects");
@@ -199,6 +204,20 @@ const addEditProject = () => {
                   className="input-field"
                   name="technologies"
                   defaultValue={project.technologies}
+                />
+              </div>
+            </div>
+            <div className="w-full px-4">
+              <div className="mb-6">
+                {errors?.github ? (
+                  <em className="text-red-600">{errors.github}</em>
+                ) : null}
+                <input
+                  type="text"
+                  placeholder="Github URL"
+                  className="input-field"
+                  name="github"
+                  defaultValue={project.github}
                 />
               </div>
             </div>

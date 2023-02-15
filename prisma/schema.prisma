@@ -28,6 +28,7 @@ model Project {
   seo_title       String
   seo_description String
   technologies    String
+  github          String
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
 }

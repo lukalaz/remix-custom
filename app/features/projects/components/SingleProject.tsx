@@ -8,19 +8,26 @@ import { PostHeader } from "~/features/blog/components/PostHeader";
 import { PostShare } from "~/features/blog/components/PostShare";
 import { Project } from "~/models/project.server";
 
-interface ISinglePost {
+interface ISingleProject {
   project: Project;
   markdown: any;
 }
 
-export const SingleProject: React.FC<ISinglePost> = ({ project, markdown }) => {
+export const SingleProject: React.FC<ISingleProject> = ({
+  project,
+  markdown,
+}) => {
   return (
     <div className="container mt-12">
       <div className="pb-[120px]">
         <div className="flex flex-wrap justify-center mx-[-16px]">
           <div className="w-full px-4">
             <motion.div>
-              <PostHeader post={project} />
+              <PostHeader
+                post={project}
+                technologies={project.technologies}
+                github={project.github}
+              />
               <motion.div
                 {...snapFromLeftAnimation}
                 transition={{ delay: animationDelay[2] }}

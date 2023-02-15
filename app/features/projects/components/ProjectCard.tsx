@@ -45,6 +45,12 @@ export const ProjectCard: React.FC<IProjectCard> = ({ project }) => {
               <Link to={project.slug}>{project.title}</Link>
             </h2>
             <p className="mb-5 font-light text-gray-400">{project.excerpt}</p>
+            {project.technologies && (
+              <p className="mb-5 font-light text-sm text-gray-400">
+                <span className="text-gray-500">Technologies used:</span>{" "}
+                {project.technologies}
+              </p>
+            )}
             <div className="flex justify-between items-center">
               <div className="flex items-center space-x-4">
                 <img

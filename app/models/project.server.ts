@@ -28,6 +28,7 @@ export async function createProject(
     | "seo_title"
     | "seo_description"
     | "technologies"
+    | "github"
   >
 ) {
   return prisma.project.create({ data: project });
@@ -43,6 +44,7 @@ export async function updateProject(
     | "seo_title"
     | "seo_description"
     | "technologies"
+    | "github"
   >
 ) {
   return prisma.project.update({

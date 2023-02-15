@@ -13,7 +13,7 @@ const ProjectPosts: React.FC<IProjects> = ({ projects }) => {
         <StyledTitle
           title="Projects"
           preTitle="Don't read this"
-          description="Some of my private, off job projects that I would like to share."
+          description="Some of my private, off work projects that I would like to share."
         />
         <div className="justify-center p-0 max-w-[800px] m-auto">
           {projects.map((project: Project) => (
