@@ -25,6 +25,8 @@ export const meta: MetaFunction = () => ({
   description:
     "This is my personal website where I showcase my projects and write about web development. I like to use React, Remix, Tailwind, Prisma and more!",
   viewport: "width=device-width,initial-scale=1",
+  keywords:
+    "luka lazic, blog, developer, react, typescript, remix, tailwind, c#, dotnet, entity framework",
 });
 
 export default function App() {
