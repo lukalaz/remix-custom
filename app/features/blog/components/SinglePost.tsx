@@ -26,10 +26,15 @@ export const SinglePost: React.FC<ISinglePost> = ({ post, markdown }) => {
                 transition={{ delay: animationDelay[2] }}
                 className="postBody"
                 dangerouslySetInnerHTML={{
-                  __html: markdown.replace(
-                    /href/g,
-                    "target='_blank' class='hover-underline-animation hover:text-white transition-all' href"
-                  ),
+                  __html: markdown
+                    .replace(
+                      /href/g,
+                      "target='_blank' class='hover-underline-animation hover:text-white transition-all' href"
+                    )
+                    .replace(
+                      /<pre>/g,
+                      "<pre class='bg-gray-700 text-white p-2'>"
+                    ),
                 }}
               />
               <motion.div

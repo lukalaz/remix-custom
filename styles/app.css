@@ -39,16 +39,21 @@ body {
 }
 
 .postBody h3{
-  @apply text-2xl mb-4
+  @apply text-2xl mb-4 text-white
 }
 
 .postBody p{
-  @apply mb-2
+  @apply mb-8
 }
 
 .postBody a {
   @apply text-primary
 }
+
+.postBody pre {
+  @apply whitespace-pre-wrap mb-8
+}
+
 
 /* / Blog post body END */
 

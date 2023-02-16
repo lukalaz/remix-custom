@@ -20,12 +20,13 @@ export const loader: LoaderFunction = async ({ params }) => {
   return json<LoaderData>({ post, html });
 };
 
+import { meta as rootMeta } from "../../root";
+
 export const meta: MetaFunction = ({ data }) => {
   return {
-    charset: "utf-8",
+    ...rootMeta,
     title: data.post.seo_title + " | Luka Lazic l-l tech",
     description: data.post.seo_description,
-    viewport: "width=device-width,initial-scale=1",
   };
 };
 
