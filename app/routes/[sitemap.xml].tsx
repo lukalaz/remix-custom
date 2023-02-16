@@ -15,7 +15,7 @@ export const loader: LoaderFunction = async () => {
 
   const projectList = projects.map(
     (project) => `<url>
-    <loc>https://l-l.tech/blog/${project.slug}</loc>
+    <loc>https://l-l.tech/projects/${project.slug}</loc>
     <lastmod>${project.updatedAt.toISOString()}</lastmod>
     </url>`
   );
@@ -32,8 +32,8 @@ export const loader: LoaderFunction = async () => {
       <loc>https://l-l.tech/blog</loc>
       <lastmod>${lastModifiedDate}</lastmod>
       </url>
-      ${postList}
-      ${projectList}
+      ${postList.join("")}
+      ${projectList.join("")}
       </urlset>
       `;
 
