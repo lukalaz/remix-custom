@@ -4,25 +4,19 @@ import Hero from "~/features/homepage/components/Hero";
 import TechStack from "~/features/homepage/components/TechStack";
 import Sendgrid from "@sendgrid/mail";
 
-type ActionData =
-  | {
-      name: null | string;
-      email: null | string;
-      message: null | string;
-    }
-  | undefined;
+type ActionData = {
+  name: null | string;
+  email: null | string;
+  message: null | string;
+};
 
-type Success =
-  | {
-      successMessage: string;
-    }
-  | undefined;
+type Success = {
+  successMessage: string;
+};
 
-type Error =
-  | {
-      errorMessage: string;
-    }
-  | undefined;
+type Error = {
+  errorMessage: string;
+};
 
 export const action: ActionFunction = async ({ request }) => {
   const formData = await request.formData();
@@ -36,7 +30,9 @@ export const action: ActionFunction = async ({ request }) => {
     email: email ? null : "Email is required",
     message: message ? null : "Message is required",
   };
+
   const hasErrors = Object.values(errors).some((errorMessage) => errorMessage);
+
   if (hasErrors) {
     return json<ActionData>(errors);
   }
@@ -53,8 +49,6 @@ export const action: ActionFunction = async ({ request }) => {
 
   const res = await Sendgrid.send(msg)
     .then(() => {
-      console.log("poslasmo");
-
       return json<Success>({
         successMessage: "Email sent succesfully. Hvala!",
       });
