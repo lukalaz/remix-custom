@@ -11,11 +11,16 @@ import styles from "./styles/app.css";
 import Header from "~/common/components/Header";
 import Footer from "./common/components/Footer";
 import NotFound from "./features/NotFound/NotFound";
+import highlightCss from "highlight.js/styles/atom-one-dark.css";
 
 export function links() {
   return [
     { rel: "stylesheet", href: styles },
     { rel: "stylesheet", href: "https://use.typekit.net/ztf5rux.css" },
+    {
+      rel: "stylesheet",
+      href: highlightCss,
+    },
   ];
 }
 

@@ -7,6 +7,7 @@ import {
 import { Post } from "~/models/post.server";
 import { PostHeader } from "./PostHeader";
 import { PostShare } from "./PostShare";
+import { HighlightedHtmlContent } from "./HighlightedHtml";
 
 interface ISinglePost {
   post: Post;
@@ -25,18 +26,9 @@ export const SinglePost: React.FC<ISinglePost> = ({ post, markdown }) => {
                 {...snapFromLeftAnimation}
                 transition={{ delay: animationDelay[2] }}
                 className="postBody"
-                dangerouslySetInnerHTML={{
-                  __html: markdown
-                    .replace(
-                      /href/g,
-                      "target='_blank' class='hover-underline-animation hover:text-white transition-all' href"
-                    )
-                    .replace(
-                      /<pre>/g,
-                      "<pre class='bg-gray-700 text-white p-2'>"
-                    ),
-                }}
-              />
+              >
+                <HighlightedHtmlContent htmlContent={markdown} />
+              </motion.div>
               <motion.div
                 {...snapFromRightAnimation}
                 transition={{ delay: animationDelay[3] }}

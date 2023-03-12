@@ -17,6 +17,7 @@
     "@remix-run/serve": "^1.6.8",
     "@sendgrid/mail": "^7.7.0",
     "framer-motion": "^7.5.1",
+    "highlight.js": "^11.7.0",
     "marked": "^4.1.0",
     "prisma": "^4.3.1",
     "react": "^18.2.0",
