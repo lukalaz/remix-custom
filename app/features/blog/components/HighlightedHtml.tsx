@@ -18,12 +18,7 @@ const HighlightedHtmlContent: React.FC<IHighlightedHtmlContent> = ({
       const codeBlocks = containerRef.current.querySelectorAll("code");
 
       codeBlocks.forEach((block) => {
-        const languageMatch = block.className.match(/language-(\w+)/);
-        const language = languageMatch ? languageMatch[1] : undefined;
-
-        if (language) {
-          hljs.highlightBlock(block);
-        }
+        hljs.highlightBlock(block);
       });
     }
   }, [htmlContent]);
