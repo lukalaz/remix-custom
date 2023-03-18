@@ -8,14 +8,14 @@ export const loader: LoaderFunction = async () => {
 
   const postList = posts.map(
     (post) => `<url>
-  <loc>https://l-l.tech/blog/${post.slug}</loc>
+  <loc>https://lukalazic.com/blog/${post.slug}</loc>
   <lastmod>${post.updatedAt.toISOString()}</lastmod>
   </url>`
   );
 
   const projectList = projects.map(
     (project) => `<url>
-    <loc>https://l-l.tech/projects/${project.slug}</loc>
+    <loc>https://lukalazic.com/projects/${project.slug}</loc>
     <lastmod>${project.updatedAt.toISOString()}</lastmod>
     </url>`
   );
@@ -25,11 +25,11 @@ export const loader: LoaderFunction = async () => {
   const content = ` 
       <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
       <url>
-      <loc>https://l-l.tech/</loc>
+      <loc>https://lukalazic.com/</loc>
       <lastmod>2022-11-12T16:43:34.833Z</lastmod>
       </url>
       <url>
-      <loc>https://l-l.tech/blog</loc>
+      <loc>https://lukalazic.com/blog</loc>
       <lastmod>${lastModifiedDate}</lastmod>
       </url>
       ${postList.join("")}

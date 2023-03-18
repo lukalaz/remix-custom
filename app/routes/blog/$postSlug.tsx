@@ -25,7 +25,7 @@ import { meta as rootMeta } from "../../root";
 export const meta: MetaFunction = ({ data }) => {
   return {
     ...rootMeta,
-    title: data.post.seo_title + " | Luka Lazic l-l tech",
+    title: data.post.seo_title + " | Luka Lazic Blog",
     description: data.post.seo_description,
   };
 };

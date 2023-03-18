@@ -6,7 +6,7 @@ export const loader = () => {
         User-agent: *
         Allow: /
     
-        Sitemap: http://www.l-l.tech/sitemap.xml`;
+        Sitemap: https://lukalazic.com/sitemap.xml`;
 
   return new Response(robotText, {
     status: 200,
