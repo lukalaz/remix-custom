@@ -42,7 +42,7 @@ export const action: ActionFunction = async ({ request }) => {
   const msg = {
     to: "luka.web.php@gmail.com",
     from: "luka.web.php@gmail.com",
-    subject: "Mail sa l-l.tech sajta",
+    subject: "Mail sa lukalazic.com sajta",
     text: message?.toString(),
     html: message?.toString() || "",
   };
