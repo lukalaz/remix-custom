@@ -26,7 +26,7 @@ export function links() {
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
-  title: "Luka Lazic | Typescript Development | ll-tech",
+  title: "Luka Lazic | Typescript Development",
   description:
     "This is my personal website where I showcase my projects and write about web development. I like to use React, Remix, Tailwind, Prisma and more!",
   viewport: "width=device-width,initial-scale=1",
