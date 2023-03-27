@@ -23,7 +23,7 @@ steps:
 - task: CopyFiles@2
   displayName: Copy build output
   inputs:
-    sourceFolder: "./bright-pensioen-web/dist"
+    sourceFolder: "./remix-custom-main/dist"
     contents: "**/*"
     targetFolder: '$(Build.ArtifactStagingDirectory)\build'
     cleanTargetFolder: true
