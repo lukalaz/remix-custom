@@ -27,6 +27,10 @@ steps:
       # Write your PowerShell commands here.
       
       dir
+      cd ..
+      dir
+      cd ..
+      dir
 
 - task: CopyFiles@2
   displayName: Copy build output
