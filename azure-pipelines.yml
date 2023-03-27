@@ -19,3 +19,24 @@ steps:
     npm install
     npm run build
   displayName: 'npm install and build'
+
+- task: CopyFiles@2
+  displayName: Copy build output
+  inputs:
+    sourceFolder: "./bright-pensioen-web/dist"
+    contents: "**/*"
+    targetFolder: '$(Build.ArtifactStagingDirectory)\build'
+    cleanTargetFolder: true
+
+- task: ArchiveFiles@2
+  displayName: Archive build output
+  inputs:
+    rootFolderOrFile: '$(Build.ArtifactStagingDirectory)\build'
+    archiveType: "zip"
+    archiveFile: '$(Build.ArtifactStagingDirectory)\build.zip'
+    includeRootFolder: false
+
+- task: PublishBuildArtifacts@1
+  displayName: Publish Build Artifacts
+  inputs:
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)\build.zip'
