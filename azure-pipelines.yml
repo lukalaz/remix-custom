@@ -15,22 +15,17 @@ steps:
     versionSpec: '16.x'
   displayName: 'Install Node.js'
 
-- script: |
-    npm install
-    npm run build
-  displayName: 'npm install and build'
-  
-- task: PowerShell@2
+- task: Npm@1
+  displayName: "Install Dependencies"
   inputs:
-    targetType: 'inline'
-    script: |
-      # Write your PowerShell commands here.
-      
-      dir
-      cd ..
-      dir
-      cd ..
-      dir
+    command: "custom"
+    customCommand: "install --no-optinal"
+  
+- task: Npm@1
+  displayName: "Build App"
+  inputs:
+    command: "custom"
+    customCommand: "run-script build --verbose"
 
 - task: CopyFiles@2
   displayName: Copy build output
