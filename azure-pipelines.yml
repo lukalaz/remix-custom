@@ -31,7 +31,7 @@ steps:
 - task: CopyFiles@2
   displayName: Copy build output
   inputs:
-    sourceFolder: "./dist"
+    sourceFolder: "./build"
     contents: "**/*"
     targetFolder: '$(Build.ArtifactStagingDirectory)\build'
     cleanTargetFolder: true
