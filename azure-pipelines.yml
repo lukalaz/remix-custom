@@ -26,7 +26,8 @@ steps:
   inputs:
     workingDir: "./"
     command: "custom"
-    customCommand: "run-script build --verbose"
+    # customCommand: "run-script build --verbose"
+    customCommand: "start"
 
 - task: CopyFiles@2
   displayName: Copy build output
