@@ -20,14 +20,13 @@ steps:
   inputs:
     command: "custom"
     customCommand: "install --no-optinal"
-  
+
 - task: Npm@1
   displayName: "Build App"
   inputs:
     workingDir: "./"
     command: "custom"
-    # customCommand: "run-script build --verbose"
-    customCommand: "start"
+    customCommand: "build"
 
 - task: CopyFiles@2
   displayName: Copy build output
