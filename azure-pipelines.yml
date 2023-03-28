@@ -26,7 +26,7 @@ steps:
   inputs:
     workingDir: "./"
     command: "custom"
-    customCommand: "build"
+    customCommand: "run build"
 
 - task: CopyFiles@2
   displayName: Copy build output
