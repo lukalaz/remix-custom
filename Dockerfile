@@ -43,6 +43,7 @@ RUN npm run build
 FROM base
 
 ENV NODE_ENV production
+ENV PORT=80
 
 RUN mkdir /app
 WORKDIR /app
@@ -52,5 +53,7 @@ COPY --from=build /app/node_modules/.prisma /app/node_modules/.prisma
 COPY --from=build /app/build /app/build
 COPY --from=build /app/public /app/public
 ADD . .
+
+EXPOSE 80
 
 CMD ["npm", "run", "start"]
