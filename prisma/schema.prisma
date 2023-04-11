@@ -5,7 +5,7 @@ generator client {
 
 datasource db {
   provider             = "sqlserver"
-  url = "sqlserver://lukalaz-server-db.database.windows.net:1433;database=remix-blog-database;user=lukalaz-user;password=tP6j0X2r85W@;encrypt=true"
+  url                  = "sqlserver://lukalaz-server-db.database.windows.net:1433;database=remix-blog-database;user=lukalaz-user;password=tP6j0X2r85W@;encrypt=true;trustServerCertificate=true"
   referentialIntegrity = "prisma"
 }
 
