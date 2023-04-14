@@ -8,7 +8,7 @@ import type { Project } from "~/models/project.server";
 import { getProject } from "~/models/project.server";
 import { SingleProject } from "~/features/projects/components/SingleProject";
 
-type LoaderData = { project: Project; html: string };
+type LoaderData = { project: Project; html: string; canonical: string };
 
 export const loader: LoaderFunction = async ({ params }) => {
   invariant(params.projectSlug, `params.projectSlug is required`);
@@ -16,8 +16,10 @@ export const loader: LoaderFunction = async ({ params }) => {
   const project = await getProject(params.projectSlug);
   invariant(project, `Project not found: ${params.projectSlug}`);
 
+  const canonical = `https://lukalazic.com/projects/${project.slug}`;
+
   const html = marked(project.markdown);
-  return json<LoaderData>({ project, html });
+  return json<LoaderData>({ project, html, canonical });
 };
 
 import { meta as rootMeta } from "../../root";
