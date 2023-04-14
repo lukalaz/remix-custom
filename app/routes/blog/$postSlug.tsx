@@ -3,7 +3,7 @@ import type { LoaderFunction, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import invariant from "tiny-invariant";
-
+import { meta as rootMeta } from "../../root";
 import type { Post } from "~/models/post.server";
 import { getPost } from "~/models/post.server";
 import { SinglePost } from "../../features/blog/components/SinglePost";
@@ -21,8 +21,6 @@ export const loader: LoaderFunction = async ({ params }) => {
   const html = marked(post.markdown);
   return json<LoaderData>({ post, html, canonical });
 };
-
-import { meta as rootMeta } from "../../root";
 
 export const meta: MetaFunction = ({ data }) => {
   return {
