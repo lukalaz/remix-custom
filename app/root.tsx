@@ -6,6 +6,7 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useMatches,
 } from "@remix-run/react";
 import styles from "./styles/app.css";
 import Header from "~/common/components/Header";
@@ -35,10 +36,19 @@ export const meta: MetaFunction = () => ({
 });
 
 export default function App() {
+  const matches = useMatches();
+  const match = matches.find((match) => match.data && match.data.canonical);
+  const canonical = match?.data.canonical;
+
   return (
     <html lang="en" className="scroll-smooth">
       <head>
         <Meta />
+        {!!canonical ? (
+          <link rel="canonical" href={canonical} />
+        ) : (
+          <link rel="canonical" href="https://lukalazic.com" />
+        )}
         <Links />
       </head>
       <body className="bg-gray-900">

@@ -8,7 +8,7 @@ import type { Post } from "~/models/post.server";
 import { getPost } from "~/models/post.server";
 import { SinglePost } from "../../features/blog/components/SinglePost";
 
-type LoaderData = { post: Post; html: string };
+type LoaderData = { post: Post; html: string; canonical: string };
 
 export const loader: LoaderFunction = async ({ params }) => {
   invariant(params.postSlug, `params.slug is required`);
@@ -16,8 +16,10 @@ export const loader: LoaderFunction = async ({ params }) => {
   const post = await getPost(params.postSlug);
   invariant(post, `Post not found: ${params.postSlug}`);
 
+  const canonical = `https://lukalazic.com/blog/${post.slug}`;
+
   const html = marked(post.markdown);
-  return json<LoaderData>({ post, html });
+  return json<LoaderData>({ post, html, canonical });
 };
 
 import { meta as rootMeta } from "../../root";
