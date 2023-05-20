@@ -20,7 +20,9 @@ export const loader: LoaderFunction = async () => {
     </url>`
   );
 
-  const lastModifiedDate = posts[posts.length - 1]?.updatedAt.toISOString();
+  const lastModifiedBlogDate = posts[posts.length - 1]?.updatedAt.toISOString();
+  const lastModifiedProjectDate =
+    posts[projects.length - 1]?.updatedAt.toISOString();
 
   const content = ` 
       <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -30,9 +32,13 @@ export const loader: LoaderFunction = async () => {
       </url>
       <url>
       <loc>https://lukalazic.com/blog</loc>
-      <lastmod>${lastModifiedDate}</lastmod>
+      <lastmod>${lastModifiedBlogDate}</lastmod>
       </url>
       ${postList.join("")}
+      <url>
+      <loc>https://lukalazic.com/projects</loc>
+      <lastmod>${lastModifiedProjectDate}</lastmod>
+      </url>
       ${projectList.join("")}
       </urlset>
       `;
