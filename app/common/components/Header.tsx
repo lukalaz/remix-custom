@@ -126,6 +126,21 @@ const Header: React.FC = () => {
                         Contact
                       </Link>
                     </motion.li>
+                    <motion.li
+                      {...snapFromTopAnimation}
+                      transition={{
+                        delay: isMobileView ? 0 : animationDelay[2.3],
+                      }}
+                      className="relative group"
+                    >
+                      <Link
+                        onClick={() => setIsOpenMobileMenu(false)}
+                        to="/cv"
+                        className="hover-underline-animation menu-scroll text-base lg:text-white py-2 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12"
+                      >
+                        CV
+                      </Link>
+                    </motion.li>
                   </ul>
                 </nav>
               </div>
