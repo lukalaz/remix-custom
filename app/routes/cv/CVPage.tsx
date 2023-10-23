@@ -2,13 +2,23 @@ import StyledHeading from "~/common/components/StyledHeading";
 import avatar from "../../assets/images/Luka-Lazic.png";
 import { Link } from "@remix-run/react";
 import { EnvelopeIcon } from "@heroicons/react/24/solid";
+import { motion } from "framer-motion";
+import {
+  animationDelay,
+  fadeInAnimation,
+  snapFromLeftAnimation,
+} from "~/common/utils/AnimationVariants";
 
 const CVPage: React.FC = () => {
   return (
     <main className="container">
       <div className="grid gap-5 lg:grid-cols-3">
         <div className="space-y-5">
-          <div className="shadow rounded-xl overflow-hidden">
+          <motion.div
+            {...snapFromLeftAnimation}
+            transition={{ delay: animationDelay[1] }}
+            className="shadow rounded-xl overflow-hidden"
+          >
             <div className="h-16 mt-8 bg-cover bg-primary border-gray-700 rounded-t-xl"></div>
             <div className="pt-14 p-7 bg-gray-800 relative text-white">
               <div className="user-photo bg-gray-600">
@@ -40,9 +50,12 @@ const CVPage: React.FC = () => {
                 </button>
               </div>
             </div>
-          </div>
-
-          <div className="px-7 py-5 block-section bg-gray-800 rounded-xl">
+          </motion.div>
+          <motion.div
+            {...snapFromLeftAnimation}
+            transition={{ delay: animationDelay[2] }}
+            className="px-7 py-5 block-section bg-gray-800 rounded-xl"
+          >
             <StyledHeading text="Basic Info" />
             <div className="space-y-4">
               <div className="flex justify-between">
@@ -68,9 +81,12 @@ const CVPage: React.FC = () => {
                 <div className="font-medium text-right text-white">No</div>
               </div>
             </div>
-          </div>
-
-          <div className="px-7 py-5 block-section bg-gray-800 rounded-xl">
+          </motion.div>
+          <motion.div
+            {...snapFromLeftAnimation}
+            transition={{ delay: animationDelay[3] }}
+            className="px-7 py-5 block-section bg-gray-800 rounded-xl"
+          >
             <StyledHeading text="Skills" />
             <div className="-m-2 flex flex-wrap">
               <span className="skill-tag">TypeScript</span>
@@ -86,11 +102,15 @@ const CVPage: React.FC = () => {
               <span className="skill-tag">Wordpress</span>
               <span className="skill-tag">SEO</span>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         <div className="space-y-5 lg:col-span-2 mt-4 md:mt-8">
-          <div className="p-7 pb-0 block-section">
+          <motion.div
+            {...fadeInAnimation}
+            transition={{ delay: animationDelay[1] }}
+            className="p-7 pb-0 block-section"
+          >
             <StyledHeading text="About me" />
             <p className="text-white mb-5">
               A motivated and passionate web developer with a wide skill set and
@@ -122,9 +142,13 @@ const CVPage: React.FC = () => {
                 </li>
               </ul>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="p-7 block-section">
+          <motion.div
+            {...fadeInAnimation}
+            transition={{ delay: animationDelay[2] }}
+            className="p-7 pb-0 block-section"
+          >
             <StyledHeading text="Experience" />
             <div className="mb-5 item-section">
               <div className="company-logo">
@@ -466,7 +490,7 @@ const CVPage: React.FC = () => {
                           d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                         ></path>
                       </svg>
-                      <span>GuitarZoom</span>
+                      <span>LegallyConcealed</span>
                     </div>
                     <div className="item-header-info">
                       <svg
@@ -523,7 +547,7 @@ const CVPage: React.FC = () => {
                   with close collaboration with the marketing team, which
                   constituted the majority of the company's workforce.
                 </span>
-                <span className="mb-2 block">
+                <span className="pb-2 block">
                   Within the framework of a small and agile remote team, we
                   thrived in a high-speed work environment. My central
                   responsibilities encompassed the development and upkeep of the
@@ -533,9 +557,13 @@ const CVPage: React.FC = () => {
                 </span>
               </p>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="p-7 block-section">
+          <motion.div
+            {...fadeInAnimation}
+            transition={{ delay: animationDelay[3] }}
+            className="p-7 block-section"
+          >
             <StyledHeading text="Education" />
             <div className="mb-5 item-section">
               <div className="w-full space-y-5 ml-0">
@@ -614,7 +642,7 @@ const CVPage: React.FC = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </main>
