@@ -56,9 +56,9 @@ export const ProjectCard: React.FC<IProjectCard> = ({ project }) => {
                 <img
                   className="w-7 h-7 rounded-full"
                   src={avatar}
-                  alt="Luka Lazic"
+                  alt="Igor Dulović"
                 />
-                <span className="font-medium text-white">Luka Lazic</span>
+                <span className="font-medium text-white">Igor Dulović</span>
               </div>
               <Link
                 to={project.slug}

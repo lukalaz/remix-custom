@@ -28,9 +28,8 @@ const SkillCard: React.FC<ISkillCard> = ({
       {...(position === "right" && snapFromRightAnimation)}
       transition={{ delay: animationDelay }}
       className={
-        `w-5/6 lg:w-1/2 xl:w-1/3 ${
-          position != "middle" && "px-4 hidden lg:block"
-        } ` + className
+        `w-5/6 lg:w-1/2 xl:w-1/3 ${position != "middle" && "px-4  lg:block"} ` +
+        className
       }
     >
       <div className="border-gray-700 border bg-gray-800 group hover:bg-primary shadow-service py-10 px-8 rounded-xl relative z-10 overflow-hidden text-center duration-200">
@@ -38,7 +37,7 @@ const SkillCard: React.FC<ISkillCard> = ({
           <img
             src={icon}
             alt={title}
-            className={"group-hover:grayscale duration-200"}
+            className={"group-hover:grayscale duration-200 max-w-12 max-h-12"}
           />
         </div>
         <h3 className="font-bold text-white text-xl sm:text-2xl lg:text-xl 2xl:text-2xl group-hover:text-white mb-3">

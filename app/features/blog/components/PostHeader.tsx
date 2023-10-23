@@ -46,7 +46,7 @@ export const PostHeader: React.FC<IPostHeader> = ({
                 By
                 <a className="text-body-color hover:text-primary">
                   {" "}
-                  Luka Lazic
+                  Igor Dulović
                 </a>
               </h4>
             </div>

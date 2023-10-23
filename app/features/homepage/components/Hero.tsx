@@ -7,7 +7,7 @@ import {
   infiniteBouncyAnimation,
   fadeInAnimation,
 } from "../../../common/utils/AnimationVariants";
-import avatar from "../../../assets/images/Luka-Lazic.png";
+import avatar from "../../../assets/images/igor-dulovic.png";
 import { ChevronDoubleDownIcon } from "@heroicons/react/24/solid";
 
 const Hero: React.FC = () => {
@@ -17,9 +17,9 @@ const Hero: React.FC = () => {
       <div id="stars2"></div>
       <div id="stars3"></div>
       <motion.img
-        className="absolute bottom-0 w-48 h-48 md:h-60 md:w-60 lg:h-80 lg:w-80 2xl:w-96 2xl:h-96 z-10"
+        className="absolute bottom-0 max-w-48 max-h-48 md:max-h-60 md:max-w-60 lg:max-h-80 lg:max-w-80 2xl:max-w-96 2xl:max-h-96 z-10"
         src={avatar}
-        alt="Luka Lazic"
+        alt="Igor Dulović"
         {...snapFromLeftAnimation}
         transition={{ duration: 0.5 }}
       />
@@ -29,7 +29,7 @@ const Hero: React.FC = () => {
           className="w-11/12 sm:w-2/3 lg:flex justify-center items-center flex-col  mb-5 sm:mb-10"
         >
           <h1 className="text-2xl text-white sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-center font-black leading-7 md:leading-10">
-            Luka Lazić
+            Igor Dulović
           </h1>
           <p className="mt-5 sm:mt-10 lg:w-10/12 text-gray-400 font-normal text-center sm:text-lg">
             This is my personal website where I post my projects and write about

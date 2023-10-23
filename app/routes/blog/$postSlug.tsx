@@ -25,7 +25,7 @@ export const loader: LoaderFunction = async ({ params }) => {
 export const meta: MetaFunction = ({ data }) => {
   return {
     ...rootMeta,
-    title: data.post.seo_title + " | Luka Lazic Blog",
+    title: data.post.seo_title + " | Igor Dulović Blog",
     description: data.post.seo_description,
   };
 };
