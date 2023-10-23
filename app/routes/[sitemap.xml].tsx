@@ -1,4 +1,4 @@
-import { LoaderFunction } from "@remix-run/node";
+import type { LoaderFunction } from "@remix-run/node";
 import { getPosts } from "~/models/post.server";
 import { getProjects } from "~/models/project.server";
 
@@ -40,6 +40,10 @@ export const loader: LoaderFunction = async () => {
       <lastmod>${lastModifiedProjectDate}</lastmod>
       </url>
       ${projectList.join("")}
+      <url>
+      <loc>https://lukalazic.com/cv</loc>
+      <lastmod>2023-10-23T16:43:34.833Z</lastmod>
+      </url>
       </urlset>
       `;
 
