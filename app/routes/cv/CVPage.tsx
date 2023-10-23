@@ -113,9 +113,10 @@ const CVPage: React.FC = () => {
           >
             <StyledHeading text="About me" />
             <p className="text-white mb-5">
-              A motivated and passionate web developer with a wide skill set and
-              years of work experience, always striving to improve and create
-              the best experience for myself and those surrounding me.
+              As a dedicated and enthusiastic web developer, I bring a diverse
+              skill set and years of hands-on experience to every project. I am
+              committed to continuous improvement, not only for myself but also
+              to enhance the experiences of those around me.
             </p>
 
             <div className="flex flex-col  space-y-4">
