@@ -10,7 +10,7 @@ import { meta as rootMeta } from "../../root";
 
 export const meta: MetaFunction = () => ({
   ...rootMeta,
-  title: "Blog | Luka Lazic",
+  title: "Blog | Igor Dulović",
   description:
     "My personal blog where I write about web development. I like to use React, C#, Tailwind, Prisma and more!",
 });

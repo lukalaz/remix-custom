@@ -27,12 +27,12 @@ export function links() {
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
-  title: "Luka Lazic | Typescript Development",
+  title: "Igor Dulović | Typescript Development",
   description:
     "This is my personal website where I showcase my projects and write about web development. I like to use React, Remix, Tailwind, Prisma and more!",
   viewport: "width=device-width,initial-scale=1",
   keywords:
-    "luka lazic, blog, developer, react, typescript, remix, tailwind, c#, dotnet, entity framework",
+    "Igor Dulović, blog, developer, react, typescript, remix, tailwind, c#, dotnet, entity framework",
 });
 
 export default function App() {
@@ -47,7 +47,7 @@ export default function App() {
         {!!canonical ? (
           <link rel="canonical" href={canonical} />
         ) : (
-          <link rel="canonical" href="https://lukalazic.com" />
+          <link rel="canonical" href="https://igordulovic.com" />
         )}
         <Links />
       </head>
