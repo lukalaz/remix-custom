@@ -1,5 +1,7 @@
 import StyledHeading from "~/common/components/StyledHeading";
 import avatar from "../../assets/images/Luka-Lazic.png";
+import { Link } from "@remix-run/react";
+import { EnvelopeIcon } from "@heroicons/react/24/solid";
 
 const CVPage: React.FC = () => {
   return (
@@ -7,7 +9,7 @@ const CVPage: React.FC = () => {
       <div className="grid gap-5 lg:grid-cols-3">
         <div className="space-y-5">
           <div className="shadow rounded-xl overflow-hidden">
-            <div className="h-16 mt-16 bg-cover bg-primary border-gray-700 rounded-t-xl"></div>
+            <div className="h-16 mt-8 bg-cover bg-primary border-gray-700 rounded-t-xl"></div>
             <div className="pt-14 p-7 bg-gray-800 relative text-white">
               <div className="user-photo bg-gray-600">
                 <img src={avatar} alt="Avatar" className="rounded-xl" />
@@ -45,7 +47,9 @@ const CVPage: React.FC = () => {
             <div className="space-y-4">
               <div className="flex justify-between">
                 <div className="text-gray-400">Location</div>
-                <div className="font-medium text-right text-white">London</div>
+                <div className="font-medium text-right text-white">
+                  Belgrade
+                </div>
               </div>
               <div className="flex justify-between">
                 <div className="text-gray-400">Experience</div>
@@ -87,18 +91,16 @@ const CVPage: React.FC = () => {
           <div className="p-7 pb-0 block-section">
             <StyledHeading text="About me" />
             <p className="text-white mb-5">
-              Libero quas veritatis nulla distinctio fuga nihil temporibus et.
-              Quia dicta sapiente qui porro molestiae nobis incidunt voluptatem.
-              Et voluptas sunt nihil. At perferendis voluptatem dolores nulla.
-              Adipisci dolore non. Praesentium ipsa magnam ut quia explicabo
-              voluptates.
+              A motivated and passionate web developer with a wide skill set and
+              years of work experience, always striving to improve and create
+              the best experience for myself and those surrounding me.
             </p>
 
-            <div className="flex flex-col space-y-4">
-              <a href="#0" className="mail-link social-link-hover">
-                <i className="bx bx-at text-xl"></i>
-                <span>crisabbott@email.com</span>
-              </a>
+            <div className="flex flex-col  space-y-4">
+              <Link to="/#contact" className="text-base lg:text-white flex">
+                <EnvelopeIcon className="w-6 h-6 mr-2" />
+                Contact me
+              </Link>
 
               <ul className="flex space-x-5">
                 <li>
@@ -118,8 +120,6 @@ const CVPage: React.FC = () => {
                 </li>
               </ul>
             </div>
-
-            <div className="border-t border-gray-200 my-5"></div>
           </div>
 
           <div className="p-7 block-section">
@@ -129,10 +129,12 @@ const CVPage: React.FC = () => {
                 <i className="bx bxl-twitter text-3xl"></i>
               </div>
 
-              <div className="w-full space-y-5">
+              <div className="w-full space-y-5 ml-0">
                 <div className="item-header">
                   <div className="space-y-1.5">
-                    <div className="font-medium">Senior Developer</div>
+                    <div className="font-medium text-white text-md">
+                      Senior Developer
+                    </div>
                     <div className="flex space-x-5">
                       <div className="item-header-info">
                         <svg
@@ -177,7 +179,7 @@ const CVPage: React.FC = () => {
                     </div>
                   </div>
                   <div className="space-y-2 sm:text-right">
-                    <div className="job-item-badge">Full time</div>
+                    <div className="text-white">Full time</div>
                     <div className="item-header-info">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -213,10 +215,12 @@ const CVPage: React.FC = () => {
                 <i className="bx bxl-dropbox text-3xl"></i>
               </div>
 
-              <div className="w-full space-y-5">
+              <div className="w-full space-y-5 ml-0">
                 <div className="item-header">
                   <div className="space-y-1.5">
-                    <div className="font-medium">Middle Developer</div>
+                    <div className="font-medium text-white text-md">
+                      Middle Developer
+                    </div>
                     <div className="flex space-x-5">
                       <div className="item-header-info">
                         <svg
@@ -261,7 +265,7 @@ const CVPage: React.FC = () => {
                     </div>
                   </div>
                   <div className="space-y-2 sm:text-right">
-                    <div className="job-item-badge">Full time</div>
+                    <div className="text-white">Full time</div>
                     <div className="item-header-info">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -297,10 +301,12 @@ const CVPage: React.FC = () => {
                 <i className="bx bxl-blogger text-3xl"></i>
               </div>
 
-              <div className="w-full space-y-5">
+              <div className="w-full space-y-5 ml-0">
                 <div className="item-header">
                   <div className="space-y-1.5">
-                    <div className="font-medium">Junior Developer</div>
+                    <div className="font-medium text-white text-md">
+                      Junior Developer
+                    </div>
                     <div className="flex space-x-5">
                       <div className="item-header-info">
                         <svg
@@ -345,7 +351,7 @@ const CVPage: React.FC = () => {
                     </div>
                   </div>
                   <div className="space-y-2 sm:text-right">
-                    <div className="job-item-badge">Full time</div>
+                    <div className="text-white">Full time</div>
                     <div className="item-header-info">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -379,13 +385,11 @@ const CVPage: React.FC = () => {
           <div className="p-7 block-section">
             <StyledHeading text="Education" />
             <div className="mb-5 item-section">
-              <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-cover"></div>
-
-              <div className="w-full space-y-5">
+              <div className="w-full space-y-5 ml-0">
                 <div className="item-header items-end">
                   <div className="space-y-1.5">
-                    <div className="font-medium">
-                      Master in Software Engineering
+                    <div className="font-medium text-white text-md">
+                      Bachelor of Computer Science
                     </div>
                     <div className="flex space-x-5">
                       <div className="item-header-info">
@@ -453,83 +457,6 @@ const CVPage: React.FC = () => {
                   </div>
                 </div>
                 <div className="border-b border-gray-200"></div>
-              </div>
-            </div>
-
-            <div className="item-section">
-              <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-cover"></div>
-
-              <div className="w-full space-y-5">
-                <div className="item-header items-end">
-                  <div className="space-y-1.5">
-                    <div className="font-medium">
-                      Master in Software Engineering
-                    </div>
-                    <div className="flex space-x-5">
-                      <div className="item-header-info">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-4 w-4"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
-                          <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-                          ></path>
-                        </svg>
-                        <span>Brunel University</span>
-                      </div>
-                      <div className="item-header-info">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-4 w-4"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                          ></path>
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                          ></path>
-                        </svg>
-                        <span>London</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="space-y-1.5 sm:text-right">
-                    <div className="item-header-info">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                        ></path>
-                      </svg>
-                      <span>September 2013 - May 2017</span>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
