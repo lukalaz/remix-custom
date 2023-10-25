@@ -7,6 +7,7 @@ import {
   animationDelay,
   fadeInAnimation,
   snapFromLeftAnimation,
+  snapFromRightAnimation,
 } from "~/common/utils/AnimationVariants";
 
 const CVPage: React.FC = () => {
@@ -107,7 +108,7 @@ const CVPage: React.FC = () => {
 
         <div className="space-y-5 lg:col-span-2 mt-4 md:mt-8">
           <motion.div
-            {...fadeInAnimation}
+            {...snapFromRightAnimation}
             transition={{ delay: animationDelay[1] }}
             className="p-7 pb-0 block-section"
           >
