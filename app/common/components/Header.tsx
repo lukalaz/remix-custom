@@ -126,21 +126,6 @@ const Header: React.FC = () => {
                         Contact
                       </Link>
                     </motion.li>
-                    <motion.li
-                      {...snapFromTopAnimation}
-                      transition={{
-                        delay: isMobileView ? 0 : animationDelay[2.3],
-                      }}
-                      className="relative group"
-                    >
-                      <Link
-                        onClick={() => setIsOpenMobileMenu(false)}
-                        to="/cv"
-                        className="hover-underline-animation menu-scroll text-base lg:text-white py-2 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12"
-                      >
-                        CV
-                      </Link>
-                    </motion.li>
                   </ul>
                 </nav>
               </div>
@@ -149,12 +134,13 @@ const Header: React.FC = () => {
                 transition={{ delay: animationDelay[3] }}
                 className="sm:flex justify-end hidden pr-16 lg:pr-0"
               >
-                <a
-                  href="#contact"
+                <Link
+                  onClick={() => setIsOpenMobileMenu(false)}
+                  to="/cv"
                   className="hover-zoom-animation text-base font-bold text-white bg-primary rounded-full py-3 px-8 md:px-9 lg:px-8 xl:px-9 hover:hover:bg-opacity-90 transition ease-in-out duration-300"
                 >
-                  View my work
-                </a>
+                  View my CV
+                </Link>
               </motion.div>
             </div>
           </div>
