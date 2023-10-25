@@ -117,7 +117,7 @@ const CVPage: React.FC = () => {
               As a dedicated and enthusiastic web developer, I bring a diverse
               skill set and years of hands-on experience to every project. I am
               committed to continuous improvement, not only for myself but also
-              to enhance the experiences of those around me.
+              to enhance the experience of those around me.
             </p>
 
             <div className="flex flex-col  space-y-4">
@@ -470,7 +470,105 @@ const CVPage: React.FC = () => {
               </div>
             </div>
 
-            <div className="w-full space-y-5 ml-0">
+            <div className="mb-5 item-section">
+              <div className="company-logo">
+                <i className="bx bxl-blogger text-3xl"></i>
+              </div>
+
+              <div className="w-full space-y-5 ml-0">
+                <div className="item-header">
+                  <div className="space-y-1.5">
+                    <div className="font-medium text-white text-md">
+                      Web Developer
+                    </div>
+                    <div className="flex space-x-5">
+                      <div className="item-header-info">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-4 w-4"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                          ></path>
+                        </svg>
+                        <span>LegallyConcealed</span>
+                      </div>
+                      <div className="item-header-info">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-4 w-4"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                          ></path>
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                          ></path>
+                        </svg>
+                        <span>Remote</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="space-y-2 sm:text-right">
+                    <div className="text-white">Full time</div>
+                    <div className="item-header-info">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-4 w-4"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                        ></path>
+                      </svg>
+                      <span>September 2014 - August 2016</span>
+                    </div>
+                  </div>
+                </div>
+                <p className="text-white">
+                  <span className="mb-2 block">
+                    I was a part of Legally Concealed, a digital marketing firm
+                    specializing in the distribution of on-demand self-defense
+                    and home-defense videos for the U.S. audience. My position
+                    primarily revolved around being a WordPress and PHP
+                    developer, with close collaboration with the marketing team,
+                    which constituted the majority of the company's workforce.
+                  </span>
+                  <span className="pb-2 block">
+                    Within the framework of a small and agile remote team, we
+                    thrived in a high-speed work environment. My central
+                    responsibilities encompassed the development and upkeep of
+                    the WordPress website, crafting standalone PHP sales pages,
+                    and creating seamless integrations with third-party software
+                    for customer behavior tracking and sales analytics.
+                  </span>
+                </p>
+
+                <div className="border-b border-gray-200"></div>
+              </div>
+            </div>
+
+            <div className="w-full space-y-5 ml-0 pb-2">
               <div className="item-header">
                 <div className="space-y-1.5">
                   <div className="font-medium text-white text-md">
@@ -492,7 +590,7 @@ const CVPage: React.FC = () => {
                           d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                         ></path>
                       </svg>
-                      <span>LegallyConcealed</span>
+                      <span>Freelancer.com</span>
                     </div>
                     <div className="item-header-info">
                       <svg
@@ -536,26 +634,32 @@ const CVPage: React.FC = () => {
                         d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
                       ></path>
                     </svg>
-                    <span>September 2014 - August 2016</span>
+                    <span>July 2012 - September 2014</span>
                   </div>
                 </div>
               </div>
               <p className="text-white">
                 <span className="mb-2 block">
-                  I was a part of Legally Concealed, a digital marketing firm
-                  specializing in the distribution of on-demand self-defense and
-                  home-defense videos for the U.S. audience. My position
-                  primarily revolved around being a WordPress and PHP developer,
-                  with close collaboration with the marketing team, which
-                  constituted the majority of the company's workforce.
-                </span>
-                <span className="pb-2 block">
-                  Within the framework of a small and agile remote team, we
-                  thrived in a high-speed work environment. My central
-                  responsibilities encompassed the development and upkeep of the
-                  WordPress website, crafting standalone PHP sales pages, and
-                  creating seamless integrations with third-party software for
-                  customer behavior tracking and sales analytics.
+                  My freelancing journey has exposed me to a diverse range of
+                  technologies, commencing with Joomla and later transitioning
+                  to WordPress due to the surging demand for WordPress
+                  development. Over a span of two years, I successfully
+                  delivered over 100 projects, maintaining a flawless job
+                  completion rate and garnering highly favorable reviews from
+                  satisfied clients. This collaborative experience also paved
+                  the way for lasting professional relationships, as evidenced
+                  by repeat partnerships with individuals who entrusted me with
+                  their projects. For a more comprehensive overview of my
+                  freelance work and client feedback, you can visit my (wildly
+                  outdated) profile{" "}
+                  <a
+                    href="https://www.freelancer.com/u/lukalazic"
+                    className="text-primary"
+                    target="_blank"
+                  >
+                    by clicking here
+                  </a>
+                  .
                 </span>
               </p>
             </div>
