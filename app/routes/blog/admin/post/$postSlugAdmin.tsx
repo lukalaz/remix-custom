@@ -17,8 +17,10 @@ import StyledTitle from "~/common/components/StyledTitle";
 import { motion } from "framer-motion";
 import {
   animationDelay,
+  fadeInAnimation,
   snapFromTopAnimation,
 } from "~/common/utils/AnimationVariants";
+import { authHeaders, isAuthorized } from "~/common/utils/IsAuthorized";
 
 type ActionData =
   | {
@@ -31,18 +33,25 @@ type ActionData =
     }
   | undefined;
 
-type LoaderData = { post: Post };
+type LoaderData = { post: Post; authorized: boolean };
 
-export const loader: LoaderFunction = async ({ params }) => {
+export const loader: LoaderFunction = async ({ params, request }) => {
+  if (!isAuthorized(request)) {
+    return json({ authorized: false }, { status: 401 });
+  }
+
   invariant(params.postSlugAdmin, `params.postSlugAdmin is required`);
 
   if (params.postSlugAdmin == "new") {
-    return json<LoaderData>({ post: {} as any });
+    return json<LoaderData>({
+      post: {} as any,
+      authorized: true /** or false, TODO */,
+    });
   }
   const post = await getPost(params.postSlugAdmin);
   invariant(post, `Post not found: ${params.postSlugAdmin}`);
 
-  return json<LoaderData>({ post });
+  return json<LoaderData>({ post, authorized: true });
 };
 
 export const action: ActionFunction = async ({ request }) => {
@@ -101,7 +110,20 @@ const addEditPost = () => {
   const transition = useTransition();
   const isCreating = Boolean(transition.submission);
   const errors = useActionData();
-  const { post } = useLoaderData();
+  const { post, authorized } = useLoaderData();
+
+  if (!authorized) {
+    return (
+      <motion.h1
+        {...fadeInAnimation}
+        transition={{ delay: animationDelay[2] }}
+        className="text-center text-white text-2xl mt-4"
+      >
+        Unauthorized
+      </motion.h1>
+    );
+  }
+
   const postExists = !!post.slug;
 
   const submitButtonText = postExists ? "Update Post" : "Add Post";
@@ -236,5 +258,7 @@ const addEditPost = () => {
     </section>
   );
 };
+
+export { authHeaders as headers };
 
 export default addEditPost;
