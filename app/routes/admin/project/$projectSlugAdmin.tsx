@@ -17,9 +17,10 @@ import StyledTitle from "~/common/components/StyledTitle";
 import { motion } from "framer-motion";
 import {
   animationDelay,
+  fadeInAnimation,
   snapFromTopAnimation,
 } from "~/common/utils/AnimationVariants";
-import { isAuthorized } from "~/common/utils/IsAuthorized";
+import { authHeaders, isAuthorized } from "~/common/utils/IsAuthorized";
 
 type ActionData =
   | {
@@ -120,7 +121,20 @@ const addEditProject = () => {
   const transition = useTransition();
   const isCreating = Boolean(transition.submission);
   const errors = useActionData();
-  const { project } = useLoaderData();
+  const { project, authorized } = useLoaderData();
+
+  if (!authorized) {
+    return (
+      <motion.h1
+        {...fadeInAnimation}
+        transition={{ delay: animationDelay[2] }}
+        className="text-center text-white text-2xl mt-4"
+      >
+        Unauthorized
+      </motion.h1>
+    );
+  }
+
   const projectExists = !!project.slug;
 
   const submitButtonText = projectExists ? "Update Project" : "Add Project";
@@ -282,5 +296,7 @@ const addEditProject = () => {
     </section>
   );
 };
+
+export { authHeaders as headers };
 
 export default addEditProject;
