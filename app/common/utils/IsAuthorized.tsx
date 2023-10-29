@@ -1,6 +1,5 @@
 export const isAuthorized = (request: any) => {
   const header = request.headers.get("Authorization");
-  console.log(header + "header");
 
   if (!header) return false;
 
