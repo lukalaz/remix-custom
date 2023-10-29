@@ -125,6 +125,15 @@ const Header: React.FC = () => {
                       >
                         Contact
                       </Link>
+                      <div className="sm:hidden">
+                        <Link
+                          onClick={() => setIsOpenMobileMenu(false)}
+                          to="/cv"
+                          className="hover-underline-animation menu-scroll text-base lg:text-white py-2 lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12"
+                        >
+                          View my CV
+                        </Link>
+                      </div>
                     </motion.li>
                   </ul>
                 </nav>
