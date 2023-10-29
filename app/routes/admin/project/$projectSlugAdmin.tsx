@@ -279,15 +279,17 @@ const addEditProject = () => {
                 >
                   {isCreating ? "Working..." : submitButtonText}
                 </button>
-                <button
-                  type="submit"
-                  name="intent"
-                  disabled={isCreating}
-                  value="delete"
-                  className="ml-2 inline-flex justify-center items-center py-4 px-9 rounded-full font-semibold text-white bg-primary mx-auto transition duration-300 ease-in-out hover:hover:bg-opacity-90"
-                >
-                  {isCreating ? "Deleting..." : "Delete project"}
-                </button>
+                {projectExists && (
+                  <button
+                    type="submit"
+                    name="intent"
+                    disabled={isCreating}
+                    value="delete"
+                    className="ml-2 inline-flex justify-center items-center py-4 px-9 rounded-full font-semibold text-white bg-primary mx-auto transition duration-300 ease-in-out hover:hover:bg-opacity-90"
+                  >
+                    {isCreating ? "Deleting..." : "Delete project"}
+                  </button>
+                )}
               </div>
             </div>
           </div>
