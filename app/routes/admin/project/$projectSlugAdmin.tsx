@@ -140,7 +140,7 @@ const addEditProject = () => {
           transition={{ delay: animationDelay[3] }}
         >
           <input type="hidden" name="projectExists" value={+projectExists} />
-          <h3 className="text-xl font-bold mb-2">Project data</h3>
+          <h3 className="text-xl font-bold mb-2 text-white">Project data</h3>
           <div className="flex flex-wrap -mx-4">
             <div className="w-full px-4">
               <div className="mb-6">
@@ -227,7 +227,7 @@ const addEditProject = () => {
               </div>
             </div>
             <div className="w-full px-4">
-              <h3 className="text-xl font-bold mb-2">SEO data</h3>
+              <h3 className="text-xl font-bold mb-2 text-white">SEO data</h3>
               <div className="mb-6">
                 {errors?.seo_title ? (
                   <em className="text-red-600">{errors.seo_title}</em>
