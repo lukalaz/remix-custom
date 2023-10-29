@@ -1,10 +1,10 @@
 import {
-  createProject,
-  deleteProject,
-  getProject,
-  Project,
-  updateProject,
-} from "~/models/project.server";
+  createPost,
+  deletePost,
+  getPost,
+  Post,
+  updatePost,
+} from "~/models/post.server";
 import invariant from "tiny-invariant";
 import {
   ActionFunction,
@@ -17,8 +17,10 @@ import StyledTitle from "~/common/components/StyledTitle";
 import { motion } from "framer-motion";
 import {
   animationDelay,
+  fadeInAnimation,
   snapFromTopAnimation,
 } from "~/common/utils/AnimationVariants";
+import { authHeaders, isAuthorized } from "~/common/utils/IsAuthorized";
 
 type ActionData =
   | {
@@ -28,28 +30,31 @@ type ActionData =
       excerpt: null | string;
       seo_title: null | string;
       seo_description: null | string;
-      technologies: null | string;
-      github: null | string;
     }
   | undefined;
 
-type LoaderData = { project: Project };
+type LoaderData = { post: Post; authorized: boolean };
 
-export const loader: LoaderFunction = async ({ params }) => {
-  invariant(params.projectSlugAdmin, `params.slug is required`);
-
-  if (params.projectSlugAdmin == "new") {
-    return json<LoaderData>({ project: {} as any });
+export const loader: LoaderFunction = async ({ params, request }) => {
+  if (!isAuthorized(request)) {
+    return json({ authorized: false }, { status: 401 });
   }
-  const project = await getProject(params.projectSlugAdmin);
-  invariant(project, `Project not found: ${params.projectSlugAdmin}`);
 
-  return json<LoaderData>({ project });
+  invariant(params.postSlugAdmin, `params.postSlugAdmin is required`);
+
+  if (params.postSlugAdmin == "new") {
+    return json<LoaderData>({
+      post: {} as any,
+      authorized: true,
+    });
+  }
+  const post = await getPost(params.postSlugAdmin);
+  invariant(post, `Post not found: ${params.postSlugAdmin}`);
+
+  return json<LoaderData>({ post, authorized: true });
 };
 
 export const action: ActionFunction = async ({ request }) => {
-  console.log("USLI U AKCIJU");
-
   const formData = await request.formData();
 
   const title = formData.get("title");
@@ -58,27 +63,21 @@ export const action: ActionFunction = async ({ request }) => {
   const excerpt = formData.get("excerpt");
   const seo_title = formData.get("seo_title");
   const seo_description = formData.get("seo_description");
-  const technologies = formData.get("technologies");
   const intent = formData.get("intent");
-  const projectExists = formData.get("projectExists") || 0;
-  const github = formData.get("github") || 0;
+  const postExists = formData.get("postExists") || 0;
 
   if (intent === "delete" && slug) {
-    deleteProject(slug.toString());
-    return redirect("/projects");
+    deletePost(slug.toString());
+    return redirect("/blog");
   }
 
   const errors: ActionData = {
     title: title ? null : "Title is required",
     slug: slug ? null : "Slug is required",
     markdown: markdown ? null : "Markdown is required",
-    excerpt: excerpt
-      ? null
-      : "Please provide a short description of the project",
+    excerpt: excerpt ? null : "Please provide a short description of the post",
     seo_title: seo_title ? null : "Meta title is required",
     seo_description: seo_description ? null : "Meta description is required",
-    technologies: technologies ? null : "Technologies are required",
-    github: github ? null : "Github link is required",
   };
   const hasErrors = Object.values(errors).some((errorMessage) => errorMessage);
   if (hasErrors) {
@@ -90,39 +89,48 @@ export const action: ActionFunction = async ({ request }) => {
   invariant(typeof markdown === "string", "markdown must be a string");
   invariant(typeof excerpt === "string", "excerpt must be a string");
   invariant(typeof seo_title === "string", "SEO title must be a string");
-  invariant(typeof technologies === "string", "technologies must be a string");
-  invariant(typeof github === "string", "github must be a string");
   invariant(
     typeof seo_description === "string",
     "SEO description must be a string"
   );
 
-  await (+projectExists ? updateProject : createProject)({
+  await (+postExists ? updatePost : createPost)({
     title,
     slug,
     markdown,
     excerpt,
     seo_title,
     seo_description,
-    technologies,
-    github,
   });
 
-  return redirect("/projects");
+  return redirect("/blog");
 };
 
-const addEditProject = () => {
+const addEditPost = () => {
   const transition = useTransition();
   const isCreating = Boolean(transition.submission);
   const errors = useActionData();
-  const { project } = useLoaderData();
-  const projectExists = !!project.slug;
+  const { post, authorized } = useLoaderData();
 
-  const submitButtonText = projectExists ? "Update Project" : "Add Project";
-  const pageTitle = projectExists ? project.title : "Add a new project";
+  if (!authorized) {
+    return (
+      <motion.h1
+        {...fadeInAnimation}
+        transition={{ delay: animationDelay[2] }}
+        className="text-center text-white text-2xl mt-4"
+      >
+        Unauthorized
+      </motion.h1>
+    );
+  }
+
+  const postExists = !!post.slug;
+
+  const submitButtonText = postExists ? "Update Post" : "Add Post";
+  const pageTitle = postExists ? post.title : "Add a new post";
 
   return (
-    <section id="add-project">
+    <section id="add-post">
       <div className="container pt-12">
         <StyledTitle
           title={pageTitle}
@@ -134,8 +142,8 @@ const addEditProject = () => {
           {...snapFromTopAnimation}
           transition={{ delay: animationDelay[3] }}
         >
-          <input type="hidden" name="projectExists" value={+projectExists} />
-          <h3 className="text-xl font-bold mb-2">Project data</h3>
+          <input type="hidden" name="postExists" value={+postExists} />
+          <h3 className="text-xl font-bold mb-2 text-white">Post data</h3>
           <div className="flex flex-wrap -mx-4">
             <div className="w-full px-4">
               <div className="mb-6">
@@ -144,10 +152,10 @@ const addEditProject = () => {
                 ) : null}
                 <input
                   type="text"
-                  placeholder="Project Title"
+                  placeholder="Post Title"
                   className="input-field"
                   name="title"
-                  defaultValue={project.title}
+                  defaultValue={post.title}
                 />
               </div>
             </div>
@@ -158,10 +166,10 @@ const addEditProject = () => {
                 ) : null}
                 <input
                   type="text"
-                  placeholder="Project Slug"
+                  placeholder="Post Slug"
                   className="input-field"
                   name="slug"
-                  defaultValue={project.slug}
+                  defaultValue={post.slug}
                 />
               </div>
             </div>
@@ -172,10 +180,10 @@ const addEditProject = () => {
                 ) : null}
                 <textarea
                   rows={4}
-                  placeholder="Project content (written in markdown)"
+                  placeholder="Post content (written in markdown)"
                   className="input-field resize-none"
                   name="markdown"
-                  defaultValue={project.markdown}
+                  defaultValue={post.markdown}
                 ></textarea>
               </div>
             </div>
@@ -186,43 +194,15 @@ const addEditProject = () => {
                 ) : null}
                 <textarea
                   rows={4}
-                  placeholder="Project excerpt (a short version of the content shown on blog archive pages, written in plain text)"
+                  placeholder="Post excerpt (a short version of the content shown on blog archive pages, written in plain text)"
                   className="input-field resize-none"
                   name="excerpt"
-                  defaultValue={project.excerpt}
+                  defaultValue={post.excerpt}
                 ></textarea>
               </div>
             </div>
             <div className="w-full px-4">
-              <div className="mb-6">
-                {errors?.technologies ? (
-                  <em className="text-red-600">{errors.technologies}</em>
-                ) : null}
-                <input
-                  type="text"
-                  placeholder="Project Technologies (separated by comma)"
-                  className="input-field"
-                  name="technologies"
-                  defaultValue={project.technologies}
-                />
-              </div>
-            </div>
-            <div className="w-full px-4">
-              <div className="mb-6">
-                {errors?.github ? (
-                  <em className="text-red-600">{errors.github}</em>
-                ) : null}
-                <input
-                  type="text"
-                  placeholder="Github URL"
-                  className="input-field"
-                  name="github"
-                  defaultValue={project.github}
-                />
-              </div>
-            </div>
-            <div className="w-full px-4">
-              <h3 className="text-xl font-bold mb-2">SEO data</h3>
+              <h3 className="text-xl font-bold mb-2 text-white">SEO data</h3>
               <div className="mb-6">
                 {errors?.seo_title ? (
                   <em className="text-red-600">{errors.seo_title}</em>
@@ -232,7 +212,7 @@ const addEditProject = () => {
                   placeholder="Meta Title"
                   className="input-field"
                   name="seo_title"
-                  defaultValue={project.seo_title}
+                  defaultValue={post.seo_title}
                 />
               </div>
             </div>
@@ -247,7 +227,7 @@ const addEditProject = () => {
                   placeholder="Meta Description"
                   className="input-field"
                   name="seo_description"
-                  defaultValue={project.seo_description}
+                  defaultValue={post.seo_description}
                 />
               </div>
             </div>
@@ -260,15 +240,17 @@ const addEditProject = () => {
                 >
                   {isCreating ? "Working..." : submitButtonText}
                 </button>
-                <button
-                  type="submit"
-                  name="intent"
-                  disabled={isCreating}
-                  value="delete"
-                  className="ml-2 inline-flex justify-center items-center py-4 px-9 rounded-full font-semibold text-white bg-primary mx-auto transition duration-300 ease-in-out hover:hover:bg-opacity-90"
-                >
-                  {isCreating ? "Deleting..." : "Delete project"}
-                </button>
+                {postExists && (
+                  <button
+                    type="submit"
+                    name="intent"
+                    disabled={isCreating}
+                    value="delete"
+                    className="ml-2 inline-flex justify-center items-center py-4 px-9 rounded-full font-semibold text-white bg-primary mx-auto transition duration-300 ease-in-out hover:hover:bg-opacity-90"
+                  >
+                    {isCreating ? "Deleting..." : "Delete post"}
+                  </button>
+                )}
               </div>
             </div>
           </div>
@@ -278,4 +260,6 @@ const addEditProject = () => {
   );
 };
 
-export default addEditProject;
+export { authHeaders as headers };
+
+export default addEditPost;
