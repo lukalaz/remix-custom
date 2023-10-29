@@ -17,10 +17,10 @@ import StyledTitle from "~/common/components/StyledTitle";
 import { motion } from "framer-motion";
 import {
   animationDelay,
-  fadeInAnimation,
   snapFromTopAnimation,
 } from "~/common/utils/AnimationVariants";
 import { authHeaders, isAuthorized } from "~/common/utils/IsAuthorized";
+import { UnauthorizedMessage } from "~/common/components/UnauthorizedMessage";
 
 type ActionData =
   | {
@@ -113,15 +113,7 @@ const addEditPost = () => {
   const { post, authorized } = useLoaderData();
 
   if (!authorized) {
-    return (
-      <motion.h1
-        {...fadeInAnimation}
-        transition={{ delay: animationDelay[2] }}
-        className="text-center text-white text-2xl mt-4"
-      >
-        Unauthorized
-      </motion.h1>
-    );
+    return <UnauthorizedMessage />;
   }
 
   const postExists = !!post.slug;
