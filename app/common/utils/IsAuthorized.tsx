@@ -9,7 +9,7 @@ export const isAuthorized = (request: any) => {
     .toString()
     .split(":");
 
-  return username === process.env.MYUSER && password === process.env.MYPW;
+  return username === process.env.ADMINUSER && password === process.env.ADMINPW;
 };
 
 export const authHeaders = () => ({
