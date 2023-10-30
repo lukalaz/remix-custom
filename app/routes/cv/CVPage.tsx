@@ -32,7 +32,7 @@ const CVPage: React.FC = () => {
               <div className="flex group">
                 <a
                   className="download-btn text-center bg-primary bg-opacity-90"
-                  href="assets/cv/CV LUKA LAZIC.pdf"
+                  href="assets/cv/CV_Luka-Lazic.pdf"
                   target="_blank"
                 >
                   <div>Download CV</div>
