@@ -30,9 +30,13 @@ const CVPage: React.FC = () => {
                 Frontend Developer
               </div>
               <div className="flex group">
-                <button className="download-btn bg-primary bg-opacity-90">
-                  Download CV
-                </button>
+                <a
+                  className="download-btn text-center bg-primary bg-opacity-90"
+                  href="assets/cv/CV LUKA LAZIC.pdf"
+                  target="_blank"
+                >
+                  <div>Download CV</div>
+                </a>
                 <button className="download-btn-icon bg-primary">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
