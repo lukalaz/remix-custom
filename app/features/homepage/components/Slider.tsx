@@ -8,6 +8,7 @@ import sql from "../../../assets/images/logo-icons/sql.png";
 import prisma from "../../../assets/images/logo-icons/prisma.png";
 import azure from "../../../assets/images/logo-icons/azure.png";
 import git from "../../../assets/images/logo-icons/git.png";
+import tailwind from "../../../assets/images/logo-icons/tailwind.png";
 import SkillCard from "./SkillCard";
 import {
   ChevronDoubleLeftIcon,
@@ -20,33 +21,44 @@ const skills = [
   {
     name: "react",
     image: react,
-    description: "My favorite js framework. Highly reccomended!",
+    description:
+      "I absolutely love working with React. It's like having a set of building blocks for web development. With React, I can creating interactive and dynamic user interfaces effortlessly, thanks to its component-based architecture.",
   },
   {
     name: "remix",
     image: remix,
-    description: "My favorite frameworks favorite framework.",
+    description:
+      "Remix is an essential part of this very site. It's a web framework that takes my web development to the next level by focusing on server-rendered React applications. This means faster performance and a fantastic developer experience with tools that help me achieve efficient code splitting and data loading as well as good SEO results.",
   },
   {
     name: "SQL",
     image: sql,
-    description: "My databases. Yayyy!",
+    description:
+      "SQL is an essential tool in my developer arsenal for managing and querying data. It provides a structured language that enables me to interact with databases, making it straightforward to store and retrieve the information my applications need.",
   },
   {
     name: "Prisma",
     image: prisma,
-    description: "My databases. Yayyy!",
+    description:
+      "Prisma is like a wizard that simplifies my database interactions. It provides a type-safe and auto-generated query API, which means I can work with databases without worrying about writing complex queries from scratch.",
   },
   {
     name: "Azure",
     image: azure,
     description:
-      "I learned about azure in my company. Microsoft stack is not that bad.",
+      "Azure is my go-to cloud platform. It's where I deploy and scale my applications effortlessly. With Azure, I can access a vast array of cloud services, from virtual machines to AI capabilities, to supercharge my projects.",
   },
   {
     name: "Git",
     image: git,
-    description: "Gotta have some version control",
+    description:
+      "Git is my version control superhero. It allows me to track changes in my code, collaborate seamlessly with others, and maintain a detailed history of my project's evolution. It's an absolute essential in my development toolkit.",
+  },
+  {
+    name: "Tailwind",
+    image: tailwind,
+    description:
+      "Tailwind CSS is a design revelation. It simplifies the process of creating beautiful and responsive user interfaces. I can effortlessly style my applications with its utility-first approach, saving me time and effort in the design process.",
   },
 ];
 

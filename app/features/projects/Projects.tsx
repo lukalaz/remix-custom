@@ -11,8 +11,8 @@ const ProjectPosts: React.FC<IProjects> = ({ projects }) => {
     <section id="blog" className="pt-[40px]">
       <div className="container">
         <StyledTitle
-          title="Projects"
-          preTitle="Don't read this"
+          title="Exploring My Personal Projects"
+          preTitle="Discover My Creations"
           description="Some of my private, off work projects that I would like to share."
         />
         <div className="justify-center p-0 max-w-[800px] m-auto">
