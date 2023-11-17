@@ -13,6 +13,14 @@ export const meta: MetaFunction = () => ({
   title: "Blog | Luka Lazic",
   description:
     "My personal blog where I write about web development. I like to use React, C#, Tailwind, Prisma and more!",
+  "og:title": "Blog | Luka Lazic",
+  "og:description":
+    "My personal blog where I write about web development. I like to use React, C#, Tailwind, Prisma and more!",
+  "twitter:title": "Blog | Luka Lazic",
+  "twitter:description":
+    "My personal blog where I write about web development. I like to use React, C#, Tailwind, Prisma and more!",
+  "og:url": "https://lukalazic.com/blog",
+  "og:type": "blog",
 });
 
 export const loader: LoaderFunction = async () => {

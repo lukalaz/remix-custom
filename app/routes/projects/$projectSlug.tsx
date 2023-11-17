@@ -29,6 +29,12 @@ export const meta: MetaFunction = ({ data }) => {
     ...rootMeta,
     title: data.project.seo_title + " | Luka Lazic Blog",
     description: data.project.seo_description,
+    "og:title": data.project.seo_title,
+    "og:description": data.project.seo_description,
+    "twitter:title": data.project.seo_title,
+    "twitter:description": data.project.seo_description,
+    "og:url": data.canonical,
+    "og:type": "article",
   };
 };
 
