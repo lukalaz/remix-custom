@@ -8,9 +8,14 @@ import type { Project } from "~/models/project.server";
 import { getProject } from "~/models/project.server";
 import { SingleProject } from "~/features/projects/components/SingleProject";
 
-type LoaderData = { project: Project; html: string; canonical: string };
+type LoaderData = {
+  project: Project;
+  html: string;
+  canonical: string;
+  ogImageUrl: string;
+};
 
-export const loader: LoaderFunction = async ({ params }) => {
+export const loader: LoaderFunction = async ({ request, params }) => {
   invariant(params.projectSlug, `params.projectSlug is required`);
 
   const project = await getProject(params.projectSlug);
@@ -18,8 +23,11 @@ export const loader: LoaderFunction = async ({ params }) => {
 
   const canonical = `https://lukalazic.com/projects/${project.slug}`;
 
+  const { origin } = new URL(request.url);
+  const ogImageUrl = `${origin}/resource/ogimage?ogimage=${project.title}`;
+
   const html = marked(project.markdown);
-  return json<LoaderData>({ project, html, canonical });
+  return json<LoaderData>({ project, html, canonical, ogImageUrl });
 };
 
 import { meta as rootMeta } from "../../root";
@@ -35,6 +43,7 @@ export const meta: MetaFunction = ({ data }) => {
     "twitter:description": data.project.seo_description,
     "og:url": data.canonical,
     "og:type": "article",
+    "og:image": data.ogImageUrl,
   };
 };
 
