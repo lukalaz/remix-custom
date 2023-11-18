@@ -9,9 +9,15 @@ const fontSans = (baseUrl: string) =>
     res.arrayBuffer()
   );
 
-const avatarImage = (baseUrl: string) => `${baseUrl}/images/Luka-Lazic.png`;
+const avatarImage = (baseUrl: string) =>
+  fetch(new URL(`${baseUrl}/images/Luka-Lazic.png`)).then((res) =>
+    res.arrayBuffer()
+  );
 
-const logoImage = (baseUrl: string) => `${baseUrl}/images/logo-inverted.png`;
+const logoImage = (baseUrl: string) =>
+  fetch(new URL(`${baseUrl}/images/logo-inverted.png`)).then((res) =>
+    res.arrayBuffer()
+  );
 
 export async function generateOGImage(title: string, requestUrl: string) {
   const fontSansData = await fontSans(requestUrl);

@@ -44,6 +44,7 @@ export const meta: MetaFunction = ({ data }) => {
     "og:url": data.canonical,
     "og:type": "article",
     "og:image": data.ogImageUrl,
+    "twitter:image": data.ogImageUrl,
   };
 };
 
