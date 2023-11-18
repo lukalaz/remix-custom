@@ -6,7 +6,6 @@ export const OG_IMAGE_HEIGHT = 600;
 
 export const loader = async ({ request }: LoaderArgs) => {
   const { origin, searchParams } = new URL(request.url);
-  console.log(searchParams);
   const title = searchParams.get("ogimage") ?? `Hello world`;
 
   const png = await generateOGImage(title, origin);
