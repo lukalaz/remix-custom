@@ -9,6 +9,23 @@ import {
   snapFromLeftAnimation,
   snapFromRightAnimation,
 } from "~/common/utils/AnimationVariants";
+import { MetaFunction } from "@remix-run/node";
+import { meta as rootMeta } from "../../root";
+
+export const meta: MetaFunction = () => ({
+  ...rootMeta,
+  title: "CV | Luka Lazic",
+  description:
+    "Here you can find my CV as well as a list of my skills and technologies I enjoy working with.",
+  "og:title": "CV | Luka Lazic",
+  "og:description":
+    "Here you can find my CV as well as a list of my skills and technologies I enjoy working with.",
+  "twitter:title": "CV | Luka Lazic",
+  "twitter:description":
+    "Here you can find my CV as well as a list of my skills and technologies I enjoy working with.",
+  "og:url": "https://lukalazic.com/cv",
+  "og:type": "profile",
+});
 
 const CVPage: React.FC = () => {
   return (

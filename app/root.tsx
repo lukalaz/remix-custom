@@ -25,15 +25,26 @@ export function links() {
   ];
 }
 
-export const meta: MetaFunction = () => ({
-  charset: "utf-8",
-  title: "Luka Lazic | Typescript Development",
-  description:
-    "This is my personal website where I showcase my projects and write about web development. I like to use React, Remix, Tailwind, Prisma and more!",
-  viewport: "width=device-width,initial-scale=1",
-  keywords:
-    "luka lazic, blog, developer, react, typescript, remix, tailwind, c#, dotnet, entity framework",
-});
+export const meta: MetaFunction = () => {
+  return {
+    charset: "utf-8",
+    title: "Luka Lazic | Typescript Development",
+    description:
+      "This is my personal website where I showcase my projects and write about web development. I like to use React, Remix, Tailwind, Prisma and more!",
+    viewport: "width=device-width,initial-scale=1",
+    keywords:
+      "luka lazic, blog, developer, react, typescript, remix, tailwind, c#, dotnet, entity framework",
+    "og:title": "Luka Lazic | Typescript Development",
+    "og:description":
+      "This is my personal website where I showcase my projects and write about web development. I like to use React, Remix, Tailwind, Prisma and more!",
+    "twitter:title": "Luka Lazic | Typescript Development",
+    "twitter:description":
+      "This is my personal website where I showcase my projects and write about web development. I like to use React, Remix, Tailwind, Prisma and more!",
+    "og:url": "https://lukalazic.com",
+    "og:type": "website",
+    "og:sitename": "Luka Lazic",
+  };
+};
 
 export default function App() {
   const matches = useMatches();
