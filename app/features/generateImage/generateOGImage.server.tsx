@@ -48,7 +48,7 @@ export async function generateOGImage(title: string, requestUrl: string) {
         src={avatar}
         style={{ position: "absolute", left: 0, bottom: 0, width: "350px" }}
       />
-      <div style={{ padding: "0 0 100px 0", maxWidth: "70%" }}>{title}</div>
+      <div style={{ padding: "0 50px 100px 0", maxWidth: "70%" }}>{title}</div>
       <img
         style={{
           position: "absolute",
