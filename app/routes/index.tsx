@@ -1,8 +1,14 @@
-import { ActionFunction, json } from "@remix-run/node";
+import {
+  ActionFunction,
+  LoaderFunction,
+  MetaFunction,
+  json,
+} from "@remix-run/node";
 import ContactMe from "~/features/homepage/components/ContactMe";
 import Hero from "~/features/homepage/components/Hero";
 import TechStack from "~/features/homepage/components/TechStack";
 import Sendgrid from "@sendgrid/mail";
+import { meta as rootMeta } from "../root";
 
 type ActionData = {
   name: null | string;
@@ -61,6 +67,21 @@ export const action: ActionFunction = async ({ request }) => {
     });
 
   return res;
+};
+
+export const loader: LoaderFunction = async ({ request }) => {
+  const { origin } = new URL(request.url);
+
+  const ogImageUrl = `${origin}/resource/ogimage?ogimage=Luka Lazić Blog`;
+
+  return json({ ogImageUrl });
+};
+
+export const meta: MetaFunction = ({ data }) => {
+  return {
+    ...rootMeta,
+    "og:image": data.ogImageUrl,
+  };
 };
 
 const Index: React.FC = () => {
