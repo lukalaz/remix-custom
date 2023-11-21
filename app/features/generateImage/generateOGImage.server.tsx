@@ -39,7 +39,13 @@ export async function generateOGImage(
     ],
   };
 
-  const dateToDisplay = date ? new Date(date).toLocaleDateString() : "";
+  const dateToDisplay = date
+    ? new Date(date).toLocaleDateString("en-US", {
+        month: "long",
+        day: "numeric",
+        year: "numeric",
+      })
+    : "";
 
   // Generate the new image with "satori"
   const svg = await satori(
@@ -75,7 +81,7 @@ export async function generateOGImage(
           alignItems: "flex-start",
         }}
       >
-        <div style={{ fontSize: 40, display: "flex" }}>{dateToDisplay}</div>
+        <div style={{ fontSize: 30, display: "flex" }}>{dateToDisplay}</div>
         <div>{title}</div>
       </div>
       <img
