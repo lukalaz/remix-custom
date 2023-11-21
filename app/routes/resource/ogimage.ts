@@ -7,8 +7,9 @@ export const OG_IMAGE_HEIGHT = 630;
 export const loader = async ({ request }: LoaderArgs) => {
   const { origin, searchParams } = new URL(request.url);
   const title = searchParams.get("ogimage") ?? `Hello world`;
+  const date = searchParams.get("ogdate") ?? "";
 
-  const png = await generateOGImage(title, origin);
+  const png = await generateOGImage(title, origin, date);
 
   // TODO: add cache control?
   return new Response(png, {

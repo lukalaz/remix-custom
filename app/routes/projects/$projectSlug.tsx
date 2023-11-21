@@ -24,7 +24,7 @@ export const loader: LoaderFunction = async ({ request, params }) => {
   const canonical = `https://lukalazic.com/projects/${project.slug}`;
 
   const { origin } = new URL(request.url);
-  const ogImageUrl = `${origin}/resource/ogimage?ogimage=${project.title}`;
+  const ogImageUrl = `${origin}/resource/ogimage?ogimage=${project.title}&ogdate=${project.createdAt}`;
 
   const html = marked(project.markdown);
   return json<LoaderData>({ project, html, canonical, ogImageUrl });
