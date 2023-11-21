@@ -43,6 +43,7 @@ export const meta: MetaFunction = () => {
     "og:url": "https://lukalazic.com",
     "og:type": "website",
     "og:sitename": "Luka Lazic",
+    "twitter:card": "summary_large_image",
   };
 };
 

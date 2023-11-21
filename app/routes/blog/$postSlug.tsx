@@ -22,7 +22,7 @@ export const loader: LoaderFunction = async ({ request, params }) => {
   invariant(post, `Post not found: ${params.postSlug}`);
 
   const { origin } = new URL(request.url);
-  const ogImageUrl = `${origin}/resource/ogimage?ogimage=${post.title}`;
+  const ogImageUrl = `${origin}/resource/ogimage?ogimage=${post.title}&ogdate=${post.createdAt}`;
 
   const canonical = `https://lukalazic.com/blog/${post.slug}`;
 
@@ -42,6 +42,7 @@ export const meta: MetaFunction = ({ data }) => {
     "og:url": data.canonical,
     "og:type": "article",
     "og:image": data.ogImageUrl,
+    "twitter:image": data.ogImageUrl,
   };
 };
 

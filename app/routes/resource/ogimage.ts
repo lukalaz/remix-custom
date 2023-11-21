@@ -2,14 +2,14 @@ import type { LoaderArgs } from "@remix-run/node";
 import { generateOGImage } from "~/features/generateImage/generateOGImage.server";
 
 export const OG_IMAGE_WIDTH = 1200;
-export const OG_IMAGE_HEIGHT = 600;
+export const OG_IMAGE_HEIGHT = 630;
 
 export const loader = async ({ request }: LoaderArgs) => {
   const { origin, searchParams } = new URL(request.url);
-  console.log(searchParams);
   const title = searchParams.get("ogimage") ?? `Hello world`;
+  const date = searchParams.get("ogdate") ?? "";
 
-  const png = await generateOGImage(title, origin);
+  const png = await generateOGImage(title, origin, date);
 
   // TODO: add cache control?
   return new Response(png, {

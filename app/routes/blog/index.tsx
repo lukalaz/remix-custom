@@ -4,11 +4,11 @@ import invariant from "tiny-invariant";
 import Blog from "~/features/blog/Blog";
 import { getPosts, Post } from "~/models/post.server";
 
-type LoaderData = { posts: Post[] };
+type LoaderData = { posts: Post[]; ogImageUrl: string };
 
 import { meta as rootMeta } from "../../root";
 
-export const meta: MetaFunction = () => ({
+export const meta: MetaFunction = ({ data }) => ({
   ...rootMeta,
   title: "Blog | Luka Lazic",
   description:
@@ -21,13 +21,16 @@ export const meta: MetaFunction = () => ({
     "My personal blog where I write about web development. I like to use React, C#, Tailwind, Prisma and more!",
   "og:url": "https://lukalazic.com/blog",
   "og:type": "blog",
+  "og:image": data.ogImageUrl,
 });
 
-export const loader: LoaderFunction = async () => {
+export const loader: LoaderFunction = async ({ request }) => {
   const posts = await getPosts();
+  const { origin } = new URL(request.url);
   invariant(posts, "No posts found."); //TODO: better error handling
+  const ogImageUrl = `${origin}/resource/ogimage?ogimage=Luka Lazić Blog`;
 
-  return json<LoaderData>({ posts });
+  return json<LoaderData>({ posts, ogImageUrl });
 };
 
 const BlogPosts: React.FC = () => {

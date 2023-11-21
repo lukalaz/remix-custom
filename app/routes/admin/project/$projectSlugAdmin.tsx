@@ -54,8 +54,6 @@ export const loader: LoaderFunction = async ({ params, request }) => {
 };
 
 export const action: ActionFunction = async ({ request }) => {
-  console.log("USLI U AKCIJU");
-
   const formData = await request.formData();
 
   const title = formData.get("title");
