@@ -10,11 +10,7 @@ const ProjectPosts: React.FC<IProjects> = ({ projects }) => {
   return (
     <section id="blog" className="pt-[40px]">
       <div className="container">
-        <StyledTitle
-          title="Projects"
-          preTitle="Discover My Creations"
-          description="Some of my private, off work projects that I would like to share."
-        />
+        <StyledTitle title="Projects" preTitle="Discover My Creations" />
         <div className="justify-center p-0 max-w-[800px] m-auto">
           {projects.map((project: Project) => (
             <ProjectCard project={project} />

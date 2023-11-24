@@ -31,7 +31,7 @@ const ContactMe: React.FC = () => {
           <StyledTitle
             title="Got something for me?"
             preTitle="Contact Me"
-            description="In case you have some questions or just want to say hi, this is a good place to do so. Just need to make it functional first :D"
+            description="In case you have some questions or just want to say hi, you know what to do."
           />
           <div className="flex justify-center -mx-4 relative">
             <div className="w-full lg:w-9/12 px-4">

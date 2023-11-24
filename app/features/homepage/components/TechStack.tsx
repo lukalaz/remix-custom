@@ -11,7 +11,6 @@ const TechStack: React.FC = () => {
         <StyledTitle
           title={"My Tech Stack"}
           preTitle="What I love to work with the most"
-          description="These are some technologies I enjoy using. At one point I'm going to write descriptions for them and turn this into a slider. Currently I am too lazy for that."
         />
         <Slider />
       </div>
